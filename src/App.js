@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-{/* Views */ }
 import Home from './view/Home';
 import About from './view/About';
 import NotFound from './view/NotFound';
