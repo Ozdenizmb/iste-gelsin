@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import Home from './views/Home';
-import About from './views/About';
-import NotFound from './views/NotFound';
-import LoginPage from './views/Login';
+import Home from './views/Home/Home';
+import About from './views/About/About';
+import NotFound from './views/NotFound/NotFound';
+import LoginPage from './views/Login/Login';
 import { Container } from 'react-bootstrap';
 
 function App() {
