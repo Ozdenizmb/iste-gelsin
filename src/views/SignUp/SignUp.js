@@ -5,10 +5,6 @@ const SignUp = () => {
     return (
         <div className="container">
 
-            <h1 className="text-center">{t('Sign Up')}</h1>
-
-            <Input />
-
         </div>
     );
 };
