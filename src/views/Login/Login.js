@@ -9,7 +9,7 @@ const LoginPage = () => {
             <div className="w-75 h-100">
                 <h1 className="text-center">Login Page</h1>
                 <Input label={"Username"} type={"text"} name={"username"} />
-                <Input label={"Password"} type={"password"} name={"username"} />
+                <Input label={"Password"} type={"password"} name={"password"} />
 
                 <Button variant="primary" size="lg" active>
                     Login

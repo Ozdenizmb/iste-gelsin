@@ -1,5 +1,5 @@
 import React from 'react';
-import Input from '../../components/Input';
+import Input from '../../Components/Input';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from 'react-bootstrap/Button';
 
@@ -7,20 +7,8 @@ const LoginPage = () => {
     return (
         <div className='d-flex justify-content-center align-items-center'>
             <div className="w-75 h-100">
-                <h1 className="text-center">Login Page</h1>
-                <Input label={"Username"} type={"text"} name={"username"} />
-                <Input label={"Password"} type={"password"} name={"username"} />
-                <Input label={"Password"} type={"password"} name={"username"} />
-                <Input label={"Password"} type={"password"} name={"username"} />
-                <Input label={"Password"} type={"password"} name={"username"} />
-                <Input label={"Password"} type={"password"} name={"username"} />
-                <Input label={"Password"} type={"password"} name={"username"} />
-                <Input label={"Password"} type={"password"} name={"username"} />
-                <Input label={"Password"} type={"password"} name={"username"} />
+                <h1 className="text-center">Home Page</h1>
 
-                <Button variant="primary" size="lg" active>
-                    Login
-                </Button>{' '}
                 <FontAwesomeIcon icon="fa-solid fa-right-to-bracket" />
                 <FontAwesomeIcon icon="fa-solid fa-piggy-bank" />
             </div>
