@@ -6,6 +6,7 @@ import About from './views/About/About';
 import NotFound from './views/NotFound/NotFound';
 import LoginPage from './views/Login/Login';
 import { Container } from 'react-bootstrap';
+import SignUp from './views/SignUp/SignUp';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/signup" element={<SignUp />} />
 
             {/* Eğer tanımlanmamış bir rota girilirse */}
             <Route path="*" element={<NotFound />} />
