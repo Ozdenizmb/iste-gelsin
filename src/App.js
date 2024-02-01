@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Redirect, Switch } from 'react-router-dom'
+import { useSelector } from 'react-redux';
 
 import Home from './views/Home/Home';
 import About from './views/About/About';
@@ -7,29 +8,42 @@ import NotFound from './views/NotFound/NotFound';
 import LoginPage from './views/Login/Login';
 import { Container } from 'react-bootstrap';
 import SignUp from './views/SignUp/SignUp';
+import TopBar from './Components/TopBar';
 
-function App() {
-  return (
-    <Router>
-      <header />
+const App = () => {
 
-      <Container>
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/signup" element={<SignUp />} />
+  const { isLoggedIn } = useSelector(store => {
+    return {
+      isLoggedIn : store.isLoggedIn
+    }
+  });
 
-            {/* Eğer tanımlanmamış bir rota girilirse */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </main>
-      </Container>
+  return(
+      <div>
 
-      <footer />
-    </Router>
+        <HashRouter>
+          <TopBar />
+
+          <Switch>
+            <Route exact path="/" Component={Home}/>
+
+            {!isLoggedIn && (
+              <Route path="/login" Component={LoginPage}/>
+            )}
+
+            <Route path="/signup" component={SignUp} />
+
+            <Route path="/about" component={About} />
+
+            <Redirect to="/" />
+
+          </Switch>
+
+        </HashRouter>
+
+      </div>
   );
+
 }
 
 export default App;
