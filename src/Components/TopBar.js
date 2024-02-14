@@ -50,13 +50,23 @@ const TopBar = () => {
     let links = (
         <ul className="navbar-nav">
             <li>
+                <Link className="nav-link" to="/">
+                    Anasayfa
+                </Link>
+            </li>
+            <li>
+                <Link className="nav-link" to="/contact">
+                    İletişim
+                </Link>
+            </li>
+            <li>
                 <Link className="nav-link" to="/login">
-                    Login
+                    Giriş Yap
                 </Link>
             </li>
             <li>
                 <Link className="nav-link" to="/signup">
-                    Sign Up
+                    Kaydol
                 </Link>
             </li>
         </ul>

@@ -37,17 +37,6 @@ const SignupPage = () => {
 
   return (
     <div>
-      <div className="top-bar text-left bg-white text-dark p-2" style={{ fontSize: '3em', padding: '30px', fontFamily: 'Arial, sans-serif', fontWeight: 'bold' }}>
-        <strong>İŞTE - GELSİN</strong>
-        <div style={{ float: 'right', display: 'flex' }}>
-          <Link to="/" style={{ color: 'black', marginLeft: '10px', fontSize: '1em', textDecoration: 'none' }}>Anasayfa</Link>
-          <Link to="/iletisim" style={{ color: 'black', marginLeft: '10px', fontSize: '1em', textDecoration: 'none' }}>İletişim</Link>
-          <Link to="/giris" style={{ color: 'blue', marginLeft: '10px', fontSize: '1em', textDecoration: 'none' }}>Giriş Yap</Link>
-          <div style={{ backgroundColor: 'blue', padding: '5px', borderRadius: '5px', marginLeft: '10px' }}>
-            <Link to="/signup" style={{ color: 'white', fontSize: '1em', textDecoration: 'none', marginLeft: '20px', marginRight: '20px' }}>Kaydol</Link>
-          </div>
-        </div>
-      </div>
 
       <div className='d-flex justify-content-center align-items-center'>
         <div className="w-75 h-100 d-flex flex-column align-items-center">
