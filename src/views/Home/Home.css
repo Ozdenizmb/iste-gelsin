@@ -1,0 +1,22 @@
+.mt-8 {
+    margin-top: 8rem !important;
+}
+
+/* Gutter'ı sıfırla */
+.no-gutters {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+
+  /* Responsive olması durumunda da sıfır yap */
+  & > .col,
+  & > [class*="col-"] {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+}
+
+.hover-blue-border:hover {
+    border-color: blue !important;
+    border-width: 2px;
+
+}
