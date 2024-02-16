@@ -1,5 +1,3 @@
-
-
 import React, { useState } from 'react';
 import { MDBContainer, MDBTabs, MDBTabsItem, MDBTabsLink } from 'mdb-react-ui-kit';
 import Input from '../../Components/Input';

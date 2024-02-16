@@ -11,7 +11,8 @@ const Input = (props) => {
                 type={props.type}
                 name={props.name}
                 onChange={props.onChangeVeriables}
-                defaultValue={props.defaultValue}>
+                defaultValue={props.defaultValue}
+                placeholder = {props.placeholder}>
             </input>
             
             <div className="invalid-feedback">

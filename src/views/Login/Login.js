@@ -39,7 +39,7 @@ const Login = () => {
 
             {justifyActive === 'tab1' && (
                 <div>
-                    <h5 className="mb-4">Çalışanlar için Giriş Yap:</h5>
+
                     <Input label={"Email"} type={"text"} name={"Email"} />
                     <Input label={"Şifre"} type={"password"} name={"Password"} />
                     <div className="d-flex justify-content-between mb-4">
@@ -70,7 +70,7 @@ const Login = () => {
 
             {justifyActive === 'tab2' && (
                 <div>
-                <h5 className="mb-4">İş Verenler için Giriş Yap:</h5>
+
                 <Input label={"Email"} type={"text"} name={"Email"} />
                 <Input label={"Şifre"} type={"password"} name={"Password"} />
                 <div className="d-flex justify-content-between mb-4">
