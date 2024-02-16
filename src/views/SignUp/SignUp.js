@@ -45,7 +45,6 @@ const SignUp = () => {
           <MDBTabsLink onClick={() => handleUserTypeChange('individual')} active={userType === 'individual'}>
             <h5 className="font-weight-bold mb-0">Kişi</h5>
           </MDBTabsLink>
-
         </MDBTabsItem>
         <MDBTabsItem>
           <MDBTabsLink onClick={() => handleUserTypeChange('company')} active={userType === 'company'}>
@@ -59,14 +58,14 @@ const SignUp = () => {
           <h5 className="mb-4">Kayıt Ol</h5>
           <div className="row mb-4" >
             <div className="col">
-              <Input label={"Ad"} type={"text"} name={"FirstName"} value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+              <Input label={"Ad"} type={"text"} name={"FirstName"} value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder="Adınız" />
             </div>
             <div className="col">
-              <Input label={"Soyad"} type={"text"} name={"LastName"} value={lastName} onChange={(e) => setLastName(e.target.value)} />
+              <Input label={"Soyad"} type={"text"} name={"LastName"} value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder="Soyadınız" />
             </div>
           </div>
-          <Input label={"E-posta"} type={"text"} name={"Email"} />
-          <Input label={"Şifre"} type={showPassword ? "text" : "password"} name={"Password"} />
+          <Input label={"E-posta"} type={"text"} name={"Email"} placeholder="E-posta adresiniz" />
+          <Input label={"Şifre"} type={showPassword ? "text" : "password"} name={"Password"} placeholder="Şifre" />
           <div className="form-check mb-3">
             <input className="form-check-input" type="checkbox" id="showPasswordCheckbox" onChange={togglePasswordVisibility} />
             <label className="form-check-label" htmlFor="showPasswordCheckbox">
@@ -81,7 +80,6 @@ const SignUp = () => {
                 <span className="ms-1" style={{ color: 'black' }}>onaylıyorum.</span>
               </span>
             </label>
-
           </div>
           <div className="form-check mb-3">
             <input className="form-check-input" type="checkbox" id="receiveEmailsCheckbox" onChange={handleReceiveEmailsChange} />
@@ -103,29 +101,29 @@ const SignUp = () => {
       {userType === 'company' && (
         <div>
           <div className="row mb-4">
-            <Input label={"Firma Adı"} type={"text"} name={"CompanyName"} />
+            <Input label={"Firma Adı"} type={"text"} name={"CompanyName"} placeholder="Firma Adı" />
             <div className="col">
-              <Input label={"Adınız"} type={"text"} name={"FirstName"} value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+              <Input label={"Adınız"} type={"text"} name={"FirstName"} value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder="Adınız" />
             </div>
             <div className="col">
-              <Input label={"Soyadınız"} type={"text"} name={"LastName"} value={lastName} onChange={(e) => setLastName(e.target.value)} />
-            </div>
-          </div>
-          <Input label={"E posta adresiniz"} type={"text"} name={"Email"} />
-          <div className="row mb-4">
-            <div className="col">
-              <Input label={"Cep Telefonu"} type={"text"} name={"CellPhone"} />
-            </div>
-            <div className="col">
-              <Input label={"Telefon Numarası"} type={"text"} name={"PhoneNumber"} />
+              <Input label={"Soyadınız"} type={"text"} name={"LastName"} value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder="Soyadınız" />
             </div>
           </div>
+          <Input label={"E posta adresiniz"} type={"text"} name={"Email"} placeholder="E-posta adresiniz" />
           <div className="row mb-4">
             <div className="col">
-              <Input label={"Şifre"} type={"password"} name={"Password"} />
+              <Input label={"Cep Telefonu"} type={"text"} name={"CellPhone"} placeholder="Cep Telefonu" />
             </div>
             <div className="col">
-              <Input label={"Şifreniz (Tekrar)"} type={"password"} name={"PasswordConfirm"} />
+              <Input label={"Telefon Numarası"} type={"text"} name={"PhoneNumber"} placeholder="Telefon Numarası" />
+            </div>
+          </div>
+          <div className="row mb-4">
+            <div className="col">
+              <Input label={"Şifre"} type={"password"} name={"Password"} placeholder="Şifre" />
+            </div>
+            <div className="col">
+              <Input label={"Şifreniz (Tekrar)"} type={"password"} name={"PasswordConfirm"} placeholder="Şifreniz (Tekrar)" />
             </div>
             <label className="form-check-label text-muted">
               -Rakam ve harf kullanınız
@@ -139,9 +137,7 @@ const SignUp = () => {
                 <span className="ms-1" style={{ color: 'black' }}>kabul ediyorum ve Kişisel Verilerin Korunması Bilgilendirmesi'ni okudum, anladım..</span>
               </span>
             </label>
-
           </div>
-
           <div className="d-grid gap-2 col-8 mx-auto">
             <button className="btn btn-primary" type="button">ÜYE OL</button>
           </div>
