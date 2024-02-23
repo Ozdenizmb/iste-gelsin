@@ -18,31 +18,31 @@ const App = () => {
   });
 
   return(
-      <div>
+    <div>
 
-        <HashRouter>
-          <TopBar />
+      <HashRouter>
 
-          <Switch>
-            <Route exact path="/" component={Home}/>
+        <TopBar />
 
-            {!isLoggedIn && (
-              <Route path="/login" component={Login}/>
-            )}
+        <Switch>
+        <Route exact path="/" component={Home}/>
 
-            <Route path="/signup" component={SignUp} />
+        {!isLoggedIn && (
+          <Route path="/login" component={Login}/>
+        )}
 
-            <Route path="/about" component={About} />
+        <Route path="/signup" component={SignUp} />
 
-            <Route path="/contact" component={Contact} />
+        <Route path="/about" component={About} />
 
-            <Redirect to="/" />
+        <Route path="/contact" component={Contact} />
 
-          </Switch>
+        <Redirect to="/" />
+        </Switch>
 
-        </HashRouter>
+      </HashRouter>
 
-      </div>
+    </div>
   );
 
 }

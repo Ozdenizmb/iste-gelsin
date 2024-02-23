@@ -46,20 +46,20 @@ const Footer = () => {
           <div className="col-md-3">
             <h5 className="footer-column-title">İş Arayan İşlemleri</h5>
             <ul className="list-unstyled">
-              <li><Link className="nav-link" to="/contact">İş İlanları</Link></li>
-              <li><Link className="nav-link" to="/contact">İstanbul İş İlanları</Link></li>
-              <li><Link className="nav-link" to="/contact">Depremzede İş İlanları</Link></li>
-              <li><Link className="nav-link" to="/contact">İş Arayan Girişi</Link></li>
-              <li><Link className="nav-link" to="/contact">Özgeçmiş Oluştur</Link></li>
-              <li><Link className="nav-link" to="/contact">Cv Oluştur</Link></li>
-              <li><Link className="nav-link" to="/contact">İş Rehberi</Link></li>
-              <li><Link className="nav-link" to="/contact">Meslek Rehberi</Link></li>
-              <li><Link className="nav-link" to="/contact">Maaşlar</Link></li>
-              <li><Link className="nav-link" to="/contact">Maaş Hesaplama Robotu</Link></li>
-              <li><Link className="nav-link" to="/contact">Üniversite Rehberi</Link></li>
-              <li><Link className="nav-link" to="/contact">Üniversite Bölümleri</Link></li>
-              <li><Link className="nav-link" to="/contact">Özgeçmiş Rehberi</Link></li>
-              <li><Link className="nav-link" to="/contact">Bildirimler</Link></li>
+              <li><Link className="nav-link footer-underline" to="/contact">İş İlanları</Link></li>
+              <li><Link className="nav-link footer-underline" to="/contact">İstanbul İş İlanları</Link></li>
+              <li><Link className="nav-link footer-underline" to="/contact">Depremzede İş İlanları</Link></li>
+              <li><Link className="nav-link footer-underline" to="/contact">İş Arayan Girişi</Link></li>
+              <li><Link className="nav-link footer-underline" to="/contact">Özgeçmiş Oluştur</Link></li>
+              <li><Link className="nav-link footer-underline" to="/contact">Cv Oluştur</Link></li>
+              <li><Link className="nav-link footer-underline" to="/contact">İş Rehberi</Link></li>
+              <li><Link className="nav-link footer-underline" to="/contact">Meslek Rehberi</Link></li>
+              <li><Link className="nav-link footer-underline" to="/contact">Maaşlar</Link></li>
+              <li><Link className="nav-link footer-underline" to="/contact">Maaş Hesaplama Robotu</Link></li>
+              <li><Link className="nav-link footer-underline" to="/contact">Üniversite Rehberi</Link></li>
+              <li><Link className="nav-link footer-underline" to="/contact">Üniversite Bölümleri</Link></li>
+              <li><Link className="nav-link footer-underline" to="/contact">Özgeçmiş Rehberi</Link></li>
+              <li><Link className="nav-link footer-underline" to="/contact">Bildirimler</Link></li>
             </ul>
           </div>
 
@@ -67,13 +67,13 @@ const Footer = () => {
           <div className="col-md-3">
             <h5 className="footer-column-title">Firma İşlemleri</h5>
             <ul className="list-unstyled">
-              <li><Link className="nav-link" to="/contact">İş İlanı Yayınla</Link></li>
-              <li><Link className="nav-link" to="/contact">Firma Üyeliği</Link></li>
-              <li><Link className="nav-link" to="/contact">Firma Giriş</Link></li>
-              <li><Link className="nav-link" to="/contact">İşveren Girişi</Link></li>
-              <li><Link className="nav-link" to="/contact">İstihdam Ödülleri</Link></li>
-              <li><Link className="nav-link" to="/contact">Avantajlar ve Fırsatlar</Link></li>
-              <li><Link className="nav-link" to="/contact">Eleman Bulma Rehberi</Link></li>
+              <li><Link className="nav-link footer-underline" to="/contact">İş İlanı Yayınla</Link></li>
+              <li><Link className="nav-link footer-underline" to="/contact">Firma Üyeliği</Link></li>
+              <li><Link className="nav-link footer-underline" to="/contact">Firma Giriş</Link></li>
+              <li><Link className="nav-link footer-underline" to="/contact">İşveren Girişi</Link></li>
+              <li><Link className="nav-link footer-underline" to="/contact">İstihdam Ödülleri</Link></li>
+              <li><Link className="nav-link footer-underline" to="/contact">Avantajlar ve Fırsatlar</Link></li>
+              <li><Link className="nav-link footer-underline" to="/contact">Eleman Bulma Rehberi</Link></li>
             </ul>
           </div>
 
@@ -81,10 +81,10 @@ const Footer = () => {
           <div className="col-md-3">
             <h5 className="footer-column-title">Kurumsal</h5>
             <ul className="list-unstyled">
-              <li><Link className="nav-link" to="/contact">Eleman.net Hakkında</Link></li>
-              <li><Link className="nav-link" to="/contact">Reklam Verin</Link></li>
-              <li><Link className="nav-link" to="/contact">Kurumsal Dergi - Emag</Link></li>
-              <li><Link className="nav-link" to="/contact">İletişim</Link></li>
+              <li><Link className="nav-link footer-underline" to="/contact">Eleman.net Hakkında</Link></li>
+              <li><Link className="nav-link footer-underline" to="/contact">Reklam Verin</Link></li>
+              <li><Link className="nav-link footer-underline" to="/contact">Kurumsal Dergi - Emag</Link></li>
+              <li><Link className="nav-link footer-underline" to="/contact">İletişim</Link></li>
             </ul>
           </div>
         </div>

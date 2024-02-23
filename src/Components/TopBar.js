@@ -3,7 +3,9 @@ import logo from '../images/ISTEGELSINLOGO.png';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 //import { logoutSuccess } from '../redux/authActions';
-import ProfileImage from '../images/profile.png';
+import ProfileImage from './ProfileImage';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPerson, faPowerOff } from '@fortawesome/free-solid-svg-icons';
 
 const TopBar = () => {
 
@@ -72,7 +74,7 @@ const TopBar = () => {
         </ul>
     );
 
-    if(isLoggedIn) {
+    if(!isLoggedIn) {
         let dropdownClass = 'dropdown-menu p-0 shadow';
         if(menuVisible) {
             dropdownClass += ' show';
@@ -80,6 +82,16 @@ const TopBar = () => {
 
         links = (
             <ul className="navbar-nav" ref={menuArea}>
+                <li>
+                    <Link className="nav-link" to="/">
+                        Anasayfa
+                    </Link>
+                </li>
+                <li>
+                    <Link className="nav-link me-3" to="/contact">
+                        İletişim
+                    </Link>
+                </li>
                 <li>
 
                     <div className="d-flex" style={{cursor: 'pointer'}} onClick={onClickDropDown}>
@@ -89,11 +101,11 @@ const TopBar = () => {
 
                     <div className={dropdownClass}>
                         <Link className="dropdown-item d-flex p-2" to={"/user/" + username} onClick={onClickProfile}>
-                            <span className="material-icons text-info me-2">person</span>
+                            <FontAwesomeIcon icon={faPerson} className="text-info me-2" />
                             My Profile
                         </Link>
                         <span className="dropdown-item d-flex p-2" style={{cursor:'pointer'}} onClick={onLogoutSuccess}>
-                            <span className="material-icons text-danger me-2">power_settings_new</span>
+                            <FontAwesomeIcon icon={faPowerOff} className="text-danger me-2" />
                             Logout
                         </span>
                     </div>

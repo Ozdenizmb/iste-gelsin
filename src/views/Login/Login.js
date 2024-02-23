@@ -53,6 +53,11 @@ const Login = () => {
                     <div class="d-grid gap-2 col-8 mx-auto">
                         <button class="btn btn-primary" type="button">Giriş Yap</button>
                     </div>
+                    <div className="mt-3 d-flex align-items-center">
+                        <hr className="flex-grow-1" />
+                        <span className="mx-2">veya</span>
+                        <hr className="flex-grow-1" />
+                    </div>
                     <div className="mt-3 d-flex">
                         {/* Google Giriş Butonu */}
                         <button className="btn btn-light border me-2 flex-grow-1" type="button">
@@ -83,6 +88,11 @@ const Login = () => {
                 </div>
                 <div class="d-grid gap-2 col-8 mx-auto">
                     <button class="btn btn-primary" type="button">Giriş Yap</button>
+                </div>
+                <div className="mt-3 d-flex align-items-center">
+                    <hr className="flex-grow-1" />
+                    <span className="mx-2">veya</span>
+                    <hr className="flex-grow-1" />
                 </div>
                 <div className="mt-3 d-flex">
                     {/* Google Giriş Butonu */}
