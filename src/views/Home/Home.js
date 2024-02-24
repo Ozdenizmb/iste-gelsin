@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Input from '../../Components/Input';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from 'react-bootstrap/Button';
@@ -14,12 +14,13 @@ const HomePage = () => {
 
     const dispatch = useDispatch();
 
-    const onClickProduct1 = async () => {
+    const onClickProduct1 = async (event) => {
+        event.preventDefault();
         try {
             await dispatch(getProduct1Handler());
         }
         catch(apiError) {
-            console.log("ERROR");
+            console.log("Error: ");
         }
     }
 

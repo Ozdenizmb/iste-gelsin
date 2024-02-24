@@ -33,10 +33,15 @@ export const updateSuccess = ({ displayName, image }) => {
 
 export const getProduct1Handler = () => {
     return async function(dispatch) {
-                
-        const response = await dispatch(getProduct1());
+        try {
+            const response = await getProduct1();
+            dispatch(getProduct1Success(response.data)); // Eğer başarılı ise response'ı action'a ekleyebilirsiniz.
+            console.log(response.data);
+        } catch (error) {
+            console.log("Error: ", error);
+        }
 
-        console.log(response);
+        
     }
 }
 
