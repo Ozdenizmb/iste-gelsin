@@ -1,4 +1,11 @@
 //import { login, signUp } from "../api/apiCalls";
+import { getProduct1 } from "../api/apiCalls";
+
+export const getProduct1Success = () => {
+    return {
+        type : 'get-product'
+    };
+}
 
 export const logoutSuccess = () => {
     return {
@@ -24,6 +31,15 @@ export const updateSuccess = ({ displayName, image }) => {
     }
 }
 
+export const getProduct1Handler = () => {
+    return async function(dispatch) {
+                
+        const response = await dispatch(getProduct1());
+
+        console.log(response);
+    }
+}
+
 export const loginHandler = (creds) => {
     return async function(dispatch) {
         //const response = await login(creds);
@@ -39,7 +55,7 @@ export const loginHandler = (creds) => {
                 
         dispatch(loginSuccess(loginState));
 
-        return response;
+        //return response;
     }
 }
 
@@ -47,6 +63,6 @@ export const signUpHandler = (user) => {
     return async function(dispatch) {
         //const response = await signUp(user);
         await dispatch(loginHandler(user));
-        return response
+        //return response
     }
 }

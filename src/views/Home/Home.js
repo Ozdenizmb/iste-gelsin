@@ -6,8 +6,23 @@ import Advert from '../../Components/Advert';
 import ÖrnekİşİlanıResmi from '../../images/ÖrnekİşİlanıResmi.png'
 import Footer from '../../Components/Footer';
 import './Home.css';
+import { getProduct1 } from '../../api/apiCalls';
+import { useDispatch } from "react-redux";
+import { getProduct1Handler } from '../../redux/authActions';
 
 const HomePage = () => {
+
+    const dispatch = useDispatch();
+
+    const onClickProduct1 = async () => {
+        try {
+            await dispatch(getProduct1Handler());
+        }
+        catch(apiError) {
+            console.log("ERROR");
+        }
+    }
+
     return (
         <div>
             <div className="container my-4">
@@ -35,7 +50,12 @@ const HomePage = () => {
                 <div className="card mt-5 p-5 bg-primary d-flex justify-content-between align-items-center">
                     <h3 className="text-center mb-4 text-white" style={{ fontSize: '1.5em' }}>Uzaktan Çalışmaya Ne Dersin</h3>
                     <div className="ml-auto d-flex justify-content-center align-items-center">
-                        <button className="btn btn-sm btn-dark" style={{ height: '4rem', fontSize: "1rem" }} >Hemen Başvur</button>
+                        <button
+                        className="btn btn-sm btn-dark"
+                        style={{ height: '4rem', fontSize: "1rem" }}
+                        onClick={onClickProduct1}>
+                            Hemen Başvur
+                            </button>
                     </div>
                 </div>
             </div>
