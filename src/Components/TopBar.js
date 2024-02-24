@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import ProfileImage from './ProfileImage';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPerson, faPowerOff } from '@fortawesome/free-solid-svg-icons';
+import UserPage from '../views/UserProfile/UserPage';
 
 const TopBar = () => {
 
@@ -100,7 +101,8 @@ const TopBar = () => {
                     </div>
 
                     <div className={dropdownClass}>
-                        <Link className="dropdown-item d-flex p-2" to={"/user/" + username} onClick={onClickProfile}>
+                        {/*<Link className="dropdown-item d-flex p-2" to={"/user/" + username} onClick={onClickProfile}>*/}
+                        <Link className="dropdown-item d-flex p-2" to={"/profile"} onClick={onClickProfile}>
                             <FontAwesomeIcon icon={faPerson} className="text-info me-2" />
                             My Profile
                         </Link>

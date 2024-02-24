@@ -8,6 +8,7 @@ import Login from './views/Login/Login';
 import SignUp from './views/SignUp/SignUp';
 import TopBar from './Components/TopBar';
 import Contact from './views/Contact/Contact'
+import UserPage from './views/UserProfile/UserPage';
 
 const App = () => {
 
@@ -36,6 +37,8 @@ const App = () => {
         <Route path="/about" component={About} />
 
         <Route path="/contact" component={Contact} />
+
+        <Route path="/profile" component={UserPage} />
 
         <Redirect to="/" />
         </Switch>
