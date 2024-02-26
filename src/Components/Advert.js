@@ -6,7 +6,8 @@ const Advert = (props) => {
   const { title, company, workType, positionLevel, department, image, details, experience, educationLevel, location, workingHours } = props;
 
   return (
-    <Row className="job-advert-row">
+    <div className="container">
+      <Row className="job-advert-row">
       <Col md={6}>
         <Card className="job-advert-card">
           <Card.Body>
@@ -63,6 +64,7 @@ const Advert = (props) => {
         </Card>
       </Col>
     </Row>
+    </div>
   );
 };
 
