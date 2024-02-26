@@ -6,9 +6,10 @@ import Advert from '../../Components/Advert';
 import ÖrnekİşİlanıResmi from '../../images/ÖrnekİşİlanıResmi.png'
 import Footer from '../../Components/Footer';
 import './Home.css';
-import { getProduct1 } from '../../api/apiCalls';
 import { useDispatch } from "react-redux";
 import { getProduct1Handler } from '../../redux/authActions';
+import AdvertCardFeed from '../../Components/AdvertCardFeed';
+import jobs from '../../Components/Silinecek';
 
 const HomePage = () => {
 
@@ -63,10 +64,13 @@ const HomePage = () => {
 
             <div className='d-flex justify-content-center align-items-center'>
                 <div className="w-75 h-100">
-                    
+                    {/*
                     <div>
                         <Advert title={"Rezervasyon Elemanı"} company={"Swandor Hotels & Resorts"} image={ÖrnekİşİlanıResmi} details={"SWANDOR TOPKAPI PALACE otelimizde görevlendirilmek üzere aşağıda belirtilen özelliklere sahip  REZERVASYON ELEMANI takım arkadaşları arıyoruz."} workingHours={"10:00 - 17:00"} department ={"Satış ve Pazarlama"} workType={"Tam Zamanlı"} positionLevel={"Eleman"} address={"Defterdar Mahallesi, Yeni Küşat Sokak, No:12, Eyüpsultan - İstanbul"} experience={"2 yıl deneyim"} educationLevel={"Ön Lisans(Mezun), Üniversite(Öğrenci), Üniversite(Mezun), Yüksek Lisans(Öğrenci), Yüksek Lisans(Mezun)"}/>
                     </div>
+                    */}
+
+                    <AdvertCardFeed jobs={jobs} />
 
                     <FontAwesomeIcon icon="fa-solid fa-right-to-bracket" />
                     <FontAwesomeIcon icon="fa-solid fa-piggy-bank" />

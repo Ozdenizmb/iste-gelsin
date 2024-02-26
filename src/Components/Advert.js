@@ -2,19 +2,8 @@ import React from 'react';
 import { Card, Button, Row, Col } from 'react-bootstrap';
 
 const JobAdvert = (props) => {
-  const {
-    title,
-    company,
-    workType,
-    positionLevel,
-    department,
-    image,
-    details,
-    experience,
-    educationLevel,
-    address,
-    workingHours,
-  } = props;
+  
+  const {title, company, workType, positionLevel, department, image, details, experience, educationLevel, address,workingHours} = props;
 
   return (
     <Row className="job-advert-row">
