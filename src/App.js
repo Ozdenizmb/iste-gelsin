@@ -9,6 +9,7 @@ import SignUp from './views/SignUp/SignUp';
 import TopBar from './Components/TopBar';
 import Contact from './views/Contact/Contact'
 import UserPage from './views/UserProfile/UserPage';
+import JobAdvert from './views/JobAdvert/JobAdvert';
 
 const App = () => {
 
@@ -39,6 +40,8 @@ const App = () => {
         <Route path="/contact" component={Contact} />
 
         <Route path="/profile" component={UserPage} />
+
+        <Route path="/jobadvert/:jobId" component={JobAdvert} />
 
         <Redirect to="/" />
         </Switch>

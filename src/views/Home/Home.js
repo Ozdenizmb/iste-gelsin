@@ -64,11 +64,6 @@ const HomePage = () => {
 
             <div className='d-flex justify-content-center align-items-center'>
                 <div className="w-75 h-100">
-                    {/*
-                    <div>
-                        <Advert title={"Rezervasyon Elemanı"} company={"Swandor Hotels & Resorts"} image={ÖrnekİşİlanıResmi} details={"SWANDOR TOPKAPI PALACE otelimizde görevlendirilmek üzere aşağıda belirtilen özelliklere sahip  REZERVASYON ELEMANI takım arkadaşları arıyoruz."} workingHours={"10:00 - 17:00"} department ={"Satış ve Pazarlama"} workType={"Tam Zamanlı"} positionLevel={"Eleman"} address={"Defterdar Mahallesi, Yeni Küşat Sokak, No:12, Eyüpsultan - İstanbul"} experience={"2 yıl deneyim"} educationLevel={"Ön Lisans(Mezun), Üniversite(Öğrenci), Üniversite(Mezun), Yüksek Lisans(Öğrenci), Yüksek Lisans(Mezun)"}/>
-                    </div>
-                    */}
 
                     <AdvertCardFeed jobs={jobs} />
 

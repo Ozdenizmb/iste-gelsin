@@ -1,9 +1,9 @@
 import React from 'react';
 import { Card, Button, Row, Col } from 'react-bootstrap';
 
-const JobAdvert = (props) => {
+const Advert = (props) => {
   
-  const {title, company, workType, positionLevel, department, image, details, experience, educationLevel, address,workingHours} = props;
+  const { title, company, workType, positionLevel, department, image, details, experience, educationLevel, location, workingHours } = props;
 
   return (
     <Row className="job-advert-row">
@@ -35,7 +35,7 @@ const JobAdvert = (props) => {
 
       <Col md={6}>
         <Card className="job-advert-card">
-          <Card.Img variant="top" src={image} alt={`${title} Image`} />
+          <Card.Img variant="top" src={image} alt={`${title} Image`} className="img-fluid" style={{ maxHeight: '200px', width: 'auto' }} />
           <Card.Body>
             <Card.Title>{title}</Card.Title>
             <Card.Text>{details}</Card.Text>
@@ -54,7 +54,7 @@ const JobAdvert = (props) => {
               <strong>Eğitim Seviyesi:</strong> {educationLevel}
             </Card.Text>
             <Card.Text>
-              <strong>Adres:</strong> {address}
+              <strong>Adres:</strong> {location}
             </Card.Text>
             <Card.Text>
               <strong>Çalışma Aralığı:</strong> {workingHours}
@@ -66,4 +66,4 @@ const JobAdvert = (props) => {
   );
 };
 
-export default JobAdvert;
+export default Advert;
