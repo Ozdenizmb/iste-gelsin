@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../../Components/Footer';
 import './Contact.css'; // Burada stil dosyanızı ekleyin
 
 const ContactPage = () => {
@@ -53,6 +54,9 @@ const ContactPage = () => {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className="mt-8">
+                <Footer />
             </div>
         </div>
     );
