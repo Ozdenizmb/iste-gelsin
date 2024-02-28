@@ -1,6 +1,7 @@
 import React from 'react';
 import Footer from '../../Components/Footer';
 import './Contact.css'; // Burada stil dosyanızı ekleyin
+import ContactImage from '../../images/contact.jpeg';
 
 const ContactPage = () => {
     return (
@@ -34,7 +35,7 @@ const ContactPage = () => {
                         </form>
                     </div>
                     <div className="col-md-6 sec_col">
-                        <img src="/contact.jpeg" className="img-fluid" alt="Contact" />
+                        <img src={ContactImage} className="img-fluid" alt="Contact" />
                     </div>
                 </div>
                 <div className="row-last">
