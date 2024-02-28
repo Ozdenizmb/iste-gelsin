@@ -145,7 +145,7 @@ const jobs = [
       company: 'Swandor Hotels & Resorts',
       location: 'Defterdar Mahallesi, Yeni Küşat Sokak, No:12, Eyüpsultan - İstanbul',
       description: 'SWANDOR TOPKAPI PALACE otelimizde görevlendirilmek üzere aşağıda belirtilen özelliklere sahip  REZERVASYON ELEMANI takım arkadaşları arıyoruz.',
-      image: 'https://source.unsplash.com/300x200/?ui-ux-design',
+      image: 'https://source.unsplash.com/300x200/?reservation-staff',
       workingHours: '10:00 - 17:00',
       department: 'Satış ve Pazarlama',
       workType: 'Tam Zamanlı',

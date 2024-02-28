@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 const AdvertCard = ({ job }) => {
   return (
-    <div className="col-md-4 mb-4">
-      <div className="card h-100 border rounded-3 shadow">
+    <div className="col-md-4 mb-4 card_padding">
+      <div className="card h-100 border rounded-3 shadow advert-card">
         <Link to={`/jobadvert/${job.id}`} className="card-link nav-link">
           <img src={job.image} className="card-img-top rounded-2" alt={job.title} />
           <div className="card-body">

@@ -1,0 +1,22 @@
+.advert-card {
+    background-color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 10px 10px 40px rgba(52, 58, 64, 0.1);
+
+    position: relative;
+    bottom: 0px;
+    transition: all .6s;
+}
+
+.advert-card:hover {
+    bottom: 10px;
+}
+
+.card_padding {
+    padding: 10px;
+}
+
+.advert-card.card_body {
+    padding: 30px;
+}
