@@ -1,3 +1,7 @@
+:root {
+    --primary: #0d6efd;
+}
+
 .advert-card {
     background-color: #fff;
     border-radius: 5px;
@@ -19,4 +23,14 @@
 
 .advert-card.card_body {
     padding: 30px;
+}
+
+.topbar_buttons {
+    box-sizing: border-box;
+    border-bottom: 2px solid transparent;
+    line-height: 1;
+}
+
+.topbar_buttons:hover {
+    border-bottom-color: var(--primary);
 }

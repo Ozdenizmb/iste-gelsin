@@ -52,22 +52,22 @@ const TopBar = () => {
 
     let links = (
         <ul className="navbar-nav">
-            <li>
+            <li className="topbar_buttons">
                 <Link className="nav-link" to="/">
                     Anasayfa
                 </Link>
             </li>
-            <li>
+            <li className="topbar_buttons">
                 <Link className="nav-link" to="/contact">
                     İletişim
                 </Link>
             </li>
-            <li>
+            <li className="topbar_buttons">
                 <Link className="nav-link" to="/login">
                     Giriş Yap
                 </Link>
             </li>
-            <li>
+            <li className="topbar_buttons">
                 <Link className="nav-link" to="/signup">
                     Kaydol
                 </Link>
@@ -83,13 +83,13 @@ const TopBar = () => {
 
         links = (
             <ul className="navbar-nav" ref={menuArea}>
-                <li>
+                <li className="topbar_buttons">
                     <Link className="nav-link" to="/">
                         Anasayfa
                     </Link>
                 </li>
-                <li>
-                    <Link className="nav-link me-3" to="/contact">
+                <li className="topbar_buttons me-3">
+                    <Link className="nav-link" to="/contact">
                         İletişim
                     </Link>
                 </li>
