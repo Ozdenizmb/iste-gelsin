@@ -2,7 +2,7 @@ import React from 'react';
 import Advert from '../../Components/Advert';
 import jobs from '../../Components/Silinecek';
 
-const JobAdvert = ({ match }) => {
+const JobAdvertDetail = ({ match }) => {
     // URL'den gelen iş ilanı ID'sini alıyoruz
     const jobId = match.params.jobId;
 
@@ -24,4 +24,4 @@ const JobAdvert = ({ match }) => {
 
 
 
-export default JobAdvert;
+export default JobAdvertDetail;

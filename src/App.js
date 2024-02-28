@@ -9,7 +9,8 @@ import SignUp from './views/SignUp/SignUp';
 import TopBar from './Components/TopBar';
 import Contact from './views/Contact/Contact'
 import UserPage from './views/UserProfile/UserPage';
-import JobAdvert from './views/JobAdvert/JobAdvert';
+import JobAdvertDetail from './views/JobAdvert/JobAdvertDetail';
+import AdsPage from './views/AdsPage/AdsPage';
 
 const App = () => {
 
@@ -37,11 +38,13 @@ const App = () => {
 
         <Route path="/about" component={About} />
 
+        <Route path="/ads-page" component={AdsPage} />
+
         <Route path="/contact" component={Contact} />
 
         <Route path="/profile" component={UserPage} />
 
-        <Route path="/jobadvert/:jobId" component={JobAdvert} />
+        <Route path="/jobadvert/:jobId" component={JobAdvertDetail} />
 
         <Redirect to="/" />
         </Switch>

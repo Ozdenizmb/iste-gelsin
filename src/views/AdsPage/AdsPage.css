@@ -1,0 +1,64 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.filter-box {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.filter-box .card-header {
+    border-bottom: 0;
+    border-radius: 0;
+}
+
+.fa-chevron-down {
+    float: right;
+    font-size: 14px;
+    color: #9da1a7;
+    margin-top: 5px;
+}
+
+.card-header a {
+    text-decoration: none;
+    color: #000;
+}
+
+.menu {
+    list-style-type: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.menu li {
+    margin-bottom: 3px;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #51585e;
+}
+
+.scroll {
+    max-height: 200px;
+    overflow: auto;
+}
+
+.btn-light {
+    background-color: #fff;
+    border-color: #dee2e6;
+    color: #212529;
+}
+
+.checkbox-btn {
+    position: relative;
+}
+
+.checkbox-btn input {   /* buton ile checkbox iç içe geçirildi ve checkbox görünmez yapıldı. */
+    position: absolute;
+    opacity: 0;
+}
+
+.checkbox-btn input:checked~.btn {
+    background-color: #0d6efd;
+    color: #fff;
+}

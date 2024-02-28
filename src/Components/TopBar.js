@@ -88,6 +88,11 @@ const TopBar = () => {
                         Anasayfa
                     </Link>
                 </li>
+                <li className="topbar_buttons">
+                    <Link className="nav-link" to="/ads-page">
+                        İlanlar
+                    </Link>
+                </li>
                 <li className="topbar_buttons me-3">
                     <Link className="nav-link" to="/contact">
                         İletişim
@@ -103,12 +108,12 @@ const TopBar = () => {
                     <div className={dropdownClass}>
                         {/*<Link className="dropdown-item d-flex p-2" to={"/user/" + username} onClick={onClickProfile}>*/}
                         <Link className="dropdown-item d-flex p-2" to={"/profile"} onClick={onClickProfile}>
-                            <FontAwesomeIcon icon={faPerson} className="text-info me-2" />
-                            My Profile
+                            <FontAwesomeIcon icon={faPerson} className="text-info me-2 pt-1" />
+                            Profilim
                         </Link>
                         <span className="dropdown-item d-flex p-2" style={{cursor:'pointer'}} onClick={onLogoutSuccess}>
-                            <FontAwesomeIcon icon={faPowerOff} className="text-danger me-2" />
-                            Logout
+                            <FontAwesomeIcon icon={faPowerOff} className="text-danger me-2 pt-1" />
+                            Çıkış Yap
                         </span>
                     </div>
 

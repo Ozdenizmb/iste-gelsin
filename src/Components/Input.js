@@ -4,7 +4,7 @@ const Input = (props) => {
     return (
         <div className="mb-3">
 
-            <label>{props.label}</label>
+            <label className="form-label">{props.label}</label>
 
             <input
                 className={props.error ? "form-control is-invalid" : "form-control"}
