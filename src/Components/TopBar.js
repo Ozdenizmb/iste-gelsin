@@ -59,7 +59,7 @@ const TopBar = () => {
             </li>
             <li className="topbar_buttons">
                 <Link className="nav-link" to="/contact">
-                    İletişim
+                    İletişimx
                 </Link>
             </li>
             <li className="topbar_buttons">
@@ -123,20 +123,21 @@ const TopBar = () => {
     }
 
     return (
-        <div className="shadow-sm bg-body-tertiary mb-2">
+        <div className="top-bar-container shadow-sm bg-body-tertiary mb-2"> {/* Bu satırı güncelledim */}
             <nav className="navbar container navbar-expand">
                 <div className="container-fluid">
-
+    
                     <Link className="navbar-brand" to="/">
                         <img src={logo} width="140" alt="Hoaxify Logo"/>
                     </Link>
-
+    
                     {links}
-
+    
                 </div>
             </nav>
         </div>
     );
+    
 
 };
 

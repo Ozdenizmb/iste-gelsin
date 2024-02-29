@@ -6,4 +6,9 @@
 .footer-underline:hover {
     color: #007bff !important;
     text-decoration: underline;
+
+}
+
+.footer {
+    background-color: black; /* Gri arka plan rengi */
 }

@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Card, Button, Row, Col } from 'react-bootstrap';
 import Footer from './Footer';
 
 const Advert = (props) => {
 
   const { title, company, workType, positionLevel, department, image, details, experience, educationLevel, location, workingHours } = props;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="advert-page">
@@ -19,7 +23,7 @@ const Advert = (props) => {
 
           <Col md={6} lg={6} className="flex-grow-1">
             <Card className="job-advert-card shadow">
-              <Card.Img variant="top" src={image} alt={`${title} Image`} className="img-fluid"/>
+              <Card.Img variant="top" src={image} alt={`${title} Image`} className="img-fluid" />
               <Card.Body>
                 <Card.Title>{title}</Card.Title>
               </Card.Body>
@@ -41,9 +45,10 @@ const Advert = (props) => {
                   <strong>Çalışma Şekli:</strong> {workType}
                 </Card.Text>
                 <div className="d-flex justify-content-end">
-                  <Button variant="primary" className="me-2">
+                  <Button variant="primary" className="me-2" onClick={() => { window.scrollTo(0, 0); }}>
                     Başvur
                   </Button>
+
                   <Button variant="secondary">Kaydet</Button>
                 </div>
               </Card.Body>

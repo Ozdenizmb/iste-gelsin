@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Input from '../../Components/Input';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from 'react-bootstrap/Button';
 import Advert from '../../Components/Advert';
 import ÖrnekİşİlanıResmi from '../../images/ÖrnekİşİlanıResmi.png'
@@ -10,6 +9,8 @@ import { useDispatch } from "react-redux";
 import { getProduct1Handler } from '../../redux/authActions';
 import AdvertCardFeed from '../../Components/AdvertCardFeed';
 import jobs from '../../Components/Silinecek';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 const HomePage = () => {
 
@@ -17,10 +18,13 @@ const HomePage = () => {
 
     const onClickProduct1 = async (event) => {
         event.preventDefault();
+        console.log("onClickProduct1 fonksiyonu çağrıldı!");
         try {
             await dispatch(getProduct1Handler());
+
+            window.scrollTo(0, 0);
         }
-        catch(apiError) {
+        catch (apiError) {
             console.log("Error: ");
         }
     }
@@ -43,13 +47,16 @@ const HomePage = () => {
                                 <input type="text" className="form-control hover-blue-border" placeholder="Şehir veya İlçe Ara" style={{ height: '4rem' }} />
                             </div>
                         </div>
-                        <div className="col-md-2">
+                        <div className="col-md-3">
                             <button className="btn btn-primary btn-lg" style={{ height: '4rem', fontSize: "1rem" }}>İŞTE GELSİN</button>
+                            <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
+
                         </div>
                     </div>
                 </div>
 
-                <div className="card mt-5 p-5 bg-primary d-flex justify-content-between align-items-center">
+                {/* Silinecek kısım */}
+                {/* <div className="card mt-5 p-5 bg-primary d-flex justify-content-between align-items-center">
                     <h3 className="text-center mb-4 text-white" style={{ fontSize: '1.5em' }}>Uzaktan Çalışmaya Ne Dersin</h3>
                     <div className="ml-auto d-flex justify-content-center align-items-center">
                         <button
@@ -59,7 +66,9 @@ const HomePage = () => {
                             Hemen Başvur
                             </button>
                     </div>
-                </div>
+                </div> */}
+                {/* Silinecek kısım sonu */}
+
             </div>
 
             <div className='d-flex justify-content-center align-items-center'>
@@ -74,7 +83,7 @@ const HomePage = () => {
             <div className="mt-8">
                 <Footer />
             </div>
-            
+
         </div>
     );
 };
