@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import AdvertCardFeed from '../../Components/AdvertCardFeed';
 import jobs from '../../Components/Silinecek';
+import Footer from '../../Components/Footer';
 
 const AdsPage = () => {
     return (
@@ -147,6 +148,9 @@ const AdsPage = () => {
                         <AdvertCardFeed jobs={jobs} />
                     </div>
                 </div>
+            </div>
+            <div>
+                <Footer />
             </div>
         </div>
     );
