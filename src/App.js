@@ -11,6 +11,7 @@ import Contact from './views/Contact/Contact'
 import UserPage from './views/UserProfile/UserPage';
 import JobAdvertDetail from './views/JobAdvert/JobAdvertDetail';
 import AdsPage from './views/AdsPage/AdsPage';
+import PaymentPage from './views/Payment/PaymentPage';
 
 const App = () => {
 
@@ -45,6 +46,8 @@ const App = () => {
         <Route path="/profile" component={UserPage} />
 
         <Route path="/jobadvert/:jobId" component={JobAdvertDetail} />
+
+        <Route path="/payment-page" component={PaymentPage}/>
 
         <Redirect to="/" />
         </Switch>
