@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { MDBContainer, MDBTabs, MDBTabsItem, MDBTabsLink } from 'mdb-react-ui-kit';
 import Input from '../../Components/Input';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faApple  } from '@fortawesome/free-brands-svg-icons';
 
@@ -9,6 +9,7 @@ import { faGoogle, faApple  } from '@fortawesome/free-brands-svg-icons';
 const Login = () => {
     const [justifyActive, setJustifyActive] = useState('tab1');
     const [rememberMe, setRememberMe] = useState(false);
+    const history = useHistory();
 
     const handleJustifyClick = (value) => {
         if (value === justifyActive) {
@@ -21,6 +22,14 @@ const Login = () => {
     const onRememberMeChange = (value) => {
         setRememberMe(!rememberMe);
     }
+
+    const handleUserLoginButton = () => {
+        history.push('/');
+    };
+
+    const handleCompanyLoginButton = () => {
+        history.push('/');
+    };
 
     return (
         <MDBContainer className="p-3 my-5 d-flex flex-column w-50 card p-4 shadow">
@@ -51,7 +60,7 @@ const Login = () => {
                         </Link>
                     </div>
                     <div class="d-grid gap-2 col-8 mx-auto">
-                        <button class="btn btn-primary" type="button">Giriş Yap</button>
+                        <button onClick={handleUserLoginButton} class="btn btn-primary" type="button">Giriş Yap</button>
                     </div>
                     <div className="mt-3 d-flex align-items-center">
                         <hr className="flex-grow-1" />
@@ -87,7 +96,7 @@ const Login = () => {
                     </Link>
                 </div>
                 <div class="d-grid gap-2 col-8 mx-auto">
-                    <button class="btn btn-primary" type="button">Giriş Yap</button>
+                    <button onClick={handleCompanyLoginButton} class="btn btn-primary" type="button">Giriş Yap</button>
                 </div>
                 <div className="mt-3 d-flex align-items-center">
                     <hr className="flex-grow-1" />

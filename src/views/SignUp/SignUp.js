@@ -88,7 +88,7 @@ const SignUp = () => {
             </label>
           </div>
           <div className="d-grid gap-2 col-8 mx-auto">
-            <button className="btn btn-primary" type="button">ÜYE OL</button>
+            <Link to="/" className="btn btn-primary" type="button">ÜYE OL</Link>
           </div>
           <div className="mt-3 d-flex align-items-center">
             <hr className="flex-grow-1" />
@@ -139,7 +139,7 @@ const SignUp = () => {
             </label>
           </div>
           <div className="d-grid gap-2 col-8 mx-auto">
-            <button className="btn btn-primary" type="button">ÜYE OL</button>
+            <Link to="/" className="btn btn-primary" type="button" >ÜYE OL</Link>
           </div>
         </div>
       )}

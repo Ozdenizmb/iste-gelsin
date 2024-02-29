@@ -59,9 +59,7 @@ const UserPage = () => {
         );
     }
 
-    return (
-        <div className="container">
-
+    let profile = (
             <div className="row">
                 <div className="col">
                     <ProfileCard user={user} />
@@ -70,6 +68,25 @@ const UserPage = () => {
                     
                 </div>
             </div>
+    )
+
+    if(user.type !== "Company") {
+        profile = (
+            <div className="row">
+                <div className="col">
+                    <ProfileCard user={user} />
+                </div>
+                <div className="col">
+                    <button className="btn btn-primary">İlan Aç</button>
+                </div>
+            </div>
+        )
+    }
+
+    return (
+        <div className="container">
+
+            {profile}
 
         </div>
     );
