@@ -10,5 +10,12 @@
 }
 
 .footer {
-    background-color: black; /* Gri arka plan rengi */
+    background-color: black; 
+    color: #ffffff;
 }
+
+  
+  .footer :hover {
+    text-decoration: none; 
+  }
+  

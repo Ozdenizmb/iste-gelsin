@@ -8,7 +8,7 @@ import '../css/Footer.css';
 
 const Footer = () => {
   return (
-    <footer className="footer mt-auto py-3 bg-light">
+    <footer className="footer mt-auto py-3 bg-dark">
       <div className="ps-8">
         <div className="row no-gutters">
           {/* 1. Sütun */}
@@ -18,28 +18,29 @@ const Footer = () => {
                 <img src={logo} width="140" alt="Hoaxify Logo" />
               </Link>
             </div>
-            <ul className="list-unstyled">
+            <ul className="list-unstyled mt-4">
               <li className="mb-1">
                 <FontAwesomeIcon icon={faPhone} className="me-2" />
                 Telefon: 123-456-7890
               </li>
-              <li className="mb-1">
+              <li className="mb-1 mt-2">
                 <FontAwesomeIcon icon={faEnvelope} className="me-2" />
                 Email: info@example.com
               </li>
-              <li className="mb-1 d-flex flex-column">
-                <button className="btn btn-light border me-2 flex-grow-1 mb-1" type="button" style={{ width: "150px" }}>
+              <li className="mb-1 d-flex flex-column mt-4">
+                <button className="btn btn-outline-light border me-2 flex-grow-1 mb-1" type="button" style={{ width: "150px" }}>
                   <FontAwesomeIcon icon={faGoogle} className="me-2" />
                   <span className="d-none d-md-inline">Google Play</span>
                   <span className="d-inline d-md-none">Play</span>
                 </button>
 
-                <button className="btn btn-dark flex-grow-1" type="button" style={{ width: "150px" }}>
+                <button className="btn btn-outline-light border me-2 flex-grow-1 mt-1" type="button" style={{ width: "150px" }}>
                   <FontAwesomeIcon icon={faApple} className="me-2" />
                   <span className="d-none d-md-inline">App Store</span>
                   <span className="d-inline d-md-none">App</span>
                 </button>
               </li>
+
 
 
 
