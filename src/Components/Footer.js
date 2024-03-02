@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faGoogle, faApple } from '@fortawesome/free-brands-svg-icons';
-import logo from '../images/FOOTERLOGO.png';
+import logo from '../images/ISTEGELSINLOGO.png';
 import { Link } from 'react-router-dom';
 import '../css/Footer.css';
 
