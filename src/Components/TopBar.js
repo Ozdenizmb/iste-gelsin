@@ -58,7 +58,7 @@ const TopBar = () => {
             </li>
             <li className="topbar_buttons">
                 <Link className="nav-link text-white" to="/contact">
-                    İletişimx
+                    İletişim
                 </Link>
             </li>
             <li className="topbar_buttons">
