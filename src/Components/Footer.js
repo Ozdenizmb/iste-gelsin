@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { faGoogle, faApple  } from '@fortawesome/free-brands-svg-icons';
+import { faGoogle, faApple } from '@fortawesome/free-brands-svg-icons';
 import logo from '../images/ISTEGELSINLOGO.png';
 import { Link } from 'react-router-dom';
 import '../css/Footer.css';
@@ -14,9 +14,9 @@ const Footer = () => {
           {/* 1. Sütun */}
           <div className="col-md-3">
             <div className="footer-logo">
-                    <Link className="navbar-brand" to="/">
-                        <img src={logo} width="140" alt="Hoaxify Logo"/>
-                    </Link>
+              <Link className="navbar-brand" to="/">
+                <img src={logo} width="140" alt="Hoaxify Logo" />
+              </Link>
             </div>
             <ul className="list-unstyled">
               <li className="mb-1">
@@ -27,18 +27,22 @@ const Footer = () => {
                 <FontAwesomeIcon icon={faEnvelope} className="me-2" />
                 Email: info@example.com
               </li>
-              <li className="mb-1">
-                <button  className="btn btn-light border me-2 flex-grow-1" type="button">
+              <li className="mb-1 d-flex flex-column">
+                <button className="btn btn-light border me-2 flex-grow-1 mb-1" type="button" style={{ width: "150px" }}>
                   <FontAwesomeIcon icon={faGoogle} className="me-2" />
-                  Google Play
+                  <span className="d-none d-md-inline">Google Play</span>
+                  <span className="d-inline d-md-none">Play</span>
                 </button>
-              </li>
-              <li className="mb-1">
-                <button  className="btn btn-dark flex-grow-1" type="button">
+
+                <button className="btn btn-dark flex-grow-1" type="button" style={{ width: "150px" }}>
                   <FontAwesomeIcon icon={faApple} className="me-2" />
-                  App Store
+                  <span className="d-none d-md-inline">App Store</span>
+                  <span className="d-inline d-md-none">App</span>
                 </button>
               </li>
+
+
+
             </ul>
           </div>
 
@@ -77,7 +81,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* 4. Sütun */}
+
           <div className="col-md-3">
             <h5 className="footer-column-title">Kurumsal</h5>
             <ul className="list-unstyled">

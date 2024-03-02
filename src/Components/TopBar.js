@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import logo from '../images/ISTEGELSINLOGO.png';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-//import { logoutSuccess } from '../redux/authActions';
 import ProfileImage from './ProfileImage';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPerson, faPowerOff } from '@fortawesome/free-solid-svg-icons';
@@ -53,22 +52,22 @@ const TopBar = () => {
     let links = (
         <ul className="navbar-nav">
             <li className="topbar_buttons">
-                <Link className="nav-link" to="/">
+                <Link className="nav-link text-white" to="/">
                     Anasayfa
                 </Link>
             </li>
             <li className="topbar_buttons">
-                <Link className="nav-link" to="/contact">
+                <Link className="nav-link text-white" to="/contact">
                     İletişimx
                 </Link>
             </li>
             <li className="topbar_buttons">
-                <Link className="nav-link" to="/login">
+                <Link className="nav-link text-white" to="/login">
                     Giriş Yap
                 </Link>
             </li>
             <li className="topbar_buttons">
-                <Link className="nav-link" to="/signup">
+                <Link className="nav-link text-white" to="/signup">
                     Kaydol
                 </Link>
             </li>
@@ -84,17 +83,17 @@ const TopBar = () => {
         links = (
             <ul className="navbar-nav" ref={menuArea}>
                 <li className="topbar_buttons">
-                    <Link className="nav-link" to="/">
+                    <Link className="nav-link text-white" to="/">
                         Anasayfa
                     </Link>
                 </li>
                 <li className="topbar_buttons">
-                    <Link className="nav-link" to="/ads-page">
+                    <Link className="nav-link text-white" to="/ads-page">
                         İlanlar
                     </Link>
                 </li>
                 <li className="topbar_buttons me-3">
-                    <Link className="nav-link" to="/contact">
+                    <Link className="nav-link text-white" to="/contact">
                         İletişim
                     </Link>
                 </li>
@@ -106,7 +105,7 @@ const TopBar = () => {
                     </div>
 
                     <div className={dropdownClass}>
-                        {/*<Link className="dropdown-item d-flex p-2" to={"/user/" + username} onClick={onClickProfile}>*/}
+                        
                         <Link className="dropdown-item d-flex p-2" to={"/profile"} onClick={onClickProfile}>
                             <FontAwesomeIcon icon={faPerson} className="text-info me-2 pt-1" />
                             Profilim
@@ -123,7 +122,7 @@ const TopBar = () => {
     }
 
     return (
-        <div className="top-bar-container shadow-sm bg-body-tertiary mb-2"> {/* Bu satırı güncelledim */}
+        <div className="top-bar-container bg-dark shadow-sm mb-2"> 
             <nav className="navbar container navbar-expand">
                 <div className="container-fluid">
     
