@@ -37,6 +37,7 @@ export const getProduct1Handler = () => {
             const response = await getProduct1();
             dispatch(getProduct1Success(response.data)); // Eğer başarılı ise response'ı action'a ekleyebilirsiniz.
             console.log(response.data);
+            window.alert(JSON.stringify(response.data, null, 2));
         } catch (error) {
             console.log("Error: ", error);
         }
