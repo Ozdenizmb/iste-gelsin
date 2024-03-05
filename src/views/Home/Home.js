@@ -47,7 +47,7 @@ const HomePage = () => {
                             </div>
                         </div>
                         <div className="col-md-3">
-                            <button className="btn btn-primary btn-lg" style={{ height: '4rem', fontSize: "1rem" }}onClick={onClickProduct1}>İŞTE GELSİN</button>
+                            <button className="btn btn-primary btn-lg" style={{ height: '4rem', fontSize: "1rem" , backgroundColor:  'green'}}onClick={onClickProduct1}>İŞTE GELSİN</button>
                             <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
 
                         </div>
