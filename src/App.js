@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 
 import Home from './views/Home/Home';
 import About from './views/About/About';
-import Login from './views/Login/Login';
 import SignUp from './views/SignUp/SignUp';
 import TopBar from './Components/TopBar';
 import Contact from './views/Contact/Contact'
@@ -12,7 +11,7 @@ import UserPage from './views/UserProfile/UserPage';
 import JobAdvertDetail from './views/JobAdvert/JobAdvertDetail';
 import AdsPage from './views/AdsPage/AdsPage';
 import PaymentPage from './views/Payment/PaymentPage';
-import ModernLogin from './views/Login/ModernLogin';
+import Login from './views/Login/Login';
 
 const App = () => {
 
@@ -33,7 +32,7 @@ const App = () => {
         <Route exact path="/" component={Home}/>
 
         {!isLoggedIn && (
-          <Route path="/login" component={ModernLogin}/>
+          <Route path="/login" component={Login}/>
         )}
 
         <Route path="/signup" component={SignUp} />

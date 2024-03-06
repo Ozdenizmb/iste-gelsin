@@ -1,124 +1,72 @@
 import React, { useState } from 'react';
-import { MDBContainer, MDBTabs, MDBTabsItem, MDBTabsLink } from 'mdb-react-ui-kit';
-import Input from '../../Components/Input';
-import { Link, useHistory } from 'react-router-dom';
+import './Login.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGoogle, faApple  } from '@fortawesome/free-brands-svg-icons';
-
+import { faGoogle, faFacebookF, faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 
 const Login = () => {
-    const [justifyActive, setJustifyActive] = useState('tab1');
-    const [rememberMe, setRememberMe] = useState(false);
-    const history = useHistory();
+  const [isSignUp, setIsSignUp] = useState(false);
 
-    const handleJustifyClick = (value) => {
-        if (value === justifyActive) {
-            return;
-        }
+  const toggleForm = () => {
+    setIsSignUp((prev) => !prev);
+  };
 
-        setJustifyActive(value);
-    };
-
-    const onRememberMeChange = (value) => {
-        setRememberMe(!rememberMe);
+  const handleUserLoginButton = () => {
+    if(isSignUp) {
+        console.log("İşveren Olarak Giriş Yapıldı.")
     }
+    else {
+        console.log("Kullanıcı Olarak Giriş Yapıldı.")
+    }
+  }
 
-    const handleUserLoginButton = () => {
-        history.push('/');
-    };
-
-    const handleCompanyLoginButton = () => {
-        history.push('/');
-    };
-
-    return (
-        <MDBContainer className="p-3 my-5 d-flex flex-column w-50 card p-4 shadow">
-            <MDBTabs pills justify className='mb-3 d-flex flex-row justify-content-between'>
-                <MDBTabsItem>
-                    <MDBTabsLink onClick={() => handleJustifyClick('tab1')} active={justifyActive === 'tab1'}>
-                        Çalışan
-                    </MDBTabsLink>
-                </MDBTabsItem>
-                <MDBTabsItem>
-                    <MDBTabsLink onClick={() => handleJustifyClick('tab2')} active={justifyActive === 'tab2'}>
-                        İş veren
-                    </MDBTabsLink>
-                </MDBTabsItem>
-            </MDBTabs>
-
-            {justifyActive === 'tab1' && (
-                <div>
-
-                    <Input label={"Email"} type={"text"} name={"Email"} />
-                    <Input label={"Şifre"} type={"password"} name={"Password"} />
-                    <div className="d-flex justify-content-between mb-4">
-                        <label>
-                            <input className="form-check-input me-2" type={"checkbox"} name={"RememberMe"} checked={rememberMe} onChange={onRememberMeChange}/> Beni Hatırla
-                        </label>
-                        <Link className="" to="/contact">
-                            Şifremi Unuttum
-                        </Link>
-                    </div>
-                    <div class="d-grid gap-2 col-8 mx-auto">
-                        <button onClick={handleUserLoginButton} class="btn btn-primary" type="button">Giriş Yap</button>
-                    </div>
-                    <div className="mt-3 d-flex align-items-center">
-                        <hr className="flex-grow-1" />
-                        <span className="mx-2">veya</span>
-                        <hr className="flex-grow-1" />
-                    </div>
-                    <div className="mt-3 d-flex">
-                        {/* Google Giriş Butonu */}
-                        <button className="btn btn-light border me-2 flex-grow-1" type="button">
-                            <FontAwesomeIcon icon={faGoogle}  className="me-2"/>
-                            Google ile Giriş Yap
-                        </button>
-                        {/* Apple Giriş Butonu */}
-                        <button className="btn btn-dark flex-grow-1" type="button">
-                            <FontAwesomeIcon icon={faApple}  className="me-2" />
-                            Apple ile Giriş Yap
-                        </button>
-                    </div>
-                </div>
-            )}
-
-            {justifyActive === 'tab2' && (
-                <div>
-
-                <Input label={"Email"} type={"text"} name={"Email"} />
-                <Input label={"Şifre"} type={"password"} name={"Password"} />
-                <div className="d-flex justify-content-between mb-4">
-                    <label>
-                        <input className="form-check-input me-2" type={"checkbox"} name={"RememberMe"} checked={rememberMe} onChange={onRememberMeChange}/> Beni Hatırla
-                    </label>
-                    <Link className="" to="/contact">
-                        Şifremi Unuttum
-                    </Link>
-                </div>
-                <div class="d-grid gap-2 col-8 mx-auto">
-                    <button onClick={handleCompanyLoginButton} class="btn btn-primary" type="button">Giriş Yap</button>
-                </div>
-                <div className="mt-3 d-flex align-items-center">
-                    <hr className="flex-grow-1" />
-                    <span className="mx-2">veya</span>
-                    <hr className="flex-grow-1" />
-                </div>
-                <div className="mt-3 d-flex">
-                    {/* Google Giriş Butonu */}
-                    <button className="btn btn-light border me-2 flex-grow-1" type="button">
-                        <FontAwesomeIcon icon={faGoogle}  className="me-2"/>
-                        Google ile Giriş Yap
-                    </button>
-                    {/* Apple Giriş Butonu */}
-                    <button className="btn btn-dark flex-grow-1" type="button">
-                        <FontAwesomeIcon icon={faApple}  className="me-2" />
-                        Apple ile Giriş Yap
-                    </button>
-                </div>
+  return (
+    <div id="modern-login">
+        <div className={`container ${isSignUp ? 'active' : ''}`}>
+        <div className={`form-container ${isSignUp ? 'sign-up' : 'sign-in'}`}>
+            <form>
+            <h1>{isSignUp ? 'İşveren Girişi' : 'Kullanıcı Girişi'}</h1>
+            <div className="social-icons">
+                <a href="#" className="icon">
+                <FontAwesomeIcon icon={faGoogle}/>
+                </a>
+                <a href="#" className="icon">
+                <FontAwesomeIcon icon={faFacebookF}/>
+                </a>
+                <a href="#" className="icon">
+                <FontAwesomeIcon icon={faGithub}/>
+                </a>
+                <a href="#" className="icon">
+                <FontAwesomeIcon icon={faLinkedinIn}/>
+                </a>
             </div>
-            )}
-        </MDBContainer>
-    );
+            <span>veya Email ve Şifre ile giriş yapınız</span>
+            <input type="email" placeholder="Email" />
+            <input type="password" placeholder="Password" />
+            <a href="#">Şifreni mi unuttun?</a>
+            <button onClick={handleUserLoginButton}>Giriş Yap</button>
+            </form>
+        </div>
+        <div className="toggle-container">
+            <div className="toggle">
+            <div className={`toggle-panel toggle-left ${isSignUp ? 'active' : ''}`}>
+                <h1>Tekrar hoşgeldiniz!</h1>
+                <p>Kullanıcı olarak giriş yapmak için tıklayınız</p>
+                <button className={isSignUp ? 'hidden' : ''} onClick={toggleForm}>
+                Giriş Yap
+                </button>
+            </div>
+            <div className={`toggle-panel toggle-right ${isSignUp ? '' : 'active'}`}>
+                <h1>Tekrar hoşgeldiniz!</h1>
+                <p>İşveren olarak giriş yapmak için tıklayınız</p>
+                <button className={isSignUp ? '' : 'hidden'} onClick={toggleForm}>
+                Giriş Yap
+                </button>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+  );
 };
 
 export default Login;
