@@ -74,7 +74,7 @@ const TopBar = () => {
         </ul>
     );
 
-    if(!isLoggedIn) {
+    if(isLoggedIn) {
         let dropdownClass = 'dropdown-menu p-0 shadow';
         if(menuVisible) {
             dropdownClass += ' show';
@@ -122,7 +122,7 @@ const TopBar = () => {
     }
 
     return (
-        <div className="top-bar-container bg-dark shadow-sm mb-2"> 
+        <div className="top-bar-container bg-dark shadow-sm"> 
             <nav className="navbar container navbar-expand">
                 <div className="container-fluid">
     

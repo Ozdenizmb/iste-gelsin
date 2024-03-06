@@ -12,6 +12,7 @@ import UserPage from './views/UserProfile/UserPage';
 import JobAdvertDetail from './views/JobAdvert/JobAdvertDetail';
 import AdsPage from './views/AdsPage/AdsPage';
 import PaymentPage from './views/Payment/PaymentPage';
+import ModernLogin from './views/Login/ModernLogin';
 
 const App = () => {
 
@@ -32,7 +33,7 @@ const App = () => {
         <Route exact path="/" component={Home}/>
 
         {!isLoggedIn && (
-          <Route path="/login" component={Login}/>
+          <Route path="/login" component={ModernLogin}/>
         )}
 
         <Route path="/signup" component={SignUp} />
