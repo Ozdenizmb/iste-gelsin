@@ -35,3 +35,19 @@
     border-bottom-color: var(--primary);
 }
 
+.nav-link {
+    position: relative;
+    text-decoration: none;
+    color: white;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transition: width 0.3s ease-out; /* Geçiş süresi ve hareket tipi */
+}

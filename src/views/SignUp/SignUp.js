@@ -53,7 +53,7 @@ const SignUp = () => {
             <label className="service-confirm">
               <input type="checkbox" checked={agreeContract} onChange={handleAgreeContractChange}/>
               <span>
-                  <Link to="/contract" style={{ color: 'blue', textDecoration: 'underline' }}>Hizmet sözleşmesini</Link>
+                  <Link to="/contract" style={{ color: 'blue', textDecoration: 'none' }}>Hizmet sözleşmesini</Link>
                   <span className="ms-1" style={{ color: 'black' }}>onaylıyorum.</span>
               </span>
             </label>
