@@ -38,12 +38,12 @@ const HomePage = () => {
                     <div className="row mt-3">
                         <div className="col-md-3">
                             <div className="input-group mb-3" style={{ boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }}>
-                                <input type="text" className="form-control hover-blue-border" placeholder="Meslek Ara" style={{ height: '4rem' }} />
+                                <input type="text" className="form-control hover-success-border" placeholder="Meslek Ara" style={{ height: '4rem' }} />
                             </div>
                         </div>
                         <div className="col-md-3">
                             <div className="input-group mb-3" style={{ boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }}>
-                                <input type="text" className="form-control hover-blue-border" placeholder="Şehir veya İlçe Ara" style={{ height: '4rem' }} />
+                                <input type="text" className="form-control hover-success-border" placeholder="Şehir veya İlçe Ara" style={{ height: '4rem' }} />
                             </div>
                         </div>
                         <div className="col-md-3">

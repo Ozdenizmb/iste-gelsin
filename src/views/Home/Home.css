@@ -15,8 +15,6 @@
   }
 }
 
-.hover-blue-border:hover {
-    border-color: blue !important;
-    border-width: 2px;
-
+.form-control.hover-success-border:hover {
+  border-color: green;
 }
