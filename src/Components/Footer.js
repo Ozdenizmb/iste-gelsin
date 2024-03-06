@@ -18,7 +18,7 @@ const Footer = () => {
                 <img src={logo} width="140" alt="Hoaxify Logo" />
               </Link>
             </div>
-            <ul className="list-unstyled mt-4">
+            <ul className="list-unstyled mt-5">
               <li className="mb-1">
                 <FontAwesomeIcon icon={faPhone} className="me-2" />
                 Telefon: 123-456-7890
@@ -27,14 +27,14 @@ const Footer = () => {
                 <FontAwesomeIcon icon={faEnvelope} className="me-2" />
                 Email: info@example.com
               </li>
-              <li className="mb-1 d-flex flex-column mt-4">
+              <li className="mb-1 d-flex flex-column mt-5">
                 <button className="btn btn-outline-light border me-2 flex-grow-1 mb-1" type="button" style={{ width: "150px" }}>
                   <FontAwesomeIcon icon={faGoogle} className="me-2" />
                   <span className="d-none d-md-inline">Google Play</span>
                   <span className="d-inline d-md-none">Play</span>
                 </button>
 
-                <button className="btn btn-outline-light border me-2 flex-grow-1 mt-1" type="button" style={{ width: "150px" }}>
+                <button className="btn btn-outline-light border me-2 flex-grow-1 mt-2" type="button" style={{ width: "150px" }}>
                   <FontAwesomeIcon icon={faApple} className="me-2" />
                   <span className="d-none d-md-inline">App Store</span>
                   <span className="d-inline d-md-none">App</span>
@@ -49,7 +49,7 @@ const Footer = () => {
 
           {/* 2. Sütun */}
           <div className="col-md-3">
-            <h5 className="footer-column-title">İş Arayan İşlemleri</h5>
+            <h5 className="footer-column-title mb-4">İş Arayan İşlemleri</h5>
             <ul className="list-unstyled">
               <li><Link className="nav-link footer-underline" to="/contact">İş İlanları</Link></li>
               <li><Link className="nav-link footer-underline" to="/contact">İstanbul İş İlanları</Link></li>
@@ -70,7 +70,7 @@ const Footer = () => {
 
           {/* 3. Sütun */}
           <div className="col-md-3">
-            <h5 className="footer-column-title">Firma İşlemleri</h5>
+            <h5 className="footer-column-title mb-4">Firma İşlemleri</h5>
             <ul className="list-unstyled">
               <li><Link className="nav-link footer-underline" to="/contact">İş İlanı Yayınla</Link></li>
               <li><Link className="nav-link footer-underline" to="/contact">Firma Üyeliği</Link></li>
@@ -84,7 +84,7 @@ const Footer = () => {
 
 
           <div className="col-md-3">
-            <h5 className="footer-column-title">Kurumsal</h5>
+            <h5 className="footer-column-title mb-4">Kurumsal</h5>
             <ul className="list-unstyled">
               <li><Link className="nav-link footer-underline" to="/contact">Eleman.net Hakkında</Link></li>
               <li><Link className="nav-link footer-underline" to="/contact">Reklam Verin</Link></li>
