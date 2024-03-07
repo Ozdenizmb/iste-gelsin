@@ -30,7 +30,7 @@ const SignUp = () => {
         <div className={`container ${isSignUp ? 'active' : ''}`}>
         <div className={`form-container ${isSignUp ? 'sign-up' : 'sign-in'}`}>
             <form>
-            <h1>{isSignUp ? 'İşveren Girişi' : 'Kullanıcı Girişi'}</h1>
+            <h1>{isSignUp ? 'İşveren Kaydı' : 'Kullanıcı Kaydı'}</h1>
             <div className="social-icons">
                 <a href="#" className="icon">
                 <FontAwesomeIcon icon={faGoogle}/>
