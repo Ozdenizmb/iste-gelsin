@@ -1,11 +1,7 @@
 import axios from "axios";
 
 export const signUpUser = body => {
-    return axios.post("/api/v1/User", body, {
-        headers: {
-            'User': 'true'
-        }
-    });
+    return axios.post("/api/v1/User", body);
 }
 
 export const loginUser = () => {
