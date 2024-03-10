@@ -1,10 +1,22 @@
 import React, { useState } from 'react';
 import './SignUp.css';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faFacebookF, faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import { signUpUserHandler } from '../../redux/authActions';
 
-const SignUp = () => {
+const SignUp = (props) => {
+  const [email, setEmail] = useState();
+  const [name, setName] = useState();
+  const [surname, setSurname] = useState();
+  const [password, setPassword] = useState();
+  
+  const [passwordRepeat, setPasswordRepeat] = useState();
+  const [errors, setErrors] = useState({});
+
+  const dispatch = useDispatch();
+
   const [isSignUp, setIsSignUp] = useState(false);
   const [agreeContract, setAgreeContract] = useState(false);
 
@@ -12,18 +24,56 @@ const SignUp = () => {
     setIsSignUp((prev) => !prev);
   };
 
-  const handleUserLoginButton = () => {
+  const onClickSignUpButton = async event => {
+    event.preventDefault();
+
+    const body = {
+      email,
+      name,
+      surname,
+      password
+    }
+
     if(isSignUp) {
         console.log("İşveren Olarak Kayıt Yapıldı.")
     }
     else {
         console.log("Kullanıcı Olarak Kayıt Olundu.")
+        try {
+          await dispatch(signUpUserHandler(body));
+          props.history.push('/');
+        } catch (error) {
+          
+        }
     }
   }
 
   const handleAgreeContractChange = () => {
     setAgreeContract(!agreeContract);
   };
+
+  const onChangeVeriables = event => {
+
+    const value = event.target.value;
+    const name = event.target.name;
+
+    if(name === 'email') {
+      setEmail(value);
+    }
+    else if(name === 'name') {
+      setName(value);
+    }
+    else if(name === 'surname') {
+      setSurname(value);
+    }
+    else if(name === 'password') {
+      setPassword(value);
+    }
+    else if(name === 'passwordRepeat') {
+      setPasswordRepeat(value);
+    }
+
+  }
 
   return (
     <div id="modern-signup">
@@ -46,10 +96,10 @@ const SignUp = () => {
                 </a>
             </div>
             <span>veya Email ve Şifre ile kayıt olunuz</span>
-            <input type="firstname" placeholder="Ad" />
-            <input type="surname" placeholder="Soyad" />
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
+            <input type="firstname" placeholder="Ad" name="name" onChange={onChangeVeriables} />
+            <input type="surname" placeholder="Soyad" name="surname" onChange={onChangeVeriables} />
+            <input type="email" placeholder="Email" name="email" onChange={onChangeVeriables}/>
+            <input type="password" placeholder="Password" name="password" onChange={onChangeVeriables} />
             <label className="service-confirm">
               <input type="checkbox" checked={agreeContract} onChange={handleAgreeContractChange}/>
               <span>
@@ -57,7 +107,7 @@ const SignUp = () => {
                   <span className="ms-1" style={{ color: 'black' }}>onaylıyorum.</span>
               </span>
             </label>
-            <button onClick={handleUserLoginButton}>Kayıt Ol</button>
+            <button onClick={onClickSignUpButton}>Kayıt Ol</button>
             </form>
         </div>
         <div className="toggle-container">

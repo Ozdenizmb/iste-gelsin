@@ -1,7 +1,15 @@
-import axios from "axios"
+import axios from "axios";
 
-export const getProduct1 = () => {
-    return axios.get('/api/v1.0/Product/1');
+export const signUpUser = body => {
+    return axios.post("/api/v1/User", body, {
+        headers: {
+            'User': 'true'
+        }
+    });
+}
+
+export const loginUser = () => {
+    return axios.get("/api/v1/User");
 }
 
 export const setAuthorizationHeader = ({username, password, isLoggedIn}) => {

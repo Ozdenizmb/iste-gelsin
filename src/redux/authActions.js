@@ -1,11 +1,4 @@
-//import { login, signUp } from "../api/apiCalls";
-import { getProduct1 } from "../api/apiCalls";
-
-export const getProduct1Success = () => {
-    return {
-        type : 'get-product'
-    };
-}
+import { signUpUser, loginUser } from "../api/apiCalls";
 
 export const logoutSuccess = () => {
     return {
@@ -31,44 +24,28 @@ export const updateSuccess = ({ displayName, image }) => {
     }
 }
 
-export const getProduct1Handler = () => {
+export const loginUserHandler = (creds) => {
     return async function(dispatch) {
-        try {
-            const response = await getProduct1();
-            dispatch(getProduct1Success(response.data)); // Eğer başarılı ise response'ı action'a ekleyebilirsiniz.
-            console.log(response.data);
-            window.alert(JSON.stringify(response.data, null, 2));
-        } catch (error) {
-            console.log("Error: ", error);
-        }
-
-        
-    }
-}
-
-export const loginHandler = (creds) => {
-    return async function(dispatch) {
-        //const response = await login(creds);
+        const response = await loginUser(creds);
 
         const loginState = {
             username : creds.username,
-            //displayName : response.data.displayName,
-            displayName : "asd",
+            displayName : response.data.displayName,
             password : creds.password,
-            //image : response.data.image
-            image : "asd"
+            image : response.data.image
         }
                 
         dispatch(loginSuccess(loginState));
 
-        //return response;
+        return response;
     }
 }
 
-export const signUpHandler = (user) => {
+export const signUpUserHandler = (user) => {
     return async function(dispatch) {
-        //const response = await signUp(user);
-        await dispatch(loginHandler(user));
-        //return response
+        const response = await signUpUser(user);
+        //await dispatch(loginUserHandler(user));
+        console.log(response);
+        return response
     }
 }

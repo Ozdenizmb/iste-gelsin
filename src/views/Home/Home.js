@@ -6,7 +6,6 @@ import ÖrnekİşİlanıResmi from '../../images/ÖrnekİşİlanıResmi.png'
 import Footer from '../../Components/Footer';
 import './Home.css';
 import { useDispatch } from "react-redux";
-import { getProduct1Handler } from '../../redux/authActions';
 import AdvertCardFeed from '../../Components/AdvertCardFeed';
 import jobs from '../../Components/Silinecek';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -19,7 +18,7 @@ const HomePage = () => {
     const onClickProduct1 = async (event) => {
         event.preventDefault();
         try {
-            await dispatch(getProduct1Handler());
+            //await dispatch(getProduct1Handler());
 
             window.scrollTo(0, 0);
         }

@@ -74,7 +74,7 @@ const TopBar = () => {
         </ul>
     );
 
-    if(!isLoggedIn) {
+    if(isLoggedIn) {
         let dropdownClass = 'dropdown-menu p-0 shadow';
         if(menuVisible) {
             dropdownClass += ' show';
