@@ -28,10 +28,24 @@ const SignUp = (props) => {
     event.preventDefault();
 
     const body = {
-      email,
+      idNo: "string",
+      username: "string",
+      password,
       name,
       surname,
-      password
+      gsm: "string",
+      email,
+      genderType: 0,
+      countryId: 0,
+      cityId: 0,
+      districtId: 0,
+      streetId: 0,
+      logoPath: "string",
+      iban: "string",
+      bankAccountCode: "string",
+      workingWithBankId: 0,
+      isActive: true,
+      birthday: "2024-03-10T20:17:43.550Z"
     }
 
     if(isSignUp) {
