@@ -55,7 +55,6 @@ const SignUp = (props) => {
         console.log("Kullanıcı Olarak Kayıt Olundu.")
         try {
           await dispatch(signUpUserHandler(body));
-          props.history.push('/');
         } catch (error) {
           
         }

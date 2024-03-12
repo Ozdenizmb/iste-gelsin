@@ -47,7 +47,6 @@ const HomePage = () => {
                         </div>
                         <div className="col-md-3">
                             <button className="btn btn-primary btn-lg" style={{ height: '4rem', fontSize: "1rem" , backgroundColor:  'green'}}onClick={onClickProduct1}>İŞTE GELSİN</button>
-                            <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
 
                         </div>
                     </div>
@@ -74,8 +73,6 @@ const HomePage = () => {
 
                     <AdvertCardFeed jobs={jobs} />
 
-                    <FontAwesomeIcon icon="fa-solid fa-right-to-bracket" />
-                    <FontAwesomeIcon icon="fa-solid fa-piggy-bank" />
                 </div>
             </div>
             <div className="mt-8">

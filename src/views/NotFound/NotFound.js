@@ -14,8 +14,6 @@ const LoginPage = () => {
                 <Button variant="primary" size="lg" active>
                     Login
                 </Button>{' '}
-                <FontAwesomeIcon icon="fa-solid fa-right-to-bracket" />
-                <FontAwesomeIcon icon="fa-solid fa-piggy-bank" />
             </div>
         </div>
     );
