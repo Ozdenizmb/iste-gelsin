@@ -12,9 +12,10 @@ const configureStore = () => {
 
     let stateInLocaleStorage = {
         isLoggedIn : false,
-        username : undefined,
-        displayName : undefined,
-        image : undefined,
+        email : undefined,
+        name : undefined,
+        surname : undefined,
+        logoPath : undefined,
         password : undefined
     }
 

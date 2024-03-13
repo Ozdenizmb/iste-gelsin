@@ -14,12 +14,13 @@ export const loginSuccess = (loginData) => {
     }
 }
 
-export const updateSuccess = ({ displayName, image }) => {
+export const updateSuccess = ({ name, surname, logoPath }) => {
     return {
         type : 'update-success',
         data : {
-            displayName,
-            image
+            name,
+            surname,
+            logoPath
         }
     }
 }
@@ -29,10 +30,11 @@ export const loginUserHandler = (creds) => {
         const response = await loginUser(creds);
 
         const loginState = {
-            username : creds.username,
-            displayName : response.data.displayName,
+            email : creds.email,
+            name : response.data.name,
+            surname : response.data.surname,
             password : creds.password,
-            image : response.data.image
+            logoPath : response.data.logoPath
         }
                 
         dispatch(loginSuccess(loginState));

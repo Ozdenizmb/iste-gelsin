@@ -1,22 +1,57 @@
 import React, { useState } from 'react';
 import './Login.css';
+import { useDispatch } from "react-redux";
+import { loginUserHandler } from '../../redux/authActions';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faFacebookF, faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 
-const Login = () => {
+const Login = (props) => {
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+
   const [isSignUp, setIsSignUp] = useState(false);
+
+  const dispatch = useDispatch();
 
   const toggleForm = () => {
     setIsSignUp((prev) => !prev);
   };
 
-  const handleUserLoginButton = () => {
+  const onChangeVeriables = (event) => {
+
+    const value = event.target.value;
+    const name = event.target.name;
+
+    if(name === 'email') {
+      setEmail(value);
+    }
+    else if(name === 'password') {
+      setPassword(value);
+    }
+
+  }
+
+  const handleUserLoginButton = async event => {
+    event.preventDefault();
+
+    const creds = {
+      email,
+      password
+    }
+
     if(isSignUp) {
-        console.log("İşveren Olarak Giriş Yapıldı.")
+      console.log("İşveren Olarak Giriş Yapıldı.");
     }
     else {
-        console.log("Kullanıcı Olarak Giriş Yapıldı.")
+      console.log("Kullanıcı Olarak Giriş Yapıldı.");
+
+      try {
+        await dispatch(loginUserHandler(creds));
+        props.history.push('/');
+      }
+      catch(apiError) {
+      }
     }
   }
 
@@ -41,8 +76,8 @@ const Login = () => {
                 </a>
             </div>
             <span>veya Email ve Şifre ile giriş yapınız</span>
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
+            <input type="email" placeholder="Email" name="email" onChange={onChangeVeriables} />
+            <input type="password" placeholder="Password" name="password" onChange={onChangeVeriables} />
             <a href="#">Şifreni mi unuttun?</a>
             <button onClick={handleUserLoginButton}>Giriş Yap</button>
             </form>

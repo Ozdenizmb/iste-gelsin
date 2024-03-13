@@ -4,8 +4,8 @@ export const signUpUser = body => {
     return axios.post("/api/v1/User", body);
 }
 
-export const loginUser = () => {
-    return axios.get("/api/v1/User");
+export const loginUser = creds => {
+    return axios.get("/api/v1/User", creds);
 }
 
 export const setAuthorizationHeader = ({username, password, isLoggedIn}) => {
