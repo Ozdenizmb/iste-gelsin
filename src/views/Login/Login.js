@@ -47,8 +47,9 @@ const Login = (props) => {
       console.log("Kullanıcı Olarak Giriş Yapıldı.");
 
       try {
-        await dispatch(loginUserHandler(creds));
+        const response = await dispatch(loginUserHandler(creds));
         props.history.push('/');
+        console.log(response);
       }
       catch(apiError) {
       }

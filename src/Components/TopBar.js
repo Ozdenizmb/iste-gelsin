@@ -6,23 +6,25 @@ import ProfileImage from './ProfileImage';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPerson, faPowerOff } from '@fortawesome/free-solid-svg-icons';
 import UserPage from '../views/UserProfile/UserPage';
+import { logoutSuccess } from '../redux/authActions';
 
 const TopBar = () => {
 
-    const { username, isLoggedIn, displayName, image } = useSelector(store => ({
+    const { isLoggedIn, email, name, surname, logoPath } = useSelector(store => ({
         isLoggedIn: store.isLoggedIn,
-        username: store.username,
-        displayName: store.displayName,
-        image: store.image
+        email : store.email,
+        name: store.name,
+        surname: store.surname,
+        logoPath: store.logoPath
     }));
 
     const user = {
-        image : image
+        image : logoPath
     };
 
     const dispatch = useDispatch();
     const onLogoutSuccess = () => {
-        //dispatch(logoutSuccess());
+        dispatch(logoutSuccess());
     };
 
     const menuArea = useRef(null);
@@ -101,12 +103,12 @@ const TopBar = () => {
 
                     <div className="d-flex" style={{cursor: 'pointer'}} onClick={onClickDropDown}>
                         <ProfileImage user={user} width={"32"} height={"32"} imageCss="m-auto" />
-                        <span className="nav-link dropdown-toggle">{displayName}</span>
+                        <span className="nav-link dropdown-toggle">{name}</span>
                     </div>
 
                     <div className={dropdownClass}>
                         
-                        <Link className="dropdown-item d-flex p-2" to={"/profile"} onClick={onClickProfile}>
+                        <Link className="dropdown-item d-flex p-2" to={`/profile/${email}`} onClick={onClickProfile}>
                             <FontAwesomeIcon icon={faPerson} className="text-info me-2 pt-1" />
                             Profilim
                         </Link>

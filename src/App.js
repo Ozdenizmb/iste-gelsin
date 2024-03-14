@@ -43,7 +43,7 @@ const App = () => {
 
         <Route path="/contact" component={Contact} />
 
-        <Route path="/profile" component={UserPage} />
+        <Route path="/profile/:email" component={UserPage} />
 
         <Route path="/jobadvert/:jobId" component={JobAdvertDetail} />
 

@@ -14,7 +14,11 @@ const ProfileCard = (props) => {
 
     const [inEditMode, setInEditMode] = useState(false);
     const [updatedDisplayName, setUpdatedDisplayName] = useState();
-    const { username } = useSelector((store) => ({ username : store.username }));
+    const { email, name, surname } = useSelector((store) => ({
+        email: store.email,
+        name: store.name,
+        surname: store.surname
+    }));
     const routeParams = useParams();
     const [user, setUser] = useState({});
     const [newImage, setNewImage] = useState();
@@ -25,9 +29,9 @@ const ProfileCard = (props) => {
         setUser(props.user);
     }, [props.user]);
 
-    const pathUsername = routeParams.username;
-    const loggedInUsername = username;
-    const editable = pathUsername === loggedInUsername;
+    const pathEmail = routeParams.email;
+    const loggedInEmail = email;
+    const editable = pathEmail === loggedInEmail;
 
     const onChange = (event) => {
         const value = event.target.value;
@@ -110,7 +114,7 @@ const ProfileCard = (props) => {
                     <div>
                         <h3>
                             {/*{user.displayName}@{user.username}*/}
-                            Baran Özdeniz@ozdeniz.mb
+                            {user.name} {user.surname}
                         </h3>
                         {editable && <button className="btn btn-success d-inline-flex" onClick={onClickEdit}>
                             <FontAwesomeIcon icon={faEdit} className="pe-2 pt-1" />

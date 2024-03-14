@@ -5,12 +5,18 @@ export const signUpUser = body => {
 }
 
 export const loginUser = creds => {
-    return axios.get("/api/v1/User", creds);
+    const { email, password } = creds;
+    return axios.get(`/api/v1/User/Login?email=${email}&password=${password}`);
 }
 
-export const setAuthorizationHeader = ({username, password, isLoggedIn}) => {
-    if(isLoggedIn) {
-        const userInfo = username + ":" + password;
+export const getUser = (creds) => {
+    return axios.get("/api/v1/User", {}, {auth : creds});
+}
+
+export const setAuthorizationHeader = (userData) => {
+    if(userData.isLoggedIn) {
+        const { email, password } = userData;
+        const userInfo = email + ":" + password;
         const convertBasic = btoa(userInfo);
         const authorizationHeaderValue = "Basic " + convertBasic;
         axios.defaults.headers['Authorization'] = authorizationHeaderValue;

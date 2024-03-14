@@ -27,6 +27,7 @@ export const updateSuccess = ({ name, surname, logoPath }) => {
 
 export const loginUserHandler = (creds) => {
     return async function(dispatch) {
+        console.log(creds);
         const response = await loginUser(creds);
 
         const loginState = {
