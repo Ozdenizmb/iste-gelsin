@@ -3,10 +3,11 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     border: none;
+    margin-left: 150px;
 }
 
 #contact {
-    background-image: url('../../images/background.jpg');
+    background-image: url('../../images/chairs-tables.jpg');
     width: 100%;
     height: 100vh;
     background-size: cover;
@@ -14,7 +15,6 @@
 
 header {
     text-align: right;
-    /*margin-top: 2rem;*/
     padding-top: 2rem;
 }
 
@@ -23,7 +23,8 @@ header h1 {
     font-family: 'Poppins', sans-serif; 
     font-weight: bold; 
     color: #ffffff; 
-    
+    text-align: center;
+    margin-right: 150px;
 }
 
 .content-form {
@@ -35,6 +36,7 @@ header h1 {
     justify-content: center;
     align-items: center;
     min-height: 80vh;
+    margin-left: 50px;
 }
 
 .content section {
@@ -46,6 +48,13 @@ header h1 {
     font-size: 2rem;
     color: rgba(255, 255, 255, 0.8);
     margin-bottom: 1rem;
+    border-radius: 50%;
+    background-color: #000; 
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .form {
@@ -54,7 +63,6 @@ header h1 {
     align-items: center;
     min-height: 80vh;
     margin-left: 200px;
-    
     padding-left: 150px;
     padding-right: 150px;
     padding-top: 80px;
@@ -63,11 +71,22 @@ header h1 {
 
 .form .contact-form {
     text-align: center;
+    display: flex;
+    flex-wrap: wrap;
 }
+.input-wrapper {
+    flex: 1; 
+    margin-right: 10px; 
+}
+
+.input-wrapper input {
+    width: 100%; 
+}
+
 
 .form .contact-form input,
 .form .contact-form textarea {
-    width: 100%;
+    width: 400px;
     padding: 0.5rem;
     margin: 0.5rem;
     background-color: rgba(0, 0, 0, 0.5);
@@ -76,14 +95,14 @@ header h1 {
     color: #fff;
     font-size: 1rem;
     outline: none;
-    min-width: 300px; /* Minimum genişlik */
-    max-width: 500px; /* Maksimum genişlik */
+    min-width: 400px;
+    max-width: 600px;
 }
+
 
 .form .contact-form textarea {
-    height: 200px; /* Yüksekliği 200 piksel olarak ayarla */
+    height: 200px;
 }
-
 
 .form .contact-form input:focus,
 .form .contact-form textarea:focus {
@@ -113,16 +132,58 @@ header h1 {
 .media {
     position: absolute;
     top: 90vh;
-    right:37vh;
+    right: 37vh;
     display: flex;
     list-style: none;
 }
+.content-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
 
+.contact-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.contact-info .icon-background {
+    margin-right: 20px;
+}
+
+
+.media ul.list-inline li {
+    margin-right: 5px;
+    margin-left: 15px;
+}
+.icon-background {
+    margin: 10px 20px;
+    font-size: 15px; 
+    border-radius: 50%;
+    background-color: #fff;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
 .media ul {
     display: flex;
+    margin-right: -95px;
+    margin-top: -20px;
 }
 
 .media li {
     margin: 20px 30px;
     font-size: 24px; 
+    border-radius: 50%;
+    background-color: #fff;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
 }
