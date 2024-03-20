@@ -60,9 +60,6 @@ const UserPage = () => {
                 <div className="col">
                     <ProfileCard user={user} />
                 </div>
-                <div className="col">
-                    <button className="btn btn-primary">İlan Aç</button>
-                </div>
             </div>
 
         </div>

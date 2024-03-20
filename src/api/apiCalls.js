@@ -25,3 +25,7 @@ export const setAuthorizationHeader = (userData) => {
         delete axios.defaults.headers['Authorization'];
     }
 };
+
+export const updateUser = (body) => {
+    return axios.put("/api/v1/User", body);
+}

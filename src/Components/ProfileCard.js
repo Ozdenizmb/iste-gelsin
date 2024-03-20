@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import ProfileImage from './ProfileImage';
 import { useTranslation } from 'react-i18next';
 import Input from './Input';
-//import { updateUser } from '../api/apiCalls';
+import { updateUser } from '../api/apiCalls';
 //import { useApiProgress } from '../shared/ApiProgress';
 import { updateSuccess } from '../redux/authActions';
 import { faEdit, faSave, faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -13,7 +13,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const ProfileCard = (props) => {
 
     const [inEditMode, setInEditMode] = useState(false);
-    const [updatedDisplayName, setUpdatedDisplayName] = useState();
+    const [updatedName, setUpdatedName] = useState();
+    const [updatedSurname, setUpdatedSurname] = useState();
+    const [updatedPassword, setUpdatedPassword] = useState();
+    const [updatedGsm, setUpdatedGsm] = useState();
+    const [updatedGenderType, setUpdatedGenderType] = useState();
+    const [updatedBirthDay, setUpdatedBirthDay] = useState();
     const { email, name, surname } = useSelector((store) => ({
         email: store.email,
         name: store.name,
@@ -39,9 +44,34 @@ const ProfileCard = (props) => {
 
         const errorCopy = {... error};
 
-        if(name == 'changeDisplayName') {
-            setUpdatedDisplayName(value);
-            errorCopy['displayName'] = undefined;
+        if(name == 'changeName') {
+            setUpdatedName(value);
+            errorCopy['name'] = undefined;
+        }
+        if(name == 'changeSurname') {
+            setUpdatedSurname(value);
+            errorCopy['surname'] = undefined;
+        }
+        if(name == 'changePassword') {
+            setUpdatedPassword(value);
+            errorCopy['password'] = undefined;
+        }
+        if(name == 'changeGsm') {
+            setUpdatedGsm(value);
+            errorCopy['gsm'] = undefined;
+        }
+        if(name == 'changeGenderType') {
+            if(value == 'male') {
+                setUpdatedGenderType(0);
+            }
+            else {
+                setUpdatedGenderType(1);
+            }
+            errorCopy['genderType'] = undefined;
+        }
+        if(name == 'changeBirthDay') {
+            setUpdatedBirthDay(value)
+            errorCopy['birthday'] = undefined;
         }
 
         setError(errorCopy);
@@ -49,7 +79,13 @@ const ProfileCard = (props) => {
 
     const onClickEdit = () => {
         setInEditMode(true);
-        setUpdatedDisplayName(user.displayName);
+        setUpdatedName(user.name);
+        setUpdatedSurname(user.surname);
+        setUpdatedPassword(user.password);
+        setUpdatedGsm(user.gsm);
+        setUpdatedGenderType(user.genderType);
+        setUpdatedBirthDay(user.birthday);
+        console.log(user)
     }
 
     const onClickSave = async () => {
@@ -60,15 +96,33 @@ const ProfileCard = (props) => {
         }
 
         const body = {
-            displayName : updatedDisplayName,
-            image : image
+            userId : user.userId,
+            idNo : user.idNo,
+            username : user.username,
+            password : updatedPassword,
+            name : updatedName,
+            surname : updatedSurname,
+            gsm : updatedGsm,
+            email : user.email,
+            genderType : updatedGenderType,
+            countryId : user.countryId,
+            cityId : user.cityId,
+            districtId : user.districtId,
+            streetId : user.streetId,
+            logoPath : image,
+            iban : user.iban,
+            bankAccountCode : user.bankAccountCode,
+            workingWithBankId : user.workingWithBankId,
+            isActive : user.isActive,
+            createdAt : user.createdAt,
+            birthday : updatedBirthDay,
         }
-
+        console.log(body);
         try {
-            //const response = await updateUser(user.username, body);
-            //setUser(response.data);
+            const response = await updateUser(body);
+            setUser(response.data);
             setInEditMode(false);
-            //dispatch(updateSuccess(response.data));
+            dispatch(updateSuccess(response.data));
         }
         catch(error) {
             setError(error.response.data.validationErrors);
@@ -77,7 +131,12 @@ const ProfileCard = (props) => {
 
     const onClickClose = () => {
         setInEditMode(false);
-        setUpdatedDisplayName(undefined);
+        setUpdatedName(undefined);
+        setUpdatedSurname(undefined);
+        setUpdatedPassword(undefined);
+        setUpdatedGsm(undefined);
+        setUpdatedGenderType(undefined);
+        setUpdatedBirthDay(undefined);
         setNewImage(undefined);
     }
 
@@ -113,7 +172,6 @@ const ProfileCard = (props) => {
                     (
                     <div>
                         <h3>
-                            {/*{user.displayName}@{user.username}*/}
                             {user.name} {user.surname}
                         </h3>
                         {editable && <button className="btn btn-success d-inline-flex" onClick={onClickEdit}>
@@ -127,7 +185,25 @@ const ProfileCard = (props) => {
                     (
                         <div>
 
-                            <Input name="changeDisplayName" label={t("Change Display Name")} type="text" onChangeVeriables={onChange} defaultValue={user.displayName} error={error.displayName}/>
+                            <Input name="changeName" label="Change Name" type="text" onChangeVeriables={onChange} defaultValue={user.name} error={error.name}/>
+
+                            <Input name="changeSurname" label="Change Surname" onChangeVeriables={onChange} defaultValue={user.surname} error={error.surname} />
+
+                            <Input name="changePassword" label="Change Password" onChangeVeriables={onChange} defaultValue={user.password} error={error.password} type="password" />
+
+                            <Input name="changeGsm" label="Change Phone Number" onChangeVeriables={onChange} error={error.gsm} />
+
+                            <div className="mb-3">
+                                <label className="form-label me-4">Change Gender Type:</label>
+
+                                <input type="radio" name="changeGenderType" value="male" checked={updatedGenderType === 0} onChange={onChange} className="form-check-input" id="maleRadio"/>
+                                <label className="form-check-label ms-1 me-3" htmlFor="maleRadio">Erkek</label>
+
+                                <input type="radio" name="changeGenderType" value="female" checked={updatedGenderType === 1} onChange={onChange} className="form-check-input" id="femaleRadio"/>
+                                <label className="form-check-label ms-1 me-3" htmlFor="femaleRadio">Kadın</label>
+                            </div>
+
+                            <Input name="changeBirthDay" label="Change Birth Day" onChangeVeriables={onChange} defaultValue={user.birthday} error={error.birthday} type="date"/>
 
                             <Input type="file" onChangeVeriables={onChangeFile} error={error.image}/>
                             
