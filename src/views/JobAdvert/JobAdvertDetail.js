@@ -1,6 +1,7 @@
 import React from 'react';
 import Advert from '../../Components/Advert';
 import jobs from '../../Components/Silinecek';
+import './JobAdvert.css';
 
 const JobAdvertDetail = ({ match }) => {
     // URL'den gelen iş ilanı ID'sini alıyoruz

@@ -8,7 +8,7 @@ import Footer from '../../Components/Footer';
 
 const ContactPage = () => {
     return (
-        <div className="container">
+        <div className="container contact-background">
             <header>
                 <h1>Contact Us</h1>
             </header>
