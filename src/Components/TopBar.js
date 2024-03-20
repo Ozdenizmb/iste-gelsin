@@ -103,7 +103,7 @@ const TopBar = () => {
 
                     <div className="d-flex" style={{cursor: 'pointer'}} onClick={onClickDropDown}>
                         <ProfileImage user={user} width={"32"} height={"32"} imageCss="m-auto" />
-                        <span className="nav-link dropdown-toggle">{name}</span>
+                        <span className="nav-link dropdown-toggle"></span>
                     </div>
 
                     <div className={dropdownClass}>

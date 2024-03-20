@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import ProfileImage from './ProfileImage';
 import { useTranslation } from 'react-i18next';
 import Input from './Input';
-import { updateUser } from '../api/apiCalls';
+import { updateUser, getUser } from '../api/apiCalls';
 //import { useApiProgress } from '../shared/ApiProgress';
 import { updateSuccess } from '../redux/authActions';
 import { faEdit, faSave, faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -19,10 +19,13 @@ const ProfileCard = (props) => {
     const [updatedGsm, setUpdatedGsm] = useState();
     const [updatedGenderType, setUpdatedGenderType] = useState();
     const [updatedBirthDay, setUpdatedBirthDay] = useState();
-    const { email, name, surname } = useSelector((store) => ({
+    const [updatedBirthDayConvert, setUpdatedBirthDayConvert] = useState();
+    const [UpdatedLogoFile, setUpdatedLogoFile] = useState();
+    const { email, name, surname, password } = useSelector((store) => ({
         email: store.email,
         name: store.name,
-        surname: store.surname
+        surname: store.surname,
+        password: store.password
     }));
     const routeParams = useParams();
     const [user, setUser] = useState({});
@@ -85,7 +88,13 @@ const ProfileCard = (props) => {
         setUpdatedGsm(user.gsm);
         setUpdatedGenderType(user.genderType);
         setUpdatedBirthDay(user.birthday);
-        console.log(user)
+        let tentativeDate = new Date(user.birthday);
+        /*if(tentativeDate.toISOString().includes('T'))
+        {
+            tentativeDate.toISOString().split('T')[0];
+        }*/
+        setUpdatedBirthDayConvert(tentativeDate.toISOString().split('T')[0]);
+        console.log(updatedBirthDayConvert);
     }
 
     const onClickSave = async () => {
@@ -95,35 +104,35 @@ const ProfileCard = (props) => {
             image = newImage.split(',')[1]
         }
 
-        const body = {
-            userId : user.userId,
-            idNo : user.idNo,
-            username : user.username,
-            password : updatedPassword,
-            name : updatedName,
-            surname : updatedSurname,
-            gsm : updatedGsm,
-            email : user.email,
-            genderType : updatedGenderType,
-            countryId : user.countryId,
-            cityId : user.cityId,
-            districtId : user.districtId,
-            streetId : user.streetId,
-            logoPath : image,
-            iban : user.iban,
-            bankAccountCode : user.bankAccountCode,
-            workingWithBankId : user.workingWithBankId,
-            isActive : user.isActive,
-            createdAt : user.createdAt,
-            birthday : updatedBirthDay,
-            logoFile : image
-        }
-        console.log(body);
+        const formData = new FormData();
+        formData.append('userId', user.userId);
+        formData.append('idNo', user.idNo);
+        formData.append('username', user.username);
+        formData.append('password', updatedPassword);
+        formData.append('name', updatedName);
+        formData.append('surname', updatedSurname);
+        formData.append('gsm', updatedGsm);
+        formData.append('email', user.email);
+        formData.append('genderType', updatedGenderType);
+        formData.append('countryId', user.countryId);
+        formData.append('cityId', user.cityId);
+        formData.append('districtId', user.districtId);
+        formData.append('streetId', user.streetId);
+        formData.append('logoPath', image);
+        formData.append('iban', user.iban);
+        formData.append('bankAccountCode', user.bankAccountCode);
+        formData.append('workingWithBankId', user.workingWithBankId);
+        formData.append('isActive', user.isActive);
+        formData.append('createdAt', user.createdAt);
+        formData.append('birthday', updatedBirthDay);
+        formData.append('logoFile', UpdatedLogoFile);
+
         try {
-            const response = await updateUser(body);
-            setUser(response.data);
+            await updateUser(formData);
+            const response = await getUser();
+            setUser(response.data.data);
             setInEditMode(false);
-            dispatch(updateSuccess(response.data));
+            dispatch(updateSuccess(response.data.data));
         }
         catch(error) {
             setError(error.response.data.validationErrors);
@@ -139,6 +148,7 @@ const ProfileCard = (props) => {
         setUpdatedGenderType(undefined);
         setUpdatedBirthDay(undefined);
         setNewImage(undefined);
+        setUpdatedLogoFile(null);
     }
 
     const onChangeFile = (event) => {
@@ -147,6 +157,7 @@ const ProfileCard = (props) => {
         }
         
         const file = event.target.files[0];
+        setUpdatedLogoFile(event.target.files[0]);
 
         const fileReader = new FileReader();
         fileReader.onloadend = () => {
@@ -192,7 +203,7 @@ const ProfileCard = (props) => {
 
                             <Input name="changePassword" label="Change Password" onChangeVeriables={onChange} defaultValue={user.password} error={error.password} type="password" />
 
-                            <Input name="changeGsm" label="Change Phone Number" onChangeVeriables={onChange} error={error.gsm} />
+                            <Input name="changeGsm" label="Change Phone Number" onChangeVeriables={onChange} defaultValue={user.gsm} error={error.gsm} />
 
                             <div className="mb-3">
                                 <label className="form-label me-4">Change Gender Type:</label>
@@ -204,7 +215,7 @@ const ProfileCard = (props) => {
                                 <label className="form-check-label ms-1 me-3" htmlFor="femaleRadio">Kadın</label>
                             </div>
 
-                            <Input name="changeBirthDay" label="Change Birth Day" onChangeVeriables={onChange} defaultValue={user.birthday} error={error.birthday} type="date"/>
+                            <Input name="changeBirthDay" label="Change Birth Day" onChangeVeriables={onChange} defaultValue={updatedBirthDayConvert} error={error.birthday} type="date"/>
 
                             <Input type="file" onChangeVeriables={onChangeFile} error={error.image}/>
                             
