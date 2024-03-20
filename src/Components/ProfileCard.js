@@ -116,6 +116,7 @@ const ProfileCard = (props) => {
             isActive : user.isActive,
             createdAt : user.createdAt,
             birthday : updatedBirthDay,
+            logoFile : image
         }
         console.log(body);
         try {
