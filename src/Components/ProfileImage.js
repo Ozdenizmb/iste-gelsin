@@ -5,7 +5,7 @@ const ProfileImage = ({ user, width, height, tempImage, imageCss }) => {
 
     let imageSource = defaultImage;
     if(user.image) {
-        imageSource ='images/' + user.image;
+        imageSource ='https://cdn.colaksoft.online/' + user.image;
     }
 
     const onErrorImage = (event) => {

@@ -21,17 +21,22 @@ const ProfileCard = (props) => {
     const [updatedBirthDay, setUpdatedBirthDay] = useState();
     const [updatedBirthDayConvert, setUpdatedBirthDayConvert] = useState();
     const [UpdatedLogoFile, setUpdatedLogoFile] = useState();
-    const { email, name, surname, password } = useSelector((store) => ({
+    const { email, name, surname, password, logoPath } = useSelector((store) => ({
         email: store.email,
         name: store.name,
         surname: store.surname,
-        password: store.password
+        password: store.password,
+        logoPath: store.logoPath
     }));
     const routeParams = useParams();
     const [user, setUser] = useState({});
     const [newImage, setNewImage] = useState();
     const [error, setError] = useState({});
     const dispatch = useDispatch();
+
+    const userForImage = {
+        image : logoPath
+    };
 
     useEffect(() => {
         setUser(props.user);
@@ -177,7 +182,7 @@ const ProfileCard = (props) => {
     return (
         <div className="card text-center">
             <div className="card-header">
-                <ProfileImage user={user} width={"200"} height={"200"} tempImage={newImage} imageCss="shadow" />
+                <ProfileImage user={userForImage} width={"200"} height={"200"} tempImage={newImage} imageCss="shadow" />
             </div>
             <div className="card-body">
                 {!inEditMode &&
