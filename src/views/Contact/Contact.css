@@ -44,7 +44,7 @@ header h1 {
     color: rgba(255, 255, 255, 0.8);
     margin-bottom: 1rem;
     border-radius: 50%;
-    background-color: #000; /* Change background color to black */
+    background-color: #000; 
     width: 60px;
     height: 60px;
     display: flex;
@@ -65,7 +65,7 @@ header h1 {
 }
 
 .input-wrapper input {
-    width: 100%; /* Metin kutularını tam genişlikte yapar */
+    width: 100%; 
 }
 
 .form .contact-form input,

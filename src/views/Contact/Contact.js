@@ -50,39 +50,36 @@ const ContactPage = () => {
                             </section>
                         </div>
                     </div>
-                    <div className='col-md-4'></div>
-                    <div className="col-md-4">
-                        <form className="form d-flex flex-column align-items-center">
-                            <div className="contact-form">
-                                <div className="input-wrapper mb-3">
-                                    <input type="text" className="form-control" placeholder="Adınız" required />
-                                </div>
-                                <div className="input-wrapper mb-3">
-                                    <input type="email" className="form-control" placeholder="E-mail" required />
-                                </div>
-                                <div className="message-wrapper mb-3">
-                                    <textarea className="form-control" placeholder="Mesajınızı Yazınız...." required></textarea>
-                                </div>
-                                <div className="button-wrapper">
-                                    <input type="submit" name="submit" className="btn btn-primary" value="Gönder" />
-                                </div>
+                    <div className="col-md-8">
+                        <form className="form d-flex flex-column align-items-center offset-md-2">
+                            <div className="input-wrapper mb-3 d-flex">
+                                <input type="text" className="form-control me-2" placeholder="Adınız" required />
+                                <input type="email" className="form-control" placeholder="E-mail" required />
                             </div>
-                            <div className="text-center mb-0">
-                                <ul className="list-inline mb-1">
-                                    <li className="list-inline-item"><FontAwesomeIcon icon={faFacebookSquare} size="2x" /></li>
-                                    <li className="list-inline-item"><FontAwesomeIcon icon={faInstagram} size="2x" /></li>
-                                    <li className="list-inline-item"><FontAwesomeIcon icon={faWhatsapp} size="2x" /></li>
+                            <div className="input-wrapper mb-3 d-flex">
+                                <input type="text" className="form-control" placeholder="Konu" style={{width:'413px'}} required />
+                            </div>
+                            <div className="input-wrapper mb-3 d-flex">
+                                <textarea className="form-control col" style={{ width: '413px', height:"250px" }} placeholder="Mesajınızı Yazınız...." required></textarea>
+                            </div>
+                            <div className="button-wrapper mt-3" >
+                                <input type="submit" name="submit" className="btn btn-primary" value="Gönder" style= {{width:'413px'}} />
+                            </div>
+                            <div className="text-center mt-3">
+                                <ul className="list-inline mb-0">
+                                    <li className="list-inline-item me-3"><FontAwesomeIcon icon={faFacebookSquare} size="2x" /></li>
+                                    <li className="list-inline-item me-3"><FontAwesomeIcon icon={faInstagram} size="2x" /></li>
+                                    <li className="list-inline-item me-3"><FontAwesomeIcon icon={faWhatsapp} size="2x" /></li>
                                     <li className="list-inline-item"><FontAwesomeIcon icon={faTwitterSquare} size="2x" /></li>
                                 </ul>
                             </div>
-                            </form>
-
+                        </form>
                     </div>
                 </div>
-
             </div>
             <Footer />
         </div>
     );
 }
+
 export default ContactPage;
