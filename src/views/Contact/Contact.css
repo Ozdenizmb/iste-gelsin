@@ -6,7 +6,6 @@
     border: none;
     margin-left: 150px;
 }
-
 #contact {
     background-image: url('../../images/chairs-tables.jpg');
     width: 100%;
@@ -18,7 +17,6 @@
     text-align: right;
     padding-top: 2rem;
 }
-
 header h1 {
     font-size: 2rem; 
     font-family: 'Poppins', sans-serif; 
@@ -27,11 +25,9 @@ header h1 {
     text-align: center;
     margin-right: 150px;
 }
-
 .content-form {
     text-align: left; 
 }
-
 .content {
     display: flex;
     justify-content: center;
@@ -39,12 +35,10 @@ header h1 {
     min-height: 80vh;
     margin-left: 50px;
 }
-
 .content section {
     text-align: center;
     margin: 2rem;
 }
-
 .section-icon {
     font-size: 2rem;
     color: rgba(255, 255, 255, 0.8);
@@ -57,7 +51,6 @@ header h1 {
     justify-content: center;
     align-items: center;
 }
-
 .form {
     display: flex;
     justify-content: center;
@@ -75,7 +68,6 @@ header h1 {
     width: 100%; /* Metin kutularını tam genişlikte yapar */
 }
 
-
 .form .contact-form input,
 .form .contact-form textarea {
     padding: 0.5rem;
@@ -89,21 +81,17 @@ header h1 {
     width: 400px;
 }
 
-
 .form .contact-form textarea {
     height: 200px;
 }
-
 .form .contact-form input:focus,
 .form .contact-form textarea:focus {
     border-bottom: 2px solid dodgerblue;
 }
-
 .form .contact-form input::placeholder,
 .form .contact-form textarea::placeholder {
     color: rgba(255, 255, 255, 0.7);
 }
-
 .form .contact-form button {
     padding: 0.5rem 1rem;
     background-color: dodgerblue;
@@ -114,11 +102,9 @@ header h1 {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-
 .form .contact-form button:hover {
     background-color: #007bff;
 }
-
 .media {
     position: absolute;
     top: 90vh;
@@ -131,22 +117,19 @@ header h1 {
     flex-direction: column;
     margin-bottom: 30px;
 }
-
 .contact-info {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
 }
-
 .contact-info .icon-background {
     margin-right: 20px;
 }
-
-
 .media ul.list-inline li {
     margin-right: 5px;
     margin-left: 15px;
 }
+
 .icon-background {
     margin: 10px 20px;
     font-size: 15px; 
@@ -164,7 +147,6 @@ header h1 {
     margin-right: -95px;
     margin-top: -20px;
 }
-
 .media li {
     margin: 20px 30px;
     font-size: 24px; 
@@ -191,18 +173,15 @@ header h1 {
     #contact {
         height: auto;
     }
-
     #contact header h1 {
         font-size: 1.5rem;
         margin-right: 0;
     }
-
     .content,
     .form {
         margin-left: 0;
         padding: 0 15px;
     }
-
     .input-wrapper input,
     .form .contact-form textarea {
         width: 100%;
