@@ -38,7 +38,7 @@ const ContactPage = () => {
                                 <p>123-456-78901548</p>
                             </div>
                         </section>
-                        <section className="contact-info d-flex align-items-center mb-4">
+                        <section className="contact-info d-flex align-items-center mb-4 " >
                             <div className="icon-background bg-dark text-white">
                                 <FontAwesomeIcon icon={faEnvelope} size="2x" />
                             </div>
@@ -49,13 +49,13 @@ const ContactPage = () => {
                         </section>
                     </div>
                 </div>
-                <div className="col-md-4">
+                <div className="col-md-4 col-sm-12">
                     <form className="form">
                         <div className="contact-form">
                             <div className="input-wrapper mb-3">
                                 <input type="text" className="form-control" placeholder="Adınız" required />
                             </div>
-                            <div className="input-wrapper mb-3">
+                            <div className="input-wrapper mb-3"> 
                                 <input type="email" className="form-control" placeholder="E-mail" required />
                             </div>
                             <div className="message-wrapper mb-3">
