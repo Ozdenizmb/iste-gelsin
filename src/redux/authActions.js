@@ -1,4 +1,4 @@
-import { signUpUser, loginUser } from "../api/apiCalls";
+import { signUpUser, loginUser, signUpCompany, loginCompany } from "../api/apiCalls";
 
 export const logoutSuccess = () => {
     return {
@@ -27,17 +27,15 @@ export const updateSuccess = ({ name, surname, logoPath }) => {
 
 export const loginUserHandler = (creds) => {
     return async function(dispatch) {
-        console.log(creds);
         const response = await loginUser(creds);
 
         const loginState = {
             email : creds.email,
-            name : response.data.name,
-            surname : response.data.surname,
+            name : response.data.data.name,
+            surname : response.data.data.surname,
             password : creds.password,
-            logoPath : response.data.logoPath
-        }
-                
+            logoPath : response.data.data.logoPath
+        }     
         dispatch(loginSuccess(loginState));
 
         return response;
@@ -48,7 +46,18 @@ export const signUpUserHandler = (user) => {
     return async function(dispatch) {
         const response = await signUpUser(user);
         //await dispatch(loginUserHandler(user));
-        console.log(response);
         return response
+    }
+}
+
+export const loginCompanyHandler = (creds) => {
+
+}
+
+export const signUpCompanyHandler = (company) => {
+    return async function() {
+        const response = await signUpCompany(company);
+        console.log(response);
+        return response;
     }
 }

@@ -9,8 +9,21 @@ export const loginUser = creds => {
     return axios.get(`/api/v1/User/Login?email=${email}&password=${password}`);
 }
 
-export const getUser = (creds) => {
-    return axios.get("/api/v1/User", {}, {auth : creds});
+export const getUser = () => {
+    return axios.get("/api/v1/User");
+}
+
+export const signUpCompany = body => {
+    return axios.post("/api/v1/Company", body);
+}
+
+export const loginCompany = creds => {
+    const { email, password } = creds;
+    return axios.get(`/api/v1/Company/Login?email=${email}&password=${password}`);
+}
+
+export const getCompany = () => {
+    return axios.get("/api/v1/Company");
 }
 
 export const setAuthorizationHeader = (userData) => {

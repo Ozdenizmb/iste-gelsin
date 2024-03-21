@@ -15,18 +15,6 @@ const HomePage = () => {
 
     const dispatch = useDispatch();
 
-    const onClickProduct1 = async (event) => {
-        event.preventDefault();
-        try {
-            //await dispatch(getProduct1Handler());
-
-            window.scrollTo(0, 0);
-        }
-        catch (apiError) {
-            console.log("Error: ");
-        }
-    }
-
     return (
         <div>
             <div className="container my-4">
@@ -46,7 +34,7 @@ const HomePage = () => {
                             </div>
                         </div>
                         <div className="col-md-3">
-                            <button className="btn btn-primary btn-lg" style={{ height: '4rem', fontSize: "1rem" , backgroundColor:  'green'}}onClick={onClickProduct1}>İŞTE GELSİN</button>
+                            <button className="btn btn-primary btn-lg" style={{ height: '4rem', fontSize: "1rem" , backgroundColor:  'green'}}>İŞTE GELSİN</button>
 
                         </div>
                     </div>
