@@ -1,3 +1,4 @@
+
 #contact .container {
     color: #fff;
     box-sizing: border-box;
@@ -49,7 +50,7 @@ header h1 {
     color: rgba(255, 255, 255, 0.8);
     margin-bottom: 1rem;
     border-radius: 50%;
-    background-color: #000; 
+    background-color: #000; /* Change background color to black */
     width: 60px;
     height: 60px;
     display: flex;
@@ -75,12 +76,12 @@ header h1 {
     flex-wrap: wrap;
 }
 .input-wrapper {
-    flex: 1; 
-    margin-right: 10px; 
+    flex: 1; /* Metin kutularını eşit genişlikte yapar */
+    margin-right: 10px; /* Metin kutuları arasında boşluk bırakır */
 }
 
 .input-wrapper input {
-    width: 100%; 
+    width: 100%; /* Metin kutularını tam genişlikte yapar */
 }
 
 
@@ -186,4 +187,38 @@ header h1 {
     justify-content: center;
     align-items: center;
     color: black;
+}
+@media (max-width: 768px) {
+    #contact {
+        height: auto;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+        margin-right: 0;
+    }
+
+    .content,
+    .form {
+        margin-left: 0;
+        padding: 0 15px;
+    }
+
+    .input-wrapper input,
+    .form .contact-form textarea {
+        width: 100%;
+        min-width: unset;
+        max-width: unset;
+    }
+
+    .media {
+        position: static;
+        top: unset;
+        right: unset;
+        justify-content: center;
+        margin-top: 30px;
+    }
+    .title-wrapper {
+        margin-bottom: 20px;
+    }
 }

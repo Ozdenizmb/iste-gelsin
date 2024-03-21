@@ -7,15 +7,17 @@ import Footer from '../../Components/Footer';
 
 const ContactPage = () => {
     return (
-        <div id='contact'>
-            <div className="container" >
-                <header>
+        <div id='contact' className="container-fluid">
+            <header className="text-center mb-5">
+                <div className="title-wrapper">
                     <h1>BİZE ULAŞIN</h1>
-                </header>
-                <div className="content">
-                    <div className="content-form" >
-                        <section className="contact-info">
-                            <div className="icon-background">
+                </div>
+            </header>
+            <div className="row justify-content-center align-items-center">
+                <div className="col-md-4">
+                    <div className="content-form">
+                        <section className="contact-info d-flex align-items-center mb-4">
+                            <div className="icon-background bg-dark text-white">
                                 <FontAwesomeIcon icon={faMapMarker} size="2x" />
                             </div>
                             <div>
@@ -27,8 +29,8 @@ const ContactPage = () => {
                                 </p>
                             </div>
                         </section>
-                        <section className="contact-info">
-                            <div className="icon-background">
+                        <section className="contact-info d-flex align-items-center mb-4">
+                            <div className="icon-background bg-dark text-white">
                                 <FontAwesomeIcon icon={faPhone} size="2x" />
                             </div>
                             <div>
@@ -36,8 +38,8 @@ const ContactPage = () => {
                                 <p>123-456-78901548</p>
                             </div>
                         </section>
-                        <section className="contact-info">
-                            <div className="icon-background">
+                        <section className="contact-info d-flex align-items-center mb-4">
+                            <div className="icon-background bg-dark text-white">
                                 <FontAwesomeIcon icon={faEnvelope} size="2x" />
                             </div>
                             <div>
@@ -45,39 +47,38 @@ const ContactPage = () => {
                                 <p>istegelsin@temporary.net</p>
                             </div>
                         </section>
-
                     </div>
-                    <form>
-                        <div className="form">
-                            <div className="contact-form">
-                                <div className="input-wrapper">
-                                    <input type="text" placeholder="Adınız" required />
-                                    <input type="email" placeholder="E-mail" required />
-                                </div>
-                                <div className="message-wrapper">
-                                    <textarea placeholder="Mesajınızı Yazınız...." required></textarea>
-                                </div>
-                                <div className="button-wrapper">
-                                    <input type="submit" name="submit" />
-                                </div>
+                </div>
+                <div className="col-md-4">
+                    <form className="form">
+                        <div className="contact-form">
+                            <div className="input-wrapper mb-3">
+                                <input type="text" className="form-control" placeholder="Adınız" required />
+                            </div>
+                            <div className="input-wrapper mb-3">
+                                <input type="email" className="form-control" placeholder="E-mail" required />
+                            </div>
+                            <div className="message-wrapper mb-3">
+                                <textarea className="form-control" placeholder="Mesajınızı Yazınız...." required></textarea>
+                            </div>
+                            <div className="button-wrapper">
+                                <input type="submit" name="submit" className="btn btn-primary" value="Gönder" />
                             </div>
                         </div>
                     </form>
+                    <div className="text-center mb-0">
+                        <ul className="list-inline mb-1">
+                            <li className="list-inline-item"><FontAwesomeIcon icon={faFacebookSquare} size="2x" /></li>
+                            <li className="list-inline-item"><FontAwesomeIcon icon={faInstagram} size="2x" /></li>
+                            <li className="list-inline-item"><FontAwesomeIcon icon={faWhatsapp} size="2x" /></li>
+                            <li className="list-inline-item"><FontAwesomeIcon icon={faTwitterSquare} size="2x" /></li>
+                        </ul>
                     </div>
-
-                        <div className="media">
-                            <ul className="list-inline ">
-                                <li><FontAwesomeIcon icon={faFacebookSquare} size="2x" /></li>
-                                <li><FontAwesomeIcon icon={faInstagram} size="2x" /></li>
-                                <li><FontAwesomeIcon icon={faWhatsapp} size="2x" /></li>
-                                <li><FontAwesomeIcon icon={faTwitterSquare} size="2x" /></li>
-                            </ul>
-                        </div>
-                        <div className="empty"></div>
                 </div>
-                <Footer />
             </div>
-            );
+            <Footer />
+        </div>
+    );
 }
 
-            export default ContactPage;
+export default ContactPage;
