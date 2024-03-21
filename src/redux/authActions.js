@@ -6,22 +6,29 @@ export const logoutSuccess = () => {
     };
 }
 
-export const loginSuccess = (loginData) => {
+export const loginUserSuccess = (loginData) => {
     return {
-        type : 'login-success',
+        type : 'login-user-success',
         data : loginData
 
     }
 }
 
-export const updateSuccess = ({ name, surname, logoPath }) => {
+export const updateUserSuccess = ({ name, surname, logoPath }) => {
     return {
-        type : 'update-success',
+        type : 'update-user-success',
         data : {
             name,
             surname,
             logoPath
         }
+    }
+}
+
+export const loginCompanySuccess = (loginData) => {
+    return {
+        type : 'login-company-success',
+        data : loginData
     }
 }
 
@@ -36,7 +43,7 @@ export const loginUserHandler = (creds) => {
             password : creds.password,
             logoPath : response.data.data.logoPath
         }     
-        dispatch(loginSuccess(loginState));
+        dispatch(loginUserSuccess(loginState));
 
         return response;
     }
@@ -51,7 +58,19 @@ export const signUpUserHandler = (user) => {
 }
 
 export const loginCompanyHandler = (creds) => {
+    return async function(dispatch) {
+        const response = await loginCompany(creds);
 
+        const loginState = {
+            email : creds.email,
+            name : response.data.data.companyName,
+            password : creds.password,
+            logoPath : response.data.data.logoPath
+        }
+        dispatch(loginCompanySuccess(loginState));
+
+        return response;
+    }
 }
 
 export const signUpCompanyHandler = (company) => {

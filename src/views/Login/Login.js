@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Login.css';
 import { useDispatch } from "react-redux";
-import { loginUserHandler } from '../../redux/authActions';
+import { loginUserHandler, loginCompanyHandler } from '../../redux/authActions';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faFacebookF, faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
@@ -42,6 +42,15 @@ const Login = (props) => {
 
     if(isSignUp) {
       console.log("İşveren Olarak Giriş Yapıldı.");
+
+      try {
+        const response = await dispatch(loginCompanyHandler(creds));
+        props.history.push("/");
+        console.log(response);
+      }
+      catch(apiError) {
+        
+      }
     }
     else {
       console.log("Kullanıcı Olarak Giriş Yapıldı.");

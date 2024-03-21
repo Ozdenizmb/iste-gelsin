@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import Input from './Input';
 import { updateUser, getUser } from '../api/apiCalls';
 //import { useApiProgress } from '../shared/ApiProgress';
-import { updateSuccess } from '../redux/authActions';
+import { updateUserSuccess } from '../redux/authActions';
 import { faEdit, faSave, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -137,7 +137,7 @@ const ProfileCard = (props) => {
             const response = await getUser();
             setUser(response.data.data);
             setInEditMode(false);
-            dispatch(updateSuccess(response.data.data));
+            dispatch(updateUserSuccess(response.data.data));
         }
         catch(error) {
             setError(error.response.data.validationErrors);
