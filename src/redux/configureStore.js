@@ -16,7 +16,8 @@ const configureStore = () => {
         name : undefined,
         surname : undefined,
         logoPath : undefined,
-        password : undefined
+        password : undefined,
+        statuses: undefined
     }
 
     if(hoaxProfile) {
