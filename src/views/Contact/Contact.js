@@ -8,21 +8,21 @@ import Footer from '../../Components/Footer';
 const ContactPage = () => {
     return (
         <div id='contact' className="container-fluid row justify-content-center align-items-center">
-            <header className="text-center mb-5 col-md-12 ">
+            <header className="text-center mb-2 mt-5  col-md-12 ">
                 <div className="title-wrapper">
-                    <h1>BİZE ULAŞIN</h1>
+                    <h1 className="custom-title">BİZE ULAŞIN</h1> 
                 </div>
             </header>
             <div className="col-md-12">
                 <div className="row d-flex justify-content-center align-items-center offset-md-2">
-                    <div className="col-md-4">
-                        <div className="content-form ps-5">
-                            <section className="contact-info d-flex align-items-center mb-4 text-white">
+                    <div className="col-md-4 ">
+                        <div className="content-form ps-5 ">
+                            <section className="contact-info d-flex align-items-center mb-4 text-white ">
                                 <div className="icon-background bg-dark text-white">
                                     <FontAwesomeIcon icon={faMapMarker} size="2x" />
                                 </div>
                                 <div>
-                                    <h2>Adres</h2>
+                                    <h2 className='custom-title2'>Adres</h2>
                                     <p>
                                         Lorem ipsum dolor sit. <br />
                                         Lorem, ipsum dolor. <br />
@@ -35,7 +35,7 @@ const ContactPage = () => {
                                     <FontAwesomeIcon icon={faPhone} size="2x" />
                                 </div>
                                 <div>
-                                    <h2>Telefon</h2>
+                                    <h2 className='custom-title2'>Telefon</h2>
                                     <p>123-456-78901548</p>
                                 </div>
                             </section>
@@ -44,7 +44,7 @@ const ContactPage = () => {
                                     <FontAwesomeIcon icon={faEnvelope} size="2x" />
                                 </div>
                                 <div>
-                                    <h2>E-mail</h2>
+                                    <h2 className='custom-title2'>E-mail</h2>
                                     <p>istegelsin@temporary.net</p>
                                 </div>
                             </section>
@@ -52,18 +52,18 @@ const ContactPage = () => {
                     </div>
                     <div className="col-md-8">
                         <form className="form d-flex flex-column align-items-center offset-md-2 ">
-                            <div className="input-wrapper mb-4 d-flex">
-                                <input type="text" className="form-control me- bg-transparent border border-dark px-3" placeholder="Adınız" required />
-                                <input type="email" className="form-control bg-transparent border border-dark px-3" placeholder="E-mail" required />
+                            <div className="input-wrapper mb-2 d-flex">
+                                <input type="text" className="form-control me- bg-transparent border border-dark px-3 bg-gray" placeholder="Adınız" required />
+                                <input type="email" className="form-control bg-transparent border border-dark px-3 bg-gray" placeholder="E-mail" required />
                             </div>
 
-                            <div className="input-wrapper mb-3 d-flex">
-                                <input type="text" className="form-control bg-transparent border border-dark px-3" placeholder="Konu" required />
+                            <div className="input-wrapper mb-5 d-flex">
+                                <input type="text" className="form-control bg-transparent border border-dark px-3 bg-gray" placeholder="Konu" required />
                             </div>
-                            <div className="input-wrapper mb-3 d-flex">
-                                <textarea className="form-control col bg-transparent border border-dark px-3" placeholder="Mesajınızı Yazınız...." required></textarea>
+                            <div className="input-wrapper mb-5 d-flex">
+                                <textarea className="form-control col bg-transparent border border-dark px-3 bg-gray" placeholder="Mesajınızı Yazınız...." required></textarea>
                             </div>
-                            <div className="button-wrapper mt-3" >
+                            <div className="button-wrapper mt-5" >
                                 <input type="submit" name="submit" className="btn btn-primary" value="Gönder" />
                             </div>
                             <div className="text-center mt-3">

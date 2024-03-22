@@ -16,13 +16,17 @@
     text-align: right;
     padding-top: 2rem;
 }
-header h1 {
-    font-size: 2rem; 
-    font-family: 'Poppins', sans-serif; 
+.custom-title  {
+    font-size: 3rem; 
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
     font-weight: bold; 
     color: #ffffff; 
     text-align: center;
-    margin-right: 150px;
+    
+  
+}
+.custom-title2{
+    font-weight: bold; 
 }
 .content-form {
     text-align: left; 
@@ -65,7 +69,9 @@ header h1 {
 
 .input-wrapper input {
     width: 100%; 
+    background-color: #000;
 }
+
 
 .form .contact-form input,
 .form .contact-form textarea {
