@@ -7,10 +7,15 @@ import { useState } from 'react';
 import { getUser } from '../../api/apiCalls';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 //import { useApiProgress } from '../shared/ApiProgress';
 import Spinner from '../../Components/Spinner';
 
 const UserPage = () => {
+
+    const { statuses } = useSelector(store => ({
+        statuses: store.statuses,
+    }));
 
     const [user, setUser] = useState({});
     const [notFound, setNotFound] = useState(false);
@@ -62,7 +67,7 @@ const UserPage = () => {
         </div>
     )
 
-    if(statuses == "Company") {
+    if(statuses === "Company") {
         <div className='row'>
             <div className="col">
                 <CompanyProfileCard user={user}/>
