@@ -5,7 +5,7 @@ const defaultState = {
     surname: undefined,
     logoPath: undefined,
     password: undefined,
-    status: undefined 
+    statuses: undefined 
 }
 
 const authReducer = (state = { ...defaultState }, action) => {
@@ -16,7 +16,7 @@ const authReducer = (state = { ...defaultState }, action) => {
         return {
             ...action.data,
             isLoggedIn: true,
-            status: 'user' 
+            statuses: 'user' 
         };
     }
     else if (action.type === 'update-user-success') {
@@ -27,11 +27,11 @@ const authReducer = (state = { ...defaultState }, action) => {
             logoPath: action.data.logoPath
         }
     }
-    else if (action.type === 's') {
+    else if (action.type === 'login-company-success') {
         return {
             ...action.data,
             isLoggedIn: true,
-            status: 'company'
+            statuses: 'company'
         }
     }
     return state;

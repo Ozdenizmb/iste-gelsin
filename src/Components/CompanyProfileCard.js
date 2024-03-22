@@ -10,7 +10,7 @@ import { updateUserSuccess } from '../redux/authActions';
 import { faEdit, faSave, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const ProfileCard = (props) => {
+const UserProfileCard = (props) => {
 
     const [inEditMode, setInEditMode] = useState(false);
     const [updatedName, setUpdatedName] = useState();
@@ -250,4 +250,4 @@ const ProfileCard = (props) => {
 
 };
 
-export default ProfileCard;
+export default UserProfileCard;

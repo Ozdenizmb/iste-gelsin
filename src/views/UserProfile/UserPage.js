@@ -1,7 +1,8 @@
 import React from 'react';
 import { useTranslation } from "react-i18next";
 import i18n from "i18next";
-import ProfileCard from '../../Components/ProfileCard';
+import UserProfileCard from '../../Components/UserProfileCard';
+import CompanyProfileCard from '../../Components/CompanyProfileCard';
 import { useState } from 'react';
 import { getUser } from '../../api/apiCalls';
 import { useEffect } from 'react';
@@ -53,14 +54,26 @@ const UserPage = () => {
         );
     }
 
+    let links = (
+        <div className="row">
+            <div className="col">
+                <UserProfileCard user={user} />
+            </div>
+        </div>
+    )
+
+    if(statuses == "Company") {
+        <div className='row'>
+            <div className="col">
+                <CompanyProfileCard user={user}/>
+            </div>
+        </div>
+    }
+
     return (
         <div className="container">
 
-            <div className="row">
-                <div className="col">
-                    <ProfileCard user={user} />
-                </div>
-            </div>
+            {links}
 
         </div>
     );
