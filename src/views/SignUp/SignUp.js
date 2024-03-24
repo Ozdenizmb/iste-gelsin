@@ -44,7 +44,7 @@ const SignUp = (props) => {
           districtId: 0,
           streetId: 0,
           apartmentNumber: "string",
-          username: "string",
+          username: "string1",
           password
         }
 

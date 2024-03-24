@@ -23,7 +23,7 @@ export const loginCompany = creds => {
 }
 
 export const getCompany = () => {
-    return axios.get("/api/v1/Company");
+    return axios.get("/api/v1/Company", { headers: { company: true } });
 }
 
 export const setAuthorizationHeader = (userData) => {

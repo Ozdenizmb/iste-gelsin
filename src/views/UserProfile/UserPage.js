@@ -4,7 +4,7 @@ import i18n from "i18next";
 import UserProfileCard from '../../Components/UserProfileCard';
 import CompanyProfileCard from '../../Components/CompanyProfileCard';
 import { useState } from 'react';
-import { getUser } from '../../api/apiCalls';
+import { getUser, getCompany } from '../../api/apiCalls';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -31,7 +31,15 @@ const UserPage = () => {
 
     const loadUser = async () => {
         try {
-            const response = await getUser();
+            let response;
+
+            if(statuses === "company") {
+                response = await getCompany();
+            }
+            else {
+                response = await getUser();
+            }
+            console.log(response);
             setUser(response.data.data);
             setNotFound(false);
         }
@@ -67,12 +75,17 @@ const UserPage = () => {
         </div>
     )
 
-    if(statuses === "Company") {
-        <div className='row'>
-            <div className="col">
-                <CompanyProfileCard user={user}/>
+    if(statuses == "company") {
+        links = (
+            <div className='row'>
+                <div className="col">
+                    <CompanyProfileCard user={user}/>
+                </div>
+                <div className="col">
+                    <button className="btn">İlan Aç</button>
+                </div>
             </div>
-        </div>
+        )
     }
 
     return (

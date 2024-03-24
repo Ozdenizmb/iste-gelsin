@@ -10,7 +10,7 @@ import { updateUserSuccess } from '../redux/authActions';
 import { faEdit, faSave, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const UserProfileCard = (props) => {
+const CompanyProfileCard = (props) => {
 
     const [inEditMode, setInEditMode] = useState(false);
     const [updatedName, setUpdatedName] = useState();
@@ -40,6 +40,7 @@ const UserProfileCard = (props) => {
 
     useEffect(() => {
         setUser(props.user);
+        console.log(user);
     }, [props.user]);
 
     const pathEmail = routeParams.email;
@@ -189,7 +190,7 @@ const UserProfileCard = (props) => {
                     (
                     <div>
                         <h3>
-                            {user.name} {user.surname}
+                            {user.companyName}{email}
                         </h3>
                         {editable && <button className="btn btn-success d-inline-flex" onClick={onClickEdit}>
                             <FontAwesomeIcon icon={faEdit} className="pe-2 pt-1" />
@@ -250,4 +251,4 @@ const UserProfileCard = (props) => {
 
 };
 
-export default UserProfileCard;
+export default CompanyProfileCard;
