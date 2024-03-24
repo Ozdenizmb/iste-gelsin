@@ -10,11 +10,13 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 //import { useApiProgress } from '../shared/ApiProgress';
 import Spinner from '../../Components/Spinner';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import './UserPage.css';
 
 const UserPage = () => {
 
     const { statuses } = useSelector(store => ({
-        statuses: store.statuses,
+        statuses: store.statuses
     }));
 
     const [user, setUser] = useState({});
@@ -82,14 +84,31 @@ const UserPage = () => {
                     <CompanyProfileCard user={user}/>
                 </div>
                 <div className="col">
-                    <button className="btn">İlan Aç</button>
+                    <div className="card shadow p-4">
+                        <h2 className="text-center">İlan İşlemleri</h2>
+                        <hr></hr>
+                        <div>
+                            <Link to={`/procedures/${user.email}`} className="d-grid gap-2 mb-2">
+                                <button className="btn btn-primary">Görüntüle</button>
+                            </Link>
+                            <Link to={`/procedures/${user.email}`} className="d-grid gap-2 mb-2">
+                                <button className="btn btn-success">Ekle</button>
+                            </Link>
+                            <Link to={`/procedures/${user.email}`} className="d-grid gap-2 mb-2 profile-text-no-underline">
+                                <button className="btn btn-warning">Güncelle</button>
+                            </Link>
+                            <Link to={`/procedures/${user.email}`} className="d-grid gap-2 mb-2 profile-text-no-underline">
+                                <button className="btn btn-danger">Sil</button>
+                            </Link>
+                        </div>
+                    </div>
                 </div>
             </div>
         )
     }
 
     return (
-        <div className="container">
+        <div className="container mt-5 mb-5">
 
             {links}
 
