@@ -94,12 +94,7 @@ const UserProfileCard = (props) => {
         setUpdatedGenderType(user.genderType);
         setUpdatedBirthDay(user.birthday);
         let tentativeDate = new Date(user.birthday);
-        /*if(tentativeDate.toISOString().includes('T'))
-        {
-            tentativeDate.toISOString().split('T')[0];
-        }*/
         setUpdatedBirthDayConvert(tentativeDate.toISOString().split('T')[0]);
-        console.log(updatedBirthDayConvert);
     }
 
     const onClickSave = async () => {
@@ -123,7 +118,7 @@ const UserProfileCard = (props) => {
         formData.append('cityId', user.cityId);
         formData.append('districtId', user.districtId);
         formData.append('streetId', user.streetId);
-        formData.append('logoPath', image);
+        formData.append('logoPath', user.logoPath);
         formData.append('iban', user.iban);
         formData.append('bankAccountCode', user.bankAccountCode);
         formData.append('workingWithBankId', user.workingWithBankId);
@@ -208,7 +203,7 @@ const UserProfileCard = (props) => {
 
                             <Input name="changePassword" label="Change Password" onChangeVeriables={onChange} defaultValue={user.password} error={error.password} type="password" />
 
-                            <Input name="changeGsm" label="Change Phone Number" onChangeVeriables={onChange} defaultValue={user.gsm} error={error.gsm} />
+                            <Input name="changeGsm" label="Change Phone Number" onChangeVeriables={onChange} defaultValue={user.gsm === 'string' ? '' : user.gsm} error={error.gsm} />
 
                             <div className="mb-3">
                                 <label className="form-label me-4">Change Gender Type:</label>

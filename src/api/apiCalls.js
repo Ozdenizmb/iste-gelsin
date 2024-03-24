@@ -42,3 +42,7 @@ export const setAuthorizationHeader = (userData) => {
 export const updateUser = (body) => {
     return axios.put("/api/v1/User", body);
 }
+
+export const updateCompany = (body) => {
+    return axios.put("/api/v1/Company", body, { headers: { company: true } });
+}

@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import ProfileImage from './ProfileImage';
 import { useTranslation } from 'react-i18next';
 import Input from './Input';
-import { updateUser, getUser } from '../api/apiCalls';
+import { updateCompany, getCompany } from '../api/apiCalls';
 //import { useApiProgress } from '../shared/ApiProgress';
 import { updateUserSuccess } from '../redux/authActions';
 import { faEdit, faSave, faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -13,13 +13,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const CompanyProfileCard = (props) => {
 
     const [inEditMode, setInEditMode] = useState(false);
-    const [updatedName, setUpdatedName] = useState();
-    const [updatedSurname, setUpdatedSurname] = useState();
+    const [updatedCompanyName, setUpdatedCompanyName] = useState();
+    const [updatedFax, setUpdatedFax] = useState();
     const [updatedPassword, setUpdatedPassword] = useState();
-    const [updatedGsm, setUpdatedGsm] = useState();
-    const [updatedGenderType, setUpdatedGenderType] = useState();
-    const [updatedBirthDay, setUpdatedBirthDay] = useState();
-    const [updatedBirthDayConvert, setUpdatedBirthDayConvert] = useState();
+    const [updatedPhone, setUpdatedPhone] = useState();
     const [UpdatedLogoFile, setUpdatedLogoFile] = useState();
     const { email, name, surname, password, logoPath } = useSelector((store) => ({
         email: store.email,
@@ -40,7 +37,6 @@ const CompanyProfileCard = (props) => {
 
     useEffect(() => {
         setUser(props.user);
-        console.log(user);
     }, [props.user]);
 
     const pathEmail = routeParams.email;
@@ -53,34 +49,21 @@ const CompanyProfileCard = (props) => {
 
         const errorCopy = {... error};
 
-        if(name == 'changeName') {
-            setUpdatedName(value);
+        if(name == 'changeCompanyName') {
+            setUpdatedCompanyName(value);
             errorCopy['name'] = undefined;
         }
-        if(name == 'changeSurname') {
-            setUpdatedSurname(value);
+        if(name == 'changeFax') {
+            setUpdatedFax(value);
             errorCopy['surname'] = undefined;
         }
         if(name == 'changePassword') {
             setUpdatedPassword(value);
             errorCopy['password'] = undefined;
         }
-        if(name == 'changeGsm') {
-            setUpdatedGsm(value);
+        if(name == 'changePhone') {
+            setUpdatedPhone(value);
             errorCopy['gsm'] = undefined;
-        }
-        if(name == 'changeGenderType') {
-            if(value == 'male') {
-                setUpdatedGenderType(0);
-            }
-            else {
-                setUpdatedGenderType(1);
-            }
-            errorCopy['genderType'] = undefined;
-        }
-        if(name == 'changeBirthDay') {
-            setUpdatedBirthDay(value)
-            errorCopy['birthday'] = undefined;
         }
 
         setError(errorCopy);
@@ -88,19 +71,10 @@ const CompanyProfileCard = (props) => {
 
     const onClickEdit = () => {
         setInEditMode(true);
-        setUpdatedName(user.name);
-        setUpdatedSurname(user.surname);
+        setUpdatedCompanyName(user.companyName);
+        setUpdatedFax(user.fax);
         setUpdatedPassword(user.password);
-        setUpdatedGsm(user.gsm);
-        setUpdatedGenderType(user.genderType);
-        setUpdatedBirthDay(user.birthday);
-        let tentativeDate = new Date(user.birthday);
-        /*if(tentativeDate.toISOString().includes('T'))
-        {
-            tentativeDate.toISOString().split('T')[0];
-        }*/
-        setUpdatedBirthDayConvert(tentativeDate.toISOString().split('T')[0]);
-        console.log(updatedBirthDayConvert);
+        setUpdatedPhone(user.phone);
     }
 
     const onClickSave = async () => {
@@ -111,31 +85,26 @@ const CompanyProfileCard = (props) => {
         }
 
         const formData = new FormData();
-        formData.append('userId', user.userId);
-        formData.append('idNo', user.idNo);
-        formData.append('username', user.username);
-        formData.append('password', updatedPassword);
-        formData.append('name', updatedName);
-        formData.append('surname', updatedSurname);
-        formData.append('gsm', updatedGsm);
+        formData.append('companyId', user.companyId);
+        formData.append('companyName', updatedCompanyName);
+        formData.append('logoPath', user.logoPath);
+        formData.append('isActive', user.isActive);
+        formData.append('fax', updatedFax);
+        formData.append('phone', updatedPhone);
         formData.append('email', user.email);
-        formData.append('genderType', updatedGenderType);
         formData.append('countryId', user.countryId);
         formData.append('cityId', user.cityId);
         formData.append('districtId', user.districtId);
         formData.append('streetId', user.streetId);
-        formData.append('logoPath', image);
-        formData.append('iban', user.iban);
-        formData.append('bankAccountCode', user.bankAccountCode);
-        formData.append('workingWithBankId', user.workingWithBankId);
-        formData.append('isActive', user.isActive);
+        formData.append('apartmentNumber', user.apartmentNumber);
+        formData.append('username', user.username);
+        formData.append('password', updatedPassword);
         formData.append('createdAt', user.createdAt);
-        formData.append('birthday', updatedBirthDay);
         formData.append('logoFile', UpdatedLogoFile);
 
         try {
-            await updateUser(formData);
-            const response = await getUser();
+            await updateCompany(formData);
+            const response = await getCompany();
             setUser(response.data.data);
             setInEditMode(false);
             dispatch(updateUserSuccess(response.data.data));
@@ -147,12 +116,10 @@ const CompanyProfileCard = (props) => {
 
     const onClickClose = () => {
         setInEditMode(false);
-        setUpdatedName(undefined);
-        setUpdatedSurname(undefined);
+        setUpdatedCompanyName(undefined);
+        setUpdatedFax(undefined);
         setUpdatedPassword(undefined);
-        setUpdatedGsm(undefined);
-        setUpdatedGenderType(undefined);
-        setUpdatedBirthDay(undefined);
+        setUpdatedPhone(undefined);
         setNewImage(undefined);
         setUpdatedLogoFile(null);
     }
@@ -190,7 +157,7 @@ const CompanyProfileCard = (props) => {
                     (
                     <div>
                         <h3>
-                            {user.companyName}{email}
+                            {email}
                         </h3>
                         {editable && <button className="btn btn-success d-inline-flex" onClick={onClickEdit}>
                             <FontAwesomeIcon icon={faEdit} className="pe-2 pt-1" />
@@ -203,25 +170,13 @@ const CompanyProfileCard = (props) => {
                     (
                         <div>
 
-                            <Input name="changeName" label="Change Name" type="text" onChangeVeriables={onChange} defaultValue={user.name} error={error.name}/>
+                            <Input name="changeCompanyName" label="Change Name" type="text" onChangeVeriables={onChange} defaultValue={user.companyName} error={error.companyName}/>
 
-                            <Input name="changeSurname" label="Change Surname" onChangeVeriables={onChange} defaultValue={user.surname} error={error.surname} />
+                            <Input name="changeFax" label="Change Fax" onChangeVeriables={onChange} defaultValue={user.fax === 'string' ? '' : user.fax} error={error.fax} />
 
                             <Input name="changePassword" label="Change Password" onChangeVeriables={onChange} defaultValue={user.password} error={error.password} type="password" />
 
-                            <Input name="changeGsm" label="Change Phone Number" onChangeVeriables={onChange} defaultValue={user.gsm} error={error.gsm} />
-
-                            <div className="mb-3">
-                                <label className="form-label me-4">Change Gender Type:</label>
-
-                                <input type="radio" name="changeGenderType" value="male" checked={updatedGenderType === 0} onChange={onChange} className="form-check-input" id="maleRadio"/>
-                                <label className="form-check-label ms-1 me-3" htmlFor="maleRadio">Erkek</label>
-
-                                <input type="radio" name="changeGenderType" value="female" checked={updatedGenderType === 1} onChange={onChange} className="form-check-input" id="femaleRadio"/>
-                                <label className="form-check-label ms-1 me-3" htmlFor="femaleRadio">Kadın</label>
-                            </div>
-
-                            <Input name="changeBirthDay" label="Change Birth Day" onChangeVeriables={onChange} defaultValue={updatedBirthDayConvert} error={error.birthday} type="date"/>
+                            <Input name="changePhone" label="Change Phone Number" onChangeVeriables={onChange} defaultValue={user.phone} error={error.phone} />
 
                             <Input type="file" onChangeVeriables={onChangeFile} error={error.image}/>
                             
