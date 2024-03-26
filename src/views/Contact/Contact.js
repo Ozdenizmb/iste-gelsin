@@ -4,25 +4,24 @@ import { faMapMarker, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-ic
 import { faFacebookSquare, faInstagram, faWhatsapp, faTwitterSquare } from '@fortawesome/free-brands-svg-icons';
 import './Contact.css';
 import Footer from '../../Components/Footer';
-
 const ContactPage = () => {
     return (
         <div id='contact' className="container-fluid row justify-content-center align-items-center">
-            <header className="text-center mb-2 mt-5  col-md-12 ">
+            <header className="text-center mb-5 col-md-12">
                 <div className="title-wrapper">
-                    <h1 className="custom-title">BİZE ULAŞIN</h1> 
+                    <h1>BİZE ULAŞIN</h1>
                 </div>
             </header>
             <div className="col-md-12">
-                <div className="row d-flex justify-content-center align-items-center offset-md-2">
-                    <div className="col-md-4 ">
-                        <div className="content-form ps-5 ">
-                            <section className="contact-info d-flex align-items-center mb-4 text-white ">
+                <div className="row d-flex justify-content-center align-items-center">
+                    <div className="col-md-4">
+                        <div className="content-form ps-5">
+                            <section className="contact-info d-flex align-items-center mb-4">
                                 <div className="icon-background bg-dark text-white">
                                     <FontAwesomeIcon icon={faMapMarker} size="2x" />
                                 </div>
                                 <div>
-                                    <h2 className='custom-title2'>Adres</h2>
+                                    <h2>Adres</h2>
                                     <p>
                                         Lorem ipsum dolor sit. <br />
                                         Lorem, ipsum dolor. <br />
@@ -30,53 +29,56 @@ const ContactPage = () => {
                                     </p>
                                 </div>
                             </section>
-                            <section className="contact-info d-flex align-items-center mb-4 text-white">
+                            <section className="contact-info d-flex align-items-center mb-4">
                                 <div className="icon-background bg-dark text-white">
                                     <FontAwesomeIcon icon={faPhone} size="2x" />
                                 </div>
                                 <div>
-                                    <h2 className='custom-title2'>Telefon</h2>
+                                    <h2>Telefon</h2>
                                     <p>123-456-78901548</p>
                                 </div>
                             </section>
-                            <section className="contact-info d-flex align-items-center mb-4 text-white">
+                            <section className="contact-info d-flex align-items-center mb-4">
                                 <div className="icon-background bg-dark text-white">
                                     <FontAwesomeIcon icon={faEnvelope} size="2x" />
                                 </div>
                                 <div>
-                                    <h2 className='custom-title2'>E-mail</h2>
+                                    <h2>E-mail</h2>
                                     <p>istegelsin@temporary.net</p>
                                 </div>
                             </section>
-                        </div>
+                            </div>
                     </div>
-                    <div className="col-md-8">
-                        <form className="form d-flex flex-column align-items-center offset-md-2 ">
-                            <div className="input-wrapper mb-2 d-flex">
-                                <input type="text" className="form-control me- bg-transparent border border-dark px-3 bg-gray" placeholder="Adınız" required />
-                                <input type="email" className="form-control bg-transparent border border-dark px-3 bg-gray" placeholder="E-mail" required />
+                    <div className='col-md-4'></div>
+                    <div className="col-md-4">
+                        <form className="form d-flex flex-column align-items-center">
+                            <div className="contact-form">
+                                <div className="input-wrapper mb-3">
+                                    <input type="text" className="form-control" placeholder="Adınız" required />
+                                </div>
+                                <div className="input-wrapper mb-3">
+                                    <input type="email" className="form-control" placeholder="E-mail" required />
+                                </div>
+                                <div className="message-wrapper mb-3">
+                                    <textarea className="form-control" placeholder="Mesajınızı Yazınız...." required></textarea>
+                                </div>
+                                <div className="button-wrapper">
+                                    <input type="submit" name="submit" className="btn btn-primary" value="Gönder" />
+                                </div>
                             </div>
-
-                            <div className="input-wrapper mb-5 d-flex">
-                                <input type="text" className="form-control bg-transparent border border-dark px-3 bg-gray" placeholder="Konu" required />
-                            </div>
-                            <div className="input-wrapper mb-5 d-flex">
-                                <textarea className="form-control col bg-transparent border border-dark px-3 bg-gray" placeholder="Mesajınızı Yazınız...." required></textarea>
-                            </div>
-                            <div className="button-wrapper mt-5" >
-                                <input type="submit" name="submit" className="btn btn-primary" value="Gönder" />
-                            </div>
-                            <div className="text-center mt-3">
-                                <ul className="list-inline mb-0">
-                                    <li className="list-inline-item me-3"><FontAwesomeIcon icon={faFacebookSquare} size="4x" /></li>
-                                    <li className="list-inline-item me-3"><FontAwesomeIcon icon={faInstagram} size="4x" /></li>
-                                    <li className="list-inline-item me-3"><FontAwesomeIcon icon={faWhatsapp} size="4x" /></li>
-                                    <li className="list-inline-item"><FontAwesomeIcon icon={faTwitterSquare} size="4x" /></li>
+                            <div className="text-center mb-0">
+                                <ul className="list-inline mb-1">
+                                    <li className="list-inline-item"><FontAwesomeIcon icon={faFacebookSquare} size="2x" /></li>
+                                    <li className="list-inline-item"><FontAwesomeIcon icon={faInstagram} size="2x" /></li>
+                                    <li className="list-inline-item"><FontAwesomeIcon icon={faWhatsapp} size="2x" /></li>
+                                    <li className="list-inline-item"><FontAwesomeIcon icon={faTwitterSquare} size="2x" /></li>
                                 </ul>
                             </div>
-                        </form>
+                            </form>
+
                     </div>
                 </div>
+                
             </div>
             <Footer />
         </div>
