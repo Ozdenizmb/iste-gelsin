@@ -12,10 +12,10 @@ const ContactPage = () => {
                     <h1>BİZE ULAŞIN</h1>
                 </div>
             </header>
-            <div className="col-md-12">
+            <div className="col-md-12 ps-4">
                 <div className="row d-flex justify-content-center align-items-center">
                     <div className="col-md-4">
-                        <div className="content-form ps-5">
+                        <div className="content-form ps-5 contact-text-style">
                             <section className="contact-info d-flex align-items-center mb-4">
                                 <div className="icon-background bg-dark text-white">
                                     <FontAwesomeIcon icon={faMapMarker} size="2x" />
@@ -23,9 +23,9 @@ const ContactPage = () => {
                                 <div>
                                     <h2>Adres</h2>
                                     <p>
-                                        Lorem ipsum dolor sit. <br />
-                                        Lorem, ipsum dolor. <br />
-                                        lorem
+                                        Ayazağa, Hadım Koruyolu Cd. <br />
+                                        No:19, 34398 <br />
+                                        Sarıyer/İstanbul
                                     </p>
                                 </div>
                             </section>
@@ -35,7 +35,7 @@ const ContactPage = () => {
                                 </div>
                                 <div>
                                     <h2>Telefon</h2>
-                                    <p>123-456-78901548</p>
+                                    <p>+90 537 595 95 69</p>
                                 </div>
                             </section>
                             <section className="contact-info d-flex align-items-center mb-4">
@@ -44,7 +44,7 @@ const ContactPage = () => {
                                 </div>
                                 <div>
                                     <h2>E-mail</h2>
-                                    <p>istegelsin@temporary.net</p>
+                                    <p>info@istegelsin.com</p>
                                 </div>
                             </section>
                         </div>
