@@ -4,7 +4,7 @@ import Footer from './Footer';
 
 const Advert = (props) => {
 
-  const { title, company, workType, positionLevel, department, image, details, experience, educationLevel, location, workingHours } = props;
+  const { jobPostingId, companyId, isActive, employmentType, educationLevel, experienceLevel, experienceYears, workModel, workPerHour, title, description, logoPath, totalSalary, countryId, cityId, districtId, streetId, startAt, endAt, logoFile } = props;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -23,7 +23,7 @@ const Advert = (props) => {
 
           <Col md={6} lg={6} className="flex-grow-1">
             <Card className="job-advert-card shadow">
-              <Card.Img variant="top" src={image} alt={`${title} Image`} className="img-fluid" />
+              <Card.Img variant="top" src={'https://cdn.colaksoft.online/' + logoPath} alt={`${title} Image`} className="img-fluid" />
               <Card.Body>
                 <Card.Title>{title}</Card.Title>
               </Card.Body>
@@ -33,16 +33,16 @@ const Advert = (props) => {
           <Col md={6} lg={4} className="flex-grow-1">
             <Card className="job-advert-card shadow">
               <Card.Body>
-                <Card.Title>{company}</Card.Title>
+                <Card.Title>{companyId}</Card.Title>
                 <hr className="flex-grow-1" />
                 <Card.Text>
-                  <strong>Pozisyon:</strong> {positionLevel} {title}
+                  <strong>İş Tanımı:</strong> {description}
                 </Card.Text>
                 <Card.Text>
-                  <strong>Departman:</strong> {department}
+                  <strong>Pozisyon:</strong> {employmentType}
                 </Card.Text>
                 <Card.Text>
-                  <strong>Çalışma Şekli:</strong> {workType}
+                  <strong>Çalışma Şekli:</strong> {workModel}
                 </Card.Text>
                 <div className="d-flex justify-content-end">
                   <Button variant="primary" className="me-2" onClick={() => { window.scrollTo(0, 0); }}>
@@ -58,16 +58,16 @@ const Advert = (props) => {
                 <Card.Title>İlan Detayları</Card.Title>
                 <hr className="flex-grow-1" />
                 <Card.Text>
-                  <strong>Tecrübe:</strong> {experience}
+                  <strong>Tecrübe:</strong> {experienceLevel} / {experienceYears} Yıl
                 </Card.Text>
                 <Card.Text>
                   <strong>Eğitim Seviyesi:</strong> {educationLevel}
                 </Card.Text>
                 <Card.Text>
-                  <strong>Adres:</strong> {location}
+                  <strong>Adres:</strong> {countryId}/{cityId}/{districtId}/{streetId}
                 </Card.Text>
                 <Card.Text>
-                  <strong>Çalışma Aralığı:</strong> {workingHours}
+                  <strong>Çalışma Aralığı:</strong> {workPerHour}
                 </Card.Text>
               </Card.Body>
             </Card>

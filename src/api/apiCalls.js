@@ -50,3 +50,7 @@ export const updateCompany = (body) => {
 export const getJobPostingAll = () => {
     return axios.get("/api/v1/JobPosting/List");
 }
+
+export const getJobPosting = (body) => {
+    return axios.get("/api/v1/JobPosting?jobPostingId="+body);
+}
