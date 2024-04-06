@@ -5,7 +5,6 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import AdvertCardFeed from '../../Components/AdvertCardFeed';
-import jobs from '../../Components/Silinecek';
 import Footer from '../../Components/Footer';
 
 const AdsPage = () => {
@@ -145,7 +144,7 @@ const AdsPage = () => {
                         </div>
                     </div>
                     <div className="col-9">
-                        <AdvertCardFeed jobs={jobs} />
+                        <AdvertCardFeed />
                     </div>
                 </div>
             </div>

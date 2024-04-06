@@ -46,3 +46,7 @@ export const updateUser = (body) => {
 export const updateCompany = (body) => {
     return axios.put("/api/v1/Company", body, { headers: { company: true } });
 }
+
+export const getJobPostingAll = () => {
+    return axios.get("/api/v1/JobPosting/List");
+}

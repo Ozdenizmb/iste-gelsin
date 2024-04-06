@@ -7,7 +7,6 @@ import Footer from '../../Components/Footer';
 import './Home.css';
 import { useDispatch } from "react-redux";
 import AdvertCardFeed from '../../Components/AdvertCardFeed';
-import jobs from '../../Components/Silinecek';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
@@ -59,7 +58,7 @@ const HomePage = () => {
             <div className='d-flex justify-content-center align-items-center'>
                 <div className="w-75 h-100">
 
-                    <AdvertCardFeed jobs={jobs} />
+                    <AdvertCardFeed />
 
                 </div>
             </div>
