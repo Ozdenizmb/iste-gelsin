@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import AdvertCard from './AdvertCard';
 import { getJobPostingAll } from '../api/apiCalls';
+import Spinner from './Spinner';
 
 const AdvertCardFeed = () => {
 
   const[jobs, setJobs] = useState([]);
+  const pendingApiCall = false;
 
   useEffect(() => {
     const fetchJobPostings = async () => {
@@ -51,6 +53,12 @@ const AdvertCardFeed = () => {
 
     fetchJobPostings();
   }, []);
+
+  if(pendingApiCall || jobs.length == 0) {
+    return (
+        <Spinner />
+    );
+  }
 
     return (
         <div className="row">

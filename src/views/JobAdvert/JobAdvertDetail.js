@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Advert from '../../Components/Advert';
-//import jobs from '../../Components/Silinecek';
 import './JobAdvert.css';
 import { getJobPosting } from '../../api/apiCalls';
+import Spinner from '../../Components/Spinner';
 
 const JobAdvertDetail = ({ match }) => {
 
@@ -26,8 +26,8 @@ const JobAdvertDetail = ({ match }) => {
 
     // Eğer iş ilanı bulunamazsa bir hata mesajı gösterebilirsiniz
     if (!job) {
-        return <div>İlan bulunamadı.</div>;
-    }
+        return <Spinner />
+    };
 
     // Advert bileşenine iş ilanını prop olarak geçiriyoruz
     return <Advert {...job} />;
