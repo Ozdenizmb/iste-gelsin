@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import './UserPage.css';
 import AdvertCardFeed from '../../Components/AdvertCardFeed';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faClipboardList } from '@fortawesome/free-solid-svg-icons';
 
 const UserPage = () => {
 
@@ -88,11 +88,17 @@ const UserPage = () => {
                     <div className="card shadow p-4">
                         <h2 className="text-center">Aktif İlanlarınız</h2>
                         <hr></hr>
-                        <div>
-                            <Link to={`/procedures/${user.email}`} className="d-flex justify-content-end align-items-center mb-2 me-2">
+                        <div className="">
+                            <Link to={``} className="d-grid gap-2 mb-2">
+                                <button className="btn btn-success">
+                                    <FontAwesomeIcon icon={faClipboardList} className="pe-2 pt-1" />
+                                    Başvuruları Görüntüle
+                                </button>
+                            </Link>
+                            <Link to={`/procedures/${user.email}`} className="d-grid gap-2 mb-4">
                                 <button className="btn btn-primary">
                                     <FontAwesomeIcon icon={faEdit} className="pe-2 pt-1" />
-                                    İlanları Güncelle
+                                    İlan İşlemlerini Görüntüle
                                 </button>
                             </Link>
                             <AdvertCardFeed feedsLocation={"ProfileCompany"} companyId={user.companyId}/>
