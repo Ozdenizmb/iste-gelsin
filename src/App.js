@@ -1,3 +1,5 @@
+// WRITTEN BY MEHMET BARAN ÖZDENİZ @ozdeniz.mb
+
 import React from 'react';
 import { HashRouter, Route, Redirect, Switch } from 'react-router-dom'
 import { useSelector } from 'react-redux';

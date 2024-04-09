@@ -15,7 +15,6 @@ const JobAdvertDetail = ({ match }) => {
         const fetchJobPosting = async () => {
             try {
                 const response = await getJobPosting(jobId);
-                console.log(response.data.data);
                 setJob(response.data.data);
             } catch(error) {
                 
@@ -24,9 +23,6 @@ const JobAdvertDetail = ({ match }) => {
 
         fetchJobPosting();
     }, []);
-
-    // ID'ye uygun iş ilanını buluyoruz
-    //const job = jobs.find(job => job.id === jobId);
 
     // Eğer iş ilanı bulunamazsa bir hata mesajı gösterebilirsiniz
     if (!job) {

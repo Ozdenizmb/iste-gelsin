@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import AdvertCard from './AdvertCard';
-//import jobs from './Silinecek';
 import { getJobPostingAll } from '../api/apiCalls';
 
 const AdvertCardFeed = () => {
@@ -33,7 +32,15 @@ const AdvertCardFeed = () => {
           streetId : job.streetId,
           startAt : job.startAt,
           endAt : job.endAt,
-          logoFile : job.logoFile
+          logoFile : job.logoFile,
+          countryName : job.countryName,
+          cityName : job.cityName,
+          districtName : job.districtName,
+          streetName : job.streetName,
+          employmentName : job.employmentName,
+          educationLevelName : job.educationLevelName,
+          experienceLevelName : job.experienceLevelName,
+          workModelName : job.workModelName
         }));
 
         setJobs(convertedJobs);
