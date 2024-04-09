@@ -144,7 +144,7 @@ const AdsPage = () => {
                         </div>
                     </div>
                     <div className="col-9">
-                        <AdvertCardFeed />
+                        <AdvertCardFeed feedsLocation={"AdsPage"} />
                     </div>
                 </div>
             </div>

@@ -52,5 +52,9 @@ export const getJobPostingAll = () => {
 }
 
 export const getJobPosting = (body) => {
-    return axios.get("/api/v1/JobPosting?jobPostingId="+body);
+    return axios.get("/api/v1/JobPosting?jobPostingId=" + body);
+}
+
+export const getJobPostingByCompanyId = (companyId) => {
+    return axios.get("/api/v1/JobPosting/ListByCompany?companyId=" + companyId);
 }

@@ -4,7 +4,7 @@ import Footer from './Footer';
 
 const Advert = (props) => {
 
-  const { jobPostingId, companyId, isActive, employmentType, educationLevel, experienceLevel, experienceYears, workModel, workPerHour, title, description, logoPath, totalSalary, countryId, cityId, districtId, streetId, startAt, endAt, countryName, cityName, districtName, streetName, employmentName, educationLevelName, experienceLevelName, workModelName,  } = props;
+  const { jobPostingId, companyId, isActive, employmentType, educationLevel, experienceLevel, experienceYears, workModel, workPerHour, title, description, logoPath, totalSalary, countryId, cityId, districtId, streetId, startAt, endAt, countryName, cityName, districtName, streetName, employmentName, educationLevelName, experienceLevelName, workModelName, companyName  } = props;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -33,7 +33,7 @@ const Advert = (props) => {
           <Col md={6} lg={4} className="flex-grow-1">
             <Card className="job-advert-card shadow">
               <Card.Body>
-                <Card.Title>{companyId}</Card.Title>
+                <Card.Title>{companyName}</Card.Title>
                 <hr className="flex-grow-1" />
                 <Card.Text>
                   <strong>İş Tanımı:</strong> {description}

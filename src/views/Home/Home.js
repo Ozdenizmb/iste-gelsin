@@ -58,7 +58,7 @@ const HomePage = () => {
             <div className='d-flex justify-content-center align-items-center'>
                 <div className="w-75 h-100">
 
-                    <AdvertCardFeed />
+                    <AdvertCardFeed feedsLocation={"HomePage"} />
 
                 </div>
             </div>

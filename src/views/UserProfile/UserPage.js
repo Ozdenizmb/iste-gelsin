@@ -1,6 +1,4 @@
 import React from 'react';
-import { useTranslation } from "react-i18next";
-import i18n from "i18next";
 import UserProfileCard from '../../Components/UserProfileCard';
 import CompanyProfileCard from '../../Components/CompanyProfileCard';
 import { useState } from 'react';
@@ -12,6 +10,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import Spinner from '../../Components/Spinner';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import './UserPage.css';
+import AdvertCardFeed from '../../Components/AdvertCardFeed';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
 
 const UserPage = () => {
 
@@ -41,8 +42,8 @@ const UserPage = () => {
             else {
                 response = await getUser();
             }
-            console.log(response);
             setUser(response.data.data);
+            console.log(user);
             setNotFound(false);
         }
         catch(error) {
@@ -85,21 +86,16 @@ const UserPage = () => {
                 </div>
                 <div className="col">
                     <div className="card shadow p-4">
-                        <h2 className="text-center">İlan İşlemleri</h2>
+                        <h2 className="text-center">Aktif İlanlarınız</h2>
                         <hr></hr>
                         <div>
-                            <Link to={`/procedures/${user.email}`} className="d-grid gap-2 mb-2">
-                                <button className="btn btn-primary">Görüntüle</button>
+                            <Link to={`/procedures/${user.email}`} className="d-flex justify-content-end align-items-center mb-2 me-2">
+                                <button className="btn btn-primary">
+                                    <FontAwesomeIcon icon={faEdit} className="pe-2 pt-1" />
+                                    İlanları Güncelle
+                                </button>
                             </Link>
-                            <Link to={`/procedures/${user.email}`} className="d-grid gap-2 mb-2">
-                                <button className="btn btn-success">Ekle</button>
-                            </Link>
-                            <Link to={`/procedures/${user.email}`} className="d-grid gap-2 mb-2 profile-text-no-underline">
-                                <button className="btn btn-warning">Güncelle</button>
-                            </Link>
-                            <Link to={`/procedures/${user.email}`} className="d-grid gap-2 mb-2 profile-text-no-underline">
-                                <button className="btn btn-danger">Sil</button>
-                            </Link>
+                            <AdvertCardFeed feedsLocation={"ProfileCompany"} companyId={user.companyId}/>
                         </div>
                     </div>
                 </div>
