@@ -8,6 +8,7 @@ import AdvertCardFeed from '../../Components/AdvertCardFeed';
 import Footer from '../../Components/Footer';
 
 const AdsPage = () => {
+
     return (
         <div>
             <div className="container my-5">

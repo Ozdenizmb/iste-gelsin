@@ -47,14 +47,14 @@ export const updateCompany = (body) => {
     return axios.put("/api/v1/Company", body, { headers: { company: true } });
 }
 
-export const getJobPostingAll = () => {
-    return axios.get("/api/v1/JobPosting/List");
+export const getJobPostingAll = (pageNumber, pageSize) => {
+    return axios.get(`/api/v1/JobPosting/List?workModelId=0&pageNumber=${pageNumber}&pageSize=${pageSize}`);
 }
 
 export const getJobPosting = (body) => {
     return axios.get("/api/v1/JobPosting?jobPostingId=" + body);
 }
 
-export const getJobPostingByCompanyId = (companyId) => {
-    return axios.get("/api/v1/JobPosting/ListByCompany?companyId=" + companyId);
+export const getJobPostingByCompanyId = (companyId, pageNumber, pageSize) => {
+    return axios.get(`/api/v1/JobPosting/ListByCompany?companyId=${companyId}&pageNumber=${pageNumber}&pageSize=${pageSize}`);
 }
