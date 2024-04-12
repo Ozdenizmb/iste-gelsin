@@ -37,6 +37,7 @@ export const loginUserHandler = (creds) => {
         const response = await loginUser(creds);
 
         const loginState = {
+            id : response.data.data.userId,
             email : creds.email,
             name : response.data.data.name,
             surname : response.data.data.surname,
@@ -44,6 +45,7 @@ export const loginUserHandler = (creds) => {
             logoPath : response.data.data.logoPath
         }     
         dispatch(loginUserSuccess(loginState));
+        console.log(loginState);
 
         return response;
     }
@@ -62,6 +64,7 @@ export const loginCompanyHandler = (creds) => {
         const response = await loginCompany(creds);
 
         const loginState = {
+            id : response.data.data.companyId,
             email : creds.email,
             name : response.data.data.companyName,
             password : creds.password,
@@ -76,7 +79,6 @@ export const loginCompanyHandler = (creds) => {
 export const signUpCompanyHandler = (company) => {
     return async function() {
         const response = await signUpCompany(company);
-        console.log(response);
         return response;
     }
 }

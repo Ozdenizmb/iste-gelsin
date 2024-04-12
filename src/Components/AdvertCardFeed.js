@@ -19,12 +19,10 @@ const AdvertCardFeed = ({feedsLocation, companyId}) => {
     try {
       if(feedsLocation === "ProfileCompany") {
         response = await getJobPostingByCompanyId(companyId, pageNumber, pageSize);
-        console.log("ProfileCompany");
       }
       else {
         // feedsLocation == "HomePage" || feedsLocation == "AdsPage"
         response = await getJobPostingAll(pageNumber, pageSize);
-        console.log("Home Page - Ads Page");
       }
       const data = response.data.data.items;
       const dataPage = response.data.data.currentPage;

@@ -70,10 +70,10 @@ const UserProfileCard = (props) => {
         }
         if(name == 'changeGenderType') {
             if(value == 'male') {
-                setUpdatedGenderType(0);
+                setUpdatedGenderType(2);
             }
             else {
-                setUpdatedGenderType(1);
+                setUpdatedGenderType(3);
             }
             errorCopy['genderType'] = undefined;
         }
@@ -208,10 +208,10 @@ const UserProfileCard = (props) => {
                             <div className="mb-3">
                                 <label className="form-label me-4">Change Gender Type:</label>
 
-                                <input type="radio" name="changeGenderType" value="male" checked={updatedGenderType === 0} onChange={onChange} className="form-check-input" id="maleRadio"/>
+                                <input type="radio" name="changeGenderType" value="male" checked={updatedGenderType === 2} onChange={onChange} className="form-check-input" id="maleRadio"/>
                                 <label className="form-check-label ms-1 me-3" htmlFor="maleRadio">Erkek</label>
 
-                                <input type="radio" name="changeGenderType" value="female" checked={updatedGenderType === 1} onChange={onChange} className="form-check-input" id="femaleRadio"/>
+                                <input type="radio" name="changeGenderType" value="female" checked={updatedGenderType === 3} onChange={onChange} className="form-check-input" id="femaleRadio"/>
                                 <label className="form-check-label ms-1 me-3" htmlFor="femaleRadio">Kadın</label>
                             </div>
 

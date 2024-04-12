@@ -58,7 +58,6 @@ const Login = (props) => {
       try {
         const response = await dispatch(loginUserHandler(creds));
         props.history.push('/');
-        console.log(response);
       }
       catch(apiError) {
       }
