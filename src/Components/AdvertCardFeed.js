@@ -2,17 +2,17 @@ import React, { useEffect, useState } from 'react';
 import AdvertCard from './AdvertCard';
 import { getJobPostingAll, getJobPostingByCompanyId } from '../api/apiCalls';
 import Spinner from './Spinner';
+import { useApiProgress } from '../shared/ApiProgress';
 
 const AdvertCardFeed = ({feedsLocation, companyId}) => {
 
   const[jobs, setJobs] = useState([]);
   const[pageNumber, setPageNumber] = useState(0);
+  const[lastPage, setLastPage] = useState(true);
 
-  const pendingApiCall = false;
   const pageSize = 12;
 
   const fetchJobPostings = async (pageNumber, pageSize) => {
-
     const previousJobs = [...jobs];
     let response;
 
@@ -28,7 +28,9 @@ const AdvertCardFeed = ({feedsLocation, companyId}) => {
       }
       const data = response.data.data.items;
       const dataPage = response.data.data.currentPage;
+      const dataLastPage = response.data.data.hasNextPage;
       setPageNumber(dataPage);
+      setLastPage(dataLastPage);
 
       const convertedJobs = data.map(job => ({
         id : job.jobPostingId,
@@ -76,7 +78,9 @@ const AdvertCardFeed = ({feedsLocation, companyId}) => {
     fetchJobPostings(pageNumber + 1, pageSize);
   }
 
-  if(pendingApiCall || jobs.length == 0) {
+  const pendingApiCall = useApiProgress('get','/api/v1/JobPosting');
+
+  if(jobs.length == 0) {
     return (
         <Spinner />
     );
@@ -87,7 +91,10 @@ const AdvertCardFeed = ({feedsLocation, companyId}) => {
           {jobs.map((jobs, index) => (
             <AdvertCard key={index} job={jobs} cardLocation={feedsLocation} />
           ))}
-          <button className="btn btn-success" onClick={onClickLoadMoreCardButton}>Daha Fazla Göster</button>
+          <button className="btn btn-success" onClick={onClickLoadMoreCardButton} disabled={!lastPage}>
+            {pendingApiCall ? <span className="spinner-border spinner-border-sm"></span> : ''}
+            Daha Fazla Göster
+          </button>
         </div>
       );
 };
