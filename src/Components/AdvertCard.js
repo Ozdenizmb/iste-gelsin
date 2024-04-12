@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit, faClipboardList } from '@fortawesome/free-solid-svg-icons';
 
 const AdvertCard = ({ job, cardLocation }) => {
 

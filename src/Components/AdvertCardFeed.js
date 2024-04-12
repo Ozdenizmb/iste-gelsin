@@ -17,7 +17,7 @@ const AdvertCardFeed = ({feedsLocation, companyId}) => {
     let response;
 
     try {
-      if(feedsLocation === "ProfileCompany") {
+      if(feedsLocation === "ProfileCompany" || feedsLocation == "AdvertisementProceduresPage") {
         response = await getJobPostingByCompanyId(companyId, pageNumber, pageSize);
       }
       else {
