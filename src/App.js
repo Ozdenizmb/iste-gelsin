@@ -48,7 +48,7 @@ const App = () => {
 
         <Route path="/profile/:email" component={UserPage} />
 
-        <Route path="/procedures/:email" component={AdvertisementProceduresPage}/>
+        <Route path="/procedures/:email/:id" component={AdvertisementProceduresPage}/>
 
         <Route path="/jobadvert/:jobId" component={JobAdvertDetail} />
 

@@ -38,7 +38,7 @@ const AdvertCard = ({ job, cardLocation }) => {
   if(cardLocation === "ProfileCompany" || cardLocation === "AdvertisementProceduresPage") {
     cardType = (
       <div className="card h-100 border rounded-3 shadow advert-card">
-        <Link to={`/procedures/${email}`} className="card-link nav-link d-flex">
+        <Link to={`/procedures/${email}/${job.id}`} className="card-link nav-link d-flex">
           <div className="image-container-for-company">
             <img src={'https://cdn.colaksoft.online/' + job.logoPath} className="card-img-top rounded-2 img-fluid" alt={job.title} />
           </div>

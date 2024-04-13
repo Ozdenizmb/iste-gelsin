@@ -43,7 +43,6 @@ const UserPage = () => {
                 response = await getUser();
             }
             setUser(response.data.data);
-            console.log(user);
             setNotFound(false);
         }
         catch(error) {
@@ -95,7 +94,7 @@ const UserPage = () => {
                                     Başvuruları Görüntüle
                                 </button>
                             </Link>
-                            <Link to={`/procedures/${user.email}`} className="d-grid gap-2 mb-4">
+                            <Link to={`/procedures/${email}/ilan-paneli`} className="d-grid gap-2 mb-4">
                                 <button className="btn btn-primary">
                                     <FontAwesomeIcon icon={faEdit} className="pe-2 pt-1" />
                                     İlan İşlemlerini Görüntüle
