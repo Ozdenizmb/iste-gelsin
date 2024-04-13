@@ -58,3 +58,15 @@ export const getJobPosting = (body) => {
 export const getJobPostingByCompanyId = (companyId, pageNumber, pageSize) => {
     return axios.get(`/api/v1/JobPosting/ListByCompany?companyId=${companyId}&pageNumber=${pageNumber}&pageSize=${pageSize}`);
 }
+
+export const updateJobPosting = () => {
+    return axios.put();
+}
+
+export const deleteJobPosting = (postId, body) => {
+    return axios.patch("/api/v1/JobPosting?jobPostingId=" + postId, body, { headers: { company: true } });
+}
+
+export const insertJobPosting = () => {
+    return axios.post();
+}
