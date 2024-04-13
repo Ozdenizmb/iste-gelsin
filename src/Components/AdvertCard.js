@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faClipboardList } from '@fortawesome/free-solid-svg-icons';
+import { useDispatch, useSelector } from 'react-redux';
 
 const AdvertCard = ({ job, cardLocation }) => {
+
+  const { email } = useSelector(store => ({
+    email: store.email
+}));
 
   let numberOfCard = "";
 
@@ -14,8 +17,7 @@ const AdvertCard = ({ job, cardLocation }) => {
     numberOfCard = "col-md-4";
   }
 
-  return (
-    <div className={`mb-4 card_padding card-for-job ${numberOfCard}`}>
+  let cardType = (
       <div className="card h-100 border rounded-3 shadow advert-card">
         <Link to={`/jobadvert/${job.id}`} className="card-link nav-link">
           <div className="image-container">
@@ -31,6 +33,28 @@ const AdvertCard = ({ job, cardLocation }) => {
           </div>
         </Link>
       </div>
+  )
+
+  if(cardLocation === "ProfileCompany" || cardLocation === "AdvertisementProceduresPage") {
+    cardType = (
+      <div className="card h-100 border rounded-3 shadow advert-card">
+        <Link to={`/procedures/${email}`} className="card-link nav-link d-flex">
+          <div className="image-container-for-company">
+            <img src={'https://cdn.colaksoft.online/' + job.logoPath} className="card-img-top rounded-2 img-fluid" alt={job.title} />
+          </div>
+          <div className="card-body pb-0">
+            <h5 className="card-title">{job.title}</h5>
+            <p className="card-text mb-2 text-muted fst-italic">{job.districtName} / {job.cityName}</p>
+            <p className="card-text text-end text-muted fst-italic">{job.totalSalary} ₺</p>
+          </div>
+        </Link>
+      </div>
+    )
+  }
+
+  return (
+    <div className={`mb-4 card_padding card-for-job ${numberOfCard}`}>
+      {cardType}
     </div>
   );
 };

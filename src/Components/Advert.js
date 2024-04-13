@@ -42,7 +42,7 @@ const Advert = (props) => {
                   <strong>Pozisyon:</strong>
                 </Card.Text>
                 <Card.Text>
-                  <strong>Maaş:</strong> {totalSalary} TL
+                  <strong>Maaş:</strong> {totalSalary} ₺
                 </Card.Text>
                 <Card.Text>
                   <strong>İş Modeli:</strong> {workModelName}

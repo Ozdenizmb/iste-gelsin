@@ -64,3 +64,9 @@
     max-width: 100%;
     object-fit: cover;
 }
+
+.card-for-job .image-container-for-company img {
+    width: 10rem;
+    height: 7rem;
+    object-fit: cover;
+}
