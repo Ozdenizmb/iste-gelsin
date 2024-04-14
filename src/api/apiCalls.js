@@ -67,6 +67,6 @@ export const deleteJobPosting = (postId, body) => {
     return axios.patch("/api/v1/JobPosting?jobPostingId=" + postId, body, { headers: { company: true } });
 }
 
-export const insertJobPosting = () => {
-    return axios.post();
+export const insertJobPosting = (body) => {
+    return axios.post("/api/v1/JobPosting", body, { headers: { company: true } });
 }
