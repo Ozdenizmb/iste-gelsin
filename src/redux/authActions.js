@@ -14,13 +14,14 @@ export const loginUserSuccess = (loginData) => {
     }
 }
 
-export const updateUserSuccess = ({ name, surname, logoPath }) => {
+export const updateUserSuccess = ({ name, surname, password, logo_path }) => {
     return {
         type : 'update-user-success',
         data : {
             name,
             surname,
-            logoPath
+            password,
+            logoPath: logo_path
         }
     }
 }
@@ -37,12 +38,12 @@ export const loginUserHandler = (creds) => {
         const response = await loginUser(creds);
 
         const loginState = {
-            id : response.data.data.userId,
+            id : response.data.data.userid,
             email : creds.email,
             name : response.data.data.name,
             surname : response.data.data.surname,
             password : creds.password,
-            logoPath : response.data.data.logoPath
+            logoPath : response.data.data.logo_path
         }     
         dispatch(loginUserSuccess(loginState));
         console.log(loginState);
@@ -64,11 +65,11 @@ export const loginCompanyHandler = (creds) => {
         const response = await loginCompany(creds);
 
         const loginState = {
-            id : response.data.data.companyId,
+            id : response.data.data.companyid,
             email : creds.email,
-            name : response.data.data.companyName,
+            name : response.data.data.company_name,
             password : creds.password,
-            logoPath : response.data.data.logoPath
+            logoPath : response.data.data.logo_path
         }
         dispatch(loginCompanySuccess(loginState));
 

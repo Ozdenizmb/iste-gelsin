@@ -9,6 +9,7 @@ import { updateUser, getUser } from '../api/apiCalls';
 import { updateUserSuccess } from '../redux/authActions';
 import { faEdit, faSave, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { format } from 'date-fns';
 
 const UserProfileCard = (props) => {
 
@@ -21,11 +22,8 @@ const UserProfileCard = (props) => {
     const [updatedBirthDay, setUpdatedBirthDay] = useState();
     const [updatedBirthDayConvert, setUpdatedBirthDayConvert] = useState();
     const [UpdatedLogoFile, setUpdatedLogoFile] = useState();
-    const { email, name, surname, password, logoPath } = useSelector((store) => ({
+    const { email, logoPath } = useSelector((store) => ({
         email: store.email,
-        name: store.name,
-        surname: store.surname,
-        password: store.password,
         logoPath: store.logoPath
     }));
     const routeParams = useParams();
@@ -91,10 +89,11 @@ const UserProfileCard = (props) => {
         setUpdatedSurname(user.surname);
         setUpdatedPassword(user.password);
         setUpdatedGsm(user.gsm);
-        setUpdatedGenderType(user.genderType);
+        setUpdatedGenderType(user.gender_type);
         setUpdatedBirthDay(user.birthday);
         let tentativeDate = new Date(user.birthday);
-        setUpdatedBirthDayConvert(tentativeDate.toISOString().split('T')[0]);
+        const formattedDate = format(new Date(tentativeDate), 'yyyy-MM-dd');
+        setUpdatedBirthDayConvert(formattedDate);
     }
 
     const onClickSave = async () => {
@@ -105,29 +104,24 @@ const UserProfileCard = (props) => {
         }
 
         const formData = new FormData();
-        formData.append('userId', user.userId);
-        formData.append('idNo', user.idNo);
-        formData.append('username', user.username);
-        formData.append('password', updatedPassword);
+        formData.append('userid', user.userid);
         formData.append('name', updatedName);
         formData.append('surname', updatedSurname);
-        formData.append('gsm', updatedGsm);
+        formData.append('id_no', user.id_no);
         formData.append('email', user.email);
-        formData.append('genderType', updatedGenderType);
-        formData.append('countryId', user.countryId);
-        formData.append('cityId', user.cityId);
-        formData.append('districtId', user.districtId);
-        formData.append('streetId', user.streetId);
-        formData.append('logoPath', user.logoPath);
+        formData.append('password', updatedPassword);
+        formData.append('gsm', updatedGsm);
+        formData.append('gender_type', updatedGenderType);
+        formData.append('bank_account_code', user.bank_account_code);
+        formData.append('working_with_bankid', user.working_with_bankid);
         formData.append('iban', user.iban);
-        formData.append('bankAccountCode', user.bankAccountCode);
-        formData.append('workingWithBankId', user.workingWithBankId);
-        formData.append('isActive', user.isActive);
-        formData.append('createdAt', user.createdAt);
+        formData.append('is_active', user.is_active);
         formData.append('birthday', updatedBirthDay);
-        formData.append('logoFile', UpdatedLogoFile);
+        formData.append('created_at', user.created_at);
+        formData.append('logo_file', UpdatedLogoFile);
 
         try {
+            console.log(formData);
             await updateUser(formData);
             const response = await getUser();
             setUser(response.data.data);

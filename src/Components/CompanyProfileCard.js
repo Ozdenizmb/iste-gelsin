@@ -17,12 +17,10 @@ const CompanyProfileCard = (props) => {
     const [updatedFax, setUpdatedFax] = useState();
     const [updatedPassword, setUpdatedPassword] = useState();
     const [updatedPhone, setUpdatedPhone] = useState();
+    const [updatedAdress, setUpdatedAdress] = useState();
     const [UpdatedLogoFile, setUpdatedLogoFile] = useState();
-    const { email, name, surname, password, logoPath } = useSelector((store) => ({
+    const { email, logoPath } = useSelector((store) => ({
         email: store.email,
-        name: store.name,
-        surname: store.surname,
-        password: store.password,
         logoPath: store.logoPath
     }));
     const routeParams = useParams();
@@ -57,6 +55,10 @@ const CompanyProfileCard = (props) => {
             setUpdatedFax(value);
             errorCopy['surname'] = undefined;
         }
+        if(name == 'changeAdress') {
+            setUpdatedAdress(value);
+            errorCopy['adres'] = undefined;
+        }
         if(name == 'changePassword') {
             setUpdatedPassword(value);
             errorCopy['password'] = undefined;
@@ -71,7 +73,7 @@ const CompanyProfileCard = (props) => {
 
     const onClickEdit = () => {
         setInEditMode(true);
-        setUpdatedCompanyName(user.companyName);
+        setUpdatedCompanyName(user.company_name);
         setUpdatedFax(user.fax);
         setUpdatedPassword(user.password);
         setUpdatedPhone(user.phone);
@@ -85,22 +87,15 @@ const CompanyProfileCard = (props) => {
         }
 
         const formData = new FormData();
-        formData.append('companyId', user.companyId);
-        formData.append('companyName', updatedCompanyName);
-        formData.append('logoPath', user.logoPath);
-        formData.append('isActive', user.isActive);
+        formData.append('companyid', user.companyid);
+        formData.append('company_name', updatedCompanyName);
+        formData.append('email', user.email);
+        formData.append('password', updatedPassword);
         formData.append('fax', updatedFax);
         formData.append('phone', updatedPhone);
-        formData.append('email', user.email);
-        formData.append('countryId', user.countryId);
-        formData.append('cityId', user.cityId);
-        formData.append('districtId', user.districtId);
-        formData.append('streetId', user.streetId);
-        formData.append('apartmentNumber', user.apartmentNumber);
-        formData.append('username', user.username);
-        formData.append('password', updatedPassword);
-        formData.append('createdAt', user.createdAt);
-        formData.append('logoFile', UpdatedLogoFile);
+        formData.append('adress', updatedAdress);
+        formData.append('is_active', user.is_active);
+        formData.append('logo_file', UpdatedLogoFile);
 
         try {
             await updateCompany(formData);
@@ -170,9 +165,11 @@ const CompanyProfileCard = (props) => {
                     (
                         <div>
 
-                            <Input name="changeCompanyName" label="Change Name" type="text" onChangeVeriables={onChange} defaultValue={user.companyName} error={error.companyName}/>
+                            <Input name="changeCompanyName" label="Change Name" type="text" onChangeVeriables={onChange} defaultValue={user.company_name} error={error.companyName}/>
 
                             <Input name="changeFax" label="Change Fax" onChangeVeriables={onChange} defaultValue={user.fax === 'string' ? '' : user.fax} error={error.fax} />
+
+                            <Input name="changeAdress" label="Change Address" onChangeVeriables={onChange} defaultValue={user.adress === 'string' ? '' : user.adress} error={error.adress} />
 
                             <Input name="changePassword" label="Change Password" onChangeVeriables={onChange} defaultValue={user.password} error={error.password} type="password" />
 

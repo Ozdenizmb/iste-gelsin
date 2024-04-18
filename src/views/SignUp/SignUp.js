@@ -30,22 +30,16 @@ const SignUp = (props) => {
     event.preventDefault();
 
     if(isSignUp) {
-        console.log("İşveren Olarak Kayıt Yapıldı.")
 
         const body = {
-          companyName,
-          logoPath: "string",
-          isActive: true,
+          company_name: companyName,
+          email,
+          password,
           fax: "string",
           phone: phoneNumber,
-          email,
-          countryId: 0,
-          cityId: 0,
-          districtId: 0,
-          streetId: 0,
-          apartmentNumber: "string",
-          username: "string",
-          password
+          adress: "string",
+          logo_path: "string",
+          is_active: true
         }
 
         try {
@@ -57,27 +51,21 @@ const SignUp = (props) => {
 
     }
     else {
-        console.log("Kullanıcı Olarak Kayıt Olundu.")
 
         const body = {
-          idNo: "string",
-          username: "string",
-          password,
           name,
           surname,
-          gsm: "string",
+          id_no: "string",
           email,
-          genderType: 0,
-          countryId: 0,
-          cityId: 0,
-          districtId: 0,
-          streetId: 0,
-          logoPath: "string",
+          password,
+          gsm: "string",
+          gender_type: 0,
+          bank_account_code: "string",
+          working_with_bankid: 0,
           iban: "string",
-          bankAccountCode: "string",
-          workingWithBankId: 0,
-          isActive: true,
-          birthday: "2002-11-10T20:17:43.550Z"
+          logo_path: "string",
+          is_active: true,
+          birthday: "2002-11-10T12:29:01"
         }
 
         try {
