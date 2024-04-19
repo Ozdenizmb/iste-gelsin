@@ -100,7 +100,7 @@ const UserPage = () => {
                                     İlan İşlemlerini Görüntüle
                                 </button>
                             </Link>
-                            <AdvertCardFeed feedsLocation={"ProfileCompany"} companyId={user.companyId}/>
+                            <AdvertCardFeed feedsLocation={"ProfileCompany"} companyId={user.companyid}/>
                         </div>
                     </div>
                 </div>

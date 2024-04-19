@@ -27,7 +27,7 @@ const AdvertCard = ({ job, cardLocation }) => {
             <h5 className="card-title">{job.title}</h5>
             <hr className="my-2" />
             <p className="card-text mb-2">{job.companyName}</p>
-            <p className="card-text mb-3 text-muted fst-italic">{job.districtName} / {job.cityName}</p>
+            <p className="card-text mb-3 text-muted fst-italic">{job.adress}</p>
             <p className="card-text">{job.description}</p>
             <button className="btn btn-success">Başvur</button>
           </div>

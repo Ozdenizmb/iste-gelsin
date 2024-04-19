@@ -15,7 +15,25 @@ const JobAdvertDetail = ({ match }) => {
         const fetchJobPosting = async () => {
             try {
                 const response = await getJobPosting(jobId);
-                setJob(response.data.data);
+                const convertedJobs = {
+                    id : response.data.data.job_postingid,
+                    company : response.data.data.companyid,
+                    employmentType : response.data.data.employment_type,
+                    educationLevel : response.data.data.education_level,
+                    experienceLevel : response.data.data.experience_level,
+                    experienceYears : response.data.data.experience_years,
+                    workModel : response.data.data.work_model,
+                    workPerHour : response.data.data.work_per_hour,
+                    totalSalary : response.data.data.total_salary,
+                    title : response.data.data.title,
+                    description: response.data.data.description,
+                    logoPath : response.data.data.logo_path,
+                    adress : response.data.data.adress,
+                    isActive : response.data.data.is_active,
+                    startAt : response.data.data.start_at,
+                    endAt : response.data.data.end_at
+                  };
+                setJob(convertedJobs);
             } catch(error) {
                 
             }

@@ -3,6 +3,8 @@ import AdvertCard from './AdvertCard';
 import { getJobPostingAll, getJobPostingByCompanyId } from '../api/apiCalls';
 import Spinner from './Spinner';
 import { useApiProgress } from '../shared/ApiProgress';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 
 const AdvertCardFeed = ({feedsLocation, companyId}) => {
 
@@ -31,35 +33,22 @@ const AdvertCardFeed = ({feedsLocation, companyId}) => {
       setLastPage(dataLastPage);
 
       const convertedJobs = data.map(job => ({
-        id : job.jobPostingId,
-        company : job.companyId,
-        isActive : job.isActive,
-        employmentType : job.employmentType,
-        educationLevel : job.educationLevel,
-        experienceLevel : job.experienceLevel,
-        experienceYears : job.experienceYears,
-        workModel : job.workModel,
-        workPerHour : job.workPerHour,
+        id : job.job_postingid,
+        company : job.companyid,
+        employmentType : job.employment_type,
+        educationLevel : job.education_level,
+        experienceLevel : job.experience_level,
+        experienceYears : job.experience_years,
+        workModel : job.work_model,
+        workPerHour : job.work_per_hour,
+        totalSalary : job.total_salary,
         title : job.title,
         description: job.description,
-        logoPath : job.logoPath,
-        totalSalary : job.totalSalary,
-        countryId: job.countryId,
-        cityId : job.cityId,
-        districtId : job.districtId,
-        streetId : job.streetId,
-        startAt : job.startAt,
-        endAt : job.endAt,
-        logoFile : job.logoFile,
-        countryName : job.countryName,
-        cityName : job.cityName,
-        districtName : job.districtName,
-        streetName : job.streetName,
-        employmentName : job.employmentName,
-        educationLevelName : job.educationLevelName,
-        experienceLevelName : job.experienceLevelName,
-        workModelName : job.workModelName,
-        companyName : job.companyName
+        logoPath : job.logo_path,
+        adress : job.adress,
+        isActive : job.is_active,
+        startAt : job.start_at,
+        endAt : job.end_at
       }));
       const combinedJobs = [...previousJobs, ...convertedJobs];
       setJobs(combinedJobs);
@@ -78,9 +67,18 @@ const AdvertCardFeed = ({feedsLocation, companyId}) => {
 
   const pendingApiCall = useApiProgress('get','/api/v1/JobPosting');
 
+  if(pendingApiCall) {
+    return (
+      <Spinner />
+    )
+  }
+
   if(jobs.length == 0) {
     return (
-        <Spinner />
+      <div className="card h-100 border rounded-3 shadow d-flex align-items-center justify-content-center p-4">
+          <FontAwesomeIcon icon={faExclamationCircle} className="rounded-circle bg-danger p-2 text-white me-2" />
+          <p className="m-0">Herhangi Bir İlanınız Yoksa, Hemen Yeni Bir İlan Oluşturun...</p>
+      </div>
     );
   }
 

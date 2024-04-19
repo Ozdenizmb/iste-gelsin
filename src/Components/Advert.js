@@ -4,7 +4,7 @@ import Footer from './Footer';
 
 const Advert = (props) => {
 
-  const { jobPostingId, companyId, isActive, employmentType, educationLevel, experienceLevel, experienceYears, workModel, workPerHour, title, description, logoPath, totalSalary, countryId, cityId, districtId, streetId, startAt, endAt, countryName, cityName, districtName, streetName, employmentName, educationLevelName, experienceLevelName, workModelName, companyName  } = props;
+  const { id, company, employmentType, educationLevel, experienceLevel, experienceYears, workModel, workPerHour, totalSalary, title, description, logoPath, adress, isActive, startAt, endAt  } = props;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -33,7 +33,7 @@ const Advert = (props) => {
           <Col md={6} lg={4} className="flex-grow-1">
             <Card className="job-advert-card shadow">
               <Card.Body>
-                <Card.Title>{companyName}</Card.Title>
+                <Card.Title>{company}</Card.Title>
                 <hr className="flex-grow-1" />
                 <Card.Text>
                   <strong>İş Tanımı:</strong> {description}
@@ -45,7 +45,7 @@ const Advert = (props) => {
                   <strong>Maaş:</strong> {totalSalary} ₺
                 </Card.Text>
                 <Card.Text>
-                  <strong>İş Modeli:</strong> {workModelName}
+                  <strong>İş Modeli:</strong> {workModel}
                 </Card.Text>
                 <div className="d-flex justify-content-end">
                   <Button variant="primary" className="me-2" onClick={() => { window.scrollTo(0, 0); }}>
@@ -61,22 +61,22 @@ const Advert = (props) => {
                 <Card.Title>İlan Detayları</Card.Title>
                 <hr className="flex-grow-1" />
                 <Card.Text>
-                  <strong>Tecrübe:</strong> {experienceLevelName} / {experienceYears} Yıl
+                  <strong>Tecrübe:</strong> {experienceLevel} / {experienceYears} Yıl
                 </Card.Text>
                 <Card.Text>
-                  <strong>Eğitim Seviyesi:</strong> {educationLevelName}
+                  <strong>Eğitim Seviyesi:</strong> {educationLevel}
                 </Card.Text>
                 <Card.Text>
-                  <strong>Adres:</strong> {streetName}MAHALLESİ, {districtName}<br></br>{cityName} / TÜRKİYE
+                  <strong>Adres:</strong> {adress}
                 </Card.Text>
                 <Card.Text>
                   <strong>Haftalık Çalışma Saati:</strong> {workPerHour}
                 </Card.Text>
                 <Card.Text>
-                  <strong>Çalışma Şekli:</strong> {employmentName}
+                  <strong>Çalışma Şekli:</strong> {employmentType}
                 </Card.Text>
                 <Card.Text>
-                  <strong>İlan Süresi:</strong> {new Date(startAt).toISOString().split('T')[0]} / {new Date(endAt).toISOString().split('T')[0]}
+                  <strong>İlan Süresi:</strong> {startAt} / {endAt}
                 </Card.Text>
               </Card.Body>
             </Card>
