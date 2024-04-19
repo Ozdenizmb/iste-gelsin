@@ -12,6 +12,8 @@ const AdvertCardFeed = ({feedsLocation, companyId}) => {
   const[pageNumber, setPageNumber] = useState(0);
   const[lastPage, setLastPage] = useState(true);
 
+  const pendingApiCall = useApiProgress('get','/api/v1/JobPosting/List');
+
   const pageSize = 12;
 
   const fetchJobPostings = async (pageNumber, pageSize) => {
@@ -65,7 +67,9 @@ const AdvertCardFeed = ({feedsLocation, companyId}) => {
     fetchJobPostings(pageNumber + 1, pageSize);
   }
 
-  const pendingApiCall = useApiProgress('get','/api/v1/JobPosting');
+  useEffect(() => {
+    console.log(pendingApiCall)
+  }, []);
 
   if(pendingApiCall) {
     return (
