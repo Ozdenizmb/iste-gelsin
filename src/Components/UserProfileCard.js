@@ -121,7 +121,6 @@ const UserProfileCard = (props) => {
         formData.append('logo_file', UpdatedLogoFile);
 
         try {
-            console.log(formData);
             await updateUser(formData);
             const response = await getUser();
             setUser(response.data.data);

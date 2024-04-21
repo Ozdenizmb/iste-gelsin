@@ -66,7 +66,7 @@
 }
 
 .card-for-job .image-container-for-company img {
-    width: 10rem;
-    height: 7rem;
+    width: 12rem;
+    height: 9rem;
     object-fit: cover;
 }

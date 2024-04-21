@@ -12,7 +12,6 @@ import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 const AdvertisementProceduresPage = () => {
 
-    const [advert, setAdvert] = useState({});
     const [advertVisible, setAdvertVisible] = useState(false);
     const {id} = useParams();
 
@@ -20,23 +19,8 @@ const AdvertisementProceduresPage = () => {
         companyId: store.id
     }));
 
-    useEffect(() => {
-        getAdvertDetail(id);
-    }, [id]);
-
     const onClickAdvertCard = () => {
         setAdvertVisible(true);
-    }
-
-    const getAdvertDetail = async (advertId) => {
-        try {
-            if(advertId != "ilan-paneli") {
-                const response = await getJobPosting(advertId);
-                setAdvert(response.data.data);
-            }
-        } catch(error) {
-            
-        }
     }
 
     let advertDetail = (
@@ -49,7 +33,7 @@ const AdvertisementProceduresPage = () => {
     if(advertVisible || id != "ilan-paneli") {
         advertDetail = (
             <div>
-                <AdvertAdminCard advert={advert} />
+                <AdvertAdminCard jobId={id} />
             </div>
         )
     }
