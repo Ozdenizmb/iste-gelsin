@@ -16,8 +16,13 @@ const JobAdvertDetail = ({ match }) => {
             try {
                 const response = await getJobPosting(jobId);
                 const convertedJobs = {
+                    companyName:  response.data.data.company_name,
+                    employmentName:  response.data.data.employment_name,
+                    educationLevelName:  response.data.data.education_level_name,
+                    experienceLevelName:  response.data.data.experience_level_name,
+                    workModelName:  response.data.data.work_model_name,
                     id : response.data.data.job_postingid,
-                    company : response.data.data.companyid,
+                    companyId : response.data.data.companyid,
                     employmentType : response.data.data.employment_type,
                     educationLevel : response.data.data.education_level,
                     experienceLevel : response.data.data.experience_level,

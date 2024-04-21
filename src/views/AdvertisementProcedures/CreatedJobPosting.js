@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { faSave } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { insertJobPosting } from '../../api/apiCalls';
+import { useApiProgress } from '../../shared/ApiProgress';
 
 const CreatedJobPosting = (props) => {
 
@@ -21,7 +22,6 @@ const CreatedJobPosting = (props) => {
     const [createdStartAt, setCreatedStartAt] = useState();
     const [createdEndAt, setCreatedEndAt] = useState();
 
-    const [advert, setAdvert] = useState();
     const [error, setError] = useState({});
 
     const { companyId, email, logoPath } = useSelector(store => ({
@@ -30,7 +30,7 @@ const CreatedJobPosting = (props) => {
         logoPath: store.logoPath
     }));
 
-    const pendingApiCall = false;
+    const pendingApiCall = useApiProgress('post','/api/v1/JobPosting');
 
     const onChange = (event) => {
         const value = event.target.value;
@@ -128,29 +128,29 @@ const CreatedJobPosting = (props) => {
                     </img>
                 </div>
                 <div className="card-body ps-5 pe-5">
-                    <Input name="createTitle" label="Başlığı Gir" type="text" onChangeVeriables={onChange} error={error.name} placeholder="İlan Başlığı"/>
+                    <Input name="createTitle" label="Başlığı Gir" type="text" onChangeVeriables={onChange} error={error.title} placeholder="İlan Başlığı"/>
 
-                    <Input name="createDescription" label="Açıklamayı Gir" type="text" onChangeVeriables={onChange} error={error.name} placeholder="İlan Açıklaması"/>
+                    <Input name="createDescription" label="Açıklamayı Gir" type="text" onChangeVeriables={onChange} error={error.description} placeholder="İlan Açıklaması"/>
 
-                    <Input name="createTotalSalary" label="Maaşı Gir (₺)" type="text" onChangeVeriables={onChange} error={error.name} placeholder="Çalışanın Aylık Maaşı"/>
+                    <Input name="createTotalSalary" label="Maaşı Gir (₺)" type="text" onChangeVeriables={onChange} error={error.totalSalary} placeholder="Çalışanın Aylık Maaşı"/>
 
-                    <Input name="createWorkPerHour" label="Saatlik Ücreti Gir (₺)" type="text" onChangeVeriables={onChange} error={error.name} placeholder="Çalışanın Saatlik Ücreti"/>
+                    <Input name="createWorkPerHour" label="Saatlik Ücreti Gir (₺)" type="text" onChangeVeriables={onChange} error={error.workPerHour} placeholder="Çalışanın Saatlik Ücreti"/>
 
-                    <Input name="createAdress" label="Adresi Değiştir" type="text" onChangeVeriables={onChange} error={error.name} placeholder="İş Adresi"/>
+                    <Input name="createAdress" label="Adresi Değiştir" type="text" onChangeVeriables={onChange} error={error.adress} placeholder="İş Adresi"/>
 
-                    <Input name="createEducationLevel" label="Eğitim Seviyesini Gir" type="text" onChangeVeriables={onChange} error={error.name} placeholder="İlan İçin Gerekli Eğtim Seviyesi"/>
+                    <Input name="createEducationLevel" label="Eğitim Seviyesini Gir" type="text" onChangeVeriables={onChange} error={error.educationLevel} placeholder="İlan İçin Gerekli Eğtim Seviyesi"/>
 
-                    <Input name="createWorkModel" label="Çalışma Modelini Gir" type="text" onChangeVeriables={onChange} error={error.name} placeholder="Çalışma Modelini"/>
+                    <Input name="createWorkModel" label="Çalışma Modelini Gir" type="text" onChangeVeriables={onChange} error={error.workModel} placeholder="Çalışma Modelini"/>
 
-                    <Input name="createEmploymentType" label="Çalışma Şeklini Gir" type="text" onChangeVeriables={onChange} error={error.name} placeholder="Çalışma Şekli"/>
+                    <Input name="createEmploymentType" label="Çalışma Şeklini Gir" type="text" onChangeVeriables={onChange} error={error.employmentType} placeholder="Çalışma Şekli"/>
 
-                    <Input name="createExperienceLevel" label="Deneyim Seviyesini Gir" type="text" onChangeVeriables={onChange} error={error.name} placeholder="İlan İçin Gerekli Deneyim Seviyesi"/>
+                    <Input name="createExperienceLevel" label="Deneyim Seviyesini Gir" type="text" onChangeVeriables={onChange} error={error.experienceLevel} placeholder="İlan İçin Gerekli Deneyim Seviyesi"/>
 
-                    <Input name="createExperienceYears" label="Deneyim Yılını Gir" type="text" onChangeVeriables={onChange} error={error.name} placeholder="İlan İçin Gerekli Deneyim Yılı"/>
+                    <Input name="createExperienceYears" label="Deneyim Yılını Gir" type="text" onChangeVeriables={onChange} error={error.experienceYears} placeholder="İlan İçin Gerekli Deneyim Yılı"/>
 
-                    <Input name="createStartAt" label="İş Başlangıç Tarihini Gir" onChangeVeriables={onChange} error={error.birthday} type="date"/>
+                    <Input name="createStartAt" label="İş Başlangıç Tarihini Gir" onChangeVeriables={onChange} error={error.startAt} type="date"/>
 
-                    <Input name="createEndAt" label="İş Bitiş Tarihini Gir" onChangeVeriables={onChange} error={error.birthday} type="date"/>
+                    <Input name="createEndAt" label="İş Bitiş Tarihini Gir" onChangeVeriables={onChange} error={error.endAt} type="date"/>
 
                     <div>
                                     

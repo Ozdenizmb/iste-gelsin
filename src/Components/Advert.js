@@ -4,7 +4,7 @@ import Footer from './Footer';
 
 const Advert = (props) => {
 
-  const { id, company, employmentType, educationLevel, experienceLevel, experienceYears, workModel, workPerHour, totalSalary, title, description, logoPath, adress, isActive, startAt, endAt  } = props;
+  const { id, companyId, employmentType, educationLevel, experienceLevel, experienceYears, workModel, workPerHour, totalSalary, title, description, logoPath, adress, isActive, startAt, endAt, companyName, employmentName, educationLevelName, experienceLevelName, workModelName  } = props;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -33,19 +33,16 @@ const Advert = (props) => {
           <Col md={6} lg={4} className="flex-grow-1">
             <Card className="job-advert-card shadow">
               <Card.Body>
-                <Card.Title>{company}</Card.Title>
+                <Card.Title>{companyName}</Card.Title>
                 <hr className="flex-grow-1" />
                 <Card.Text>
                   <strong>İş Tanımı:</strong> {description}
                 </Card.Text>
                 <Card.Text>
-                  <strong>Pozisyon:</strong>
-                </Card.Text>
-                <Card.Text>
                   <strong>Maaş:</strong> {totalSalary} ₺
                 </Card.Text>
                 <Card.Text>
-                  <strong>İş Modeli:</strong> {workModel}
+                  <strong>İş Modeli:</strong> {workModelName}
                 </Card.Text>
                 <div className="d-flex justify-content-end">
                   <Button variant="primary" className="me-2" onClick={() => { window.scrollTo(0, 0); }}>
@@ -61,10 +58,10 @@ const Advert = (props) => {
                 <Card.Title>İlan Detayları</Card.Title>
                 <hr className="flex-grow-1" />
                 <Card.Text>
-                  <strong>Tecrübe:</strong> {experienceLevel} / {experienceYears} Yıl
+                  <strong>Tecrübe:</strong> {experienceLevelName} / {experienceYears} Yıl
                 </Card.Text>
                 <Card.Text>
-                  <strong>Eğitim Seviyesi:</strong> {educationLevel}
+                  <strong>Eğitim Seviyesi:</strong> {educationLevelName}
                 </Card.Text>
                 <Card.Text>
                   <strong>Adres:</strong> {adress}
@@ -73,7 +70,7 @@ const Advert = (props) => {
                   <strong>Haftalık Çalışma Saati:</strong> {workPerHour}
                 </Card.Text>
                 <Card.Text>
-                  <strong>Çalışma Şekli:</strong> {employmentType}
+                  <strong>Çalışma Şekli:</strong> {employmentName}
                 </Card.Text>
                 <Card.Text>
                   <strong>İlan Süresi:</strong> {startAt} / {endAt}
