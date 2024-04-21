@@ -138,13 +138,52 @@ const CreatedJobPosting = (props) => {
 
                     <Input name="createAdress" label="Adresi Değiştir" type="text" onChangeVeriables={onChange} error={error.adress} placeholder="İş Adresi"/>
 
-                    <Input name="createEducationLevel" label="Eğitim Seviyesini Gir" type="text" onChangeVeriables={onChange} error={error.educationLevel} placeholder="İlan İçin Gerekli Eğtim Seviyesi"/>
+                    <div className="mb-3">
+                        <label className="form-label">Eğitim Seviyesini Gir</label>
+                        <select id="comboBox1" className="form-select" name="createEducationLevel" onChange={onChange}>
+                            <option value="">Eğitim Seviyesini Seçiniz</option>
+                            <option value="1">Lise</option>
+                            <option value="2">Ön Lisans</option>
+                            <option value="3">Lisans</option>
+                            <option value="4">Yüksek Lisans</option>
+                            <option value="5">Doktora</option>
+                            <option value="6">Post-Doktora</option>
+                            <option value="7">Profesyonel Derece</option>
+                        </select>
+                    </div>
 
-                    <Input name="createWorkModel" label="Çalışma Modelini Gir" type="text" onChangeVeriables={onChange} error={error.workModel} placeholder="Çalışma Modelini"/>
+                    <div className="mb-3">
+                        <label className="form-label">Çalışma Şeklini Gir</label>
+                        <select id="comboBox3" className="form-select" name="createEmploymentType" onChange={onChange}>
+                            <option value="">Çalışma Şeklini Seçiniz</option>
+                            <option value="1">Tam Zamanlı Çalışma</option>
+                            <option value="2">Yarı Zamanlı Çalışma</option>
+                            <option value="3">Sözleşmeli Çalışma</option>
+                            <option value="4">Sezonluk / Dönemlik</option>
+                            <option value="5">Stajyerlik</option>
+                        </select>
+                    </div>
 
-                    <Input name="createEmploymentType" label="Çalışma Şeklini Gir" type="text" onChangeVeriables={onChange} error={error.employmentType} placeholder="Çalışma Şekli"/>
+                    <div className="mb-3">
+                        <label className="form-label">Çalışma Modelini Gir</label>
+                        <select id="comboBox3" className="form-select" name="createWorkModel" onChange={onChange}>
+                            <option value="">Çalışma Modelini Seçiniz</option>
+                            <option value="1">Uzaktan</option>
+                            <option value="2">Hibrit</option>
+                            <option value="3">Ofis</option>
+                        </select>
+                    </div>
 
-                    <Input name="createExperienceLevel" label="Deneyim Seviyesini Gir" type="text" onChangeVeriables={onChange} error={error.experienceLevel} placeholder="İlan İçin Gerekli Deneyim Seviyesi"/>
+                    <div className="mb-3">
+                        <label className="form-label">Deneyim Seviyesini Gir</label>
+                        <select id="comboBox4" className="form-select" name="createExperienceLevel" onChange={onChange}>
+                            <option value="">Deneyim Seviyesini Seçiniz</option>
+                            <option value="1">Giriş Seviyesi</option>
+                            <option value="2">Orta Seviye</option>
+                            <option value="3">Üst Düzey</option>
+                            <option value="4">Uzman</option>
+                        </select>
+                    </div>
 
                     <Input name="createExperienceYears" label="Deneyim Yılını Gir" type="text" onChangeVeriables={onChange} error={error.experienceYears} placeholder="İlan İçin Gerekli Deneyim Yılı"/>
 

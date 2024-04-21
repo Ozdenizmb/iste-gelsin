@@ -51,8 +51,8 @@ export const getJobPostingAll = (pageNumber, pageSize) => {
     return axios.get(`/api/v1/JobPosting/List?workModelId=0&pageNumber=${pageNumber}&pageSize=${pageSize}`);
 }
 
-export const getJobPosting = (body) => {
-    return axios.get("/api/v1/JobPosting?jobPostingId=" + body);
+export const getJobPosting = (postId) => {
+    return axios.get("/api/v1/JobPosting?jobPostingId=" + postId);
 }
 
 export const getJobPostingByCompanyId = (companyId, pageNumber, pageSize) => {

@@ -157,15 +157,13 @@ const AdvertAdminCard = ({ jobId }) => {
         } catch(error) {
 
         }
-
-        console.log(body);
     }
 
     const onClickDelete = async () => {
         const body = [
             {
               "operationType": 0,
-              "path": "/IsActive",
+              "path": "/is_active",
               "op": "replace",
               "from": "string",
               "value": false
@@ -208,13 +206,48 @@ const AdvertAdminCard = ({ jobId }) => {
 
                 <Input name="changeAdress" label="Adresi Değiştir" type="text" onChangeVeriables={onChange} defaultValue={updatedAdress} error={error.adress}/>
 
-                <Input name="changeEducationLevel" label="Eğitim Seviyesini Değiştir" type="text" onChangeVeriables={onChange} defaultValue={updatedEducationLevel} error={error.educationLevel}/>
+                <div className="mb-3">
+                    <label className="form-label">Eğitim Seviyesini Değiştir</label>
+                    <select id="comboBox1" className="form-select" name="changeEducationLevel" onChange={onChange} value={updatedEducationLevel}>
+                        <option value="1">Lise</option>
+                        <option value="2">Ön Lisans</option>
+                        <option value="3">Lisans</option>
+                        <option value="4">Yüksek Lisans</option>
+                        <option value="5">Doktora</option>
+                        <option value="6">Post-Doktora</option>
+                        <option value="7">Profesyonel Derece</option>
+                    </select>
+                </div>
 
-                <Input name="changeEmploymentType" label="Çalışma Şeklini Değiştir" type="text" onChangeVeriables={onChange} defaultValue={updatedEmploymentType} error={error.employmentType}/>
+                <div className="mb-3">
+                    <label className="form-label">Çalışma Şeklini Değiştir</label>
+                    <select id="comboBox3" className="form-select" name="changeEmploymentType" onChange={onChange} value={updatedEmploymentType}>
+                        <option value="1">Tam Zamanlı Çalışma</option>
+                        <option value="2">Yarı Zamanlı Çalışma</option>
+                        <option value="3">Sözleşmeli Çalışma</option>
+                        <option value="4">Sezonluk / Dönemlik</option>
+                        <option value="5">Stajyerlik</option>
+                    </select>
+                </div>
 
-                <Input name="changeWorkModel" label="İş Modelini Değiştir" type="text" onChangeVeriables={onChange} defaultValue={updatedWorkModel} error={error.workModel}/>
+                <div className="mb-3">
+                    <label className="form-label">İş Modelini Değiştir</label>
+                    <select id="comboBox3" className="form-select" name="changeWorkModel" onChange={onChange} value={updatedWorkModel}>
+                        <option value="1">Uzaktan</option>
+                        <option value="2">Hibrit</option>
+                        <option value="3">Ofis</option>
+                    </select>
+                </div>
 
-                <Input name="changeExperienceLevel" label="Deneyim Seviyesini Değiştir" type="text" onChangeVeriables={onChange} defaultValue={updatedExperienceLevel} error={error.experienceLevel}/>
+                <div className="mb-3">
+                    <label className="form-label">Deneyim Seviyesini Değiştir</label>
+                    <select id="comboBox4" className="form-select" name="changeExperienceLevel" onChange={onChange} value={updatedExperienceLevel}>
+                        <option value="1">Giriş Seviyesi</option>
+                        <option value="2">Orta Seviye</option>
+                        <option value="3">Üst Düzey</option>
+                        <option value="4">Uzman</option>
+                    </select>
+                </div>
 
                 <Input name="changeExperienceYears" label="Deneyim Yılını Değiştir" type="text" onChangeVeriables={onChange} defaultValue={updatedExperienceYears} error={error.experienceYears}/>
 
