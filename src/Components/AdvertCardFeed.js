@@ -11,6 +11,7 @@ const AdvertCardFeed = ({feedsLocation, companyId}) => {
   const[jobs, setJobs] = useState([]);
   const[pageNumber, setPageNumber] = useState(0);
   const[lastPage, setLastPage] = useState(true);
+  const[isThereData, setIsThereData] = useState(false);
 
   const pendingApiCall = useApiProgress('get','/api/v1/JobPosting/List');
 
@@ -35,6 +36,11 @@ const AdvertCardFeed = ({feedsLocation, companyId}) => {
       setLastPage(dataLastPage);
 
       const convertedJobs = data.map(job => ({
+        companyName: job.company_name,
+        employmentName: job.employment_name,
+        educationLevelName: job.education_level_name,
+        experienceLevelName: job.experience_level_name,
+        workModelName: job.work_model_name,
         id : job.job_postingid,
         company : job.companyid,
         employmentType : job.employment_type,
@@ -55,7 +61,7 @@ const AdvertCardFeed = ({feedsLocation, companyId}) => {
       const combinedJobs = [...previousJobs, ...convertedJobs];
       setJobs(combinedJobs);
     } catch(error) {
-
+      setIsThereData(true);
     }
   };
 
@@ -67,22 +73,18 @@ const AdvertCardFeed = ({feedsLocation, companyId}) => {
     fetchJobPostings(pageNumber + 1, pageSize);
   }
 
-  useEffect(() => {
-    console.log(pendingApiCall)
-  }, []);
-
-  if(pendingApiCall) {
-    return (
-      <Spinner />
-    )
-  }
-
-  if(jobs.length == 0) {
+  if(isThereData) {
     return (
       <div className="card h-100 border rounded-3 shadow d-flex align-items-center justify-content-center p-4">
           <FontAwesomeIcon icon={faExclamationCircle} className="rounded-circle bg-danger p-2 text-white me-2" />
           <p className="m-0">Herhangi Bir İlanınız Yoksa, Hemen Yeni Bir İlan Oluşturun...</p>
       </div>
+    );
+  }
+
+  if(jobs.length == 0) {
+    return (
+      <Spinner />
     );
   }
 

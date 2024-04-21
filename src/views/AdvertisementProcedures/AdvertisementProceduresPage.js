@@ -43,7 +43,6 @@ const AdvertisementProceduresPage = () => {
         <div className="card h-100 border rounded-3 shadow d-flex align-items-center justify-content-center">
             <FontAwesomeIcon icon={faExclamationCircle} className="rounded-circle bg-danger p-2 text-white me-2" />
             <p className="m-0">İlan Detayını Görüntülemek İçin Soldaki Menüde Yer Alan Bir İlana Tıklayınız!</p>
-            <p className="m-0">Herhangi Bir İlanınız Yoksa, Hemen Yeni Bir İlan Oluşturun...</p>
         </div>
     );
 
