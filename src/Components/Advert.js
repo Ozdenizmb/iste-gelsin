@@ -36,6 +36,7 @@ const Advert = (props) => {
     try {
       const response = await postJobApplication(body);
       setApplicationChecked(true);
+      toast.success("Başarılı bir şekilde başvuru yaptınız.");
     } catch(error) {
       if (error.response.data.message === "Bu bilgilere ait bir kayit bulundu!") {
         toast.error("Bu ilana zaten başvurdunuz!");
@@ -88,8 +89,6 @@ const Advert = (props) => {
                       { applicationChecked && <FontAwesomeIcon icon={faCheck} className="me-2" /> }
                       Başvur
                     </Button>
-
-                    <Button variant="secondary">Kaydet</Button>
                   </div>
                 }
                 {
