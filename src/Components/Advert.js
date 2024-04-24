@@ -7,13 +7,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 const Advert = (props) => {
 
   const { id, companyId, employmentType, educationLevel, experienceLevel, experienceYears, workModel, workPerHour, totalSalary, title, description, logoPath, adress, isActive, startAt, endAt, companyName, employmentName, educationLevelName, experienceLevelName, workModelName  } = props;
 
-  const { userId, statuses } = useSelector(store => ({
+  const { userId, email, statuses } = useSelector(store => ({
     userId: store.id,
+    email: store.email,
     statuses: store.statuses
   }));
 
@@ -45,11 +47,6 @@ const Advert = (props) => {
       }
     }
 
-  }
-
-  const onClickShowApplication = async () => {
-    const response = await getListJobApplication(id);
-    console.log(response.data.data);
   }
 
   return (
@@ -98,9 +95,11 @@ const Advert = (props) => {
                 {
                   (statuses == "company" && companyId == userId) &&
                   <div className="d-flex justify-content-end">
-                    <Button variant="primary" className="me-2" onClick={onClickShowApplication}>
-                      Başvuruları Görüntüle
-                    </Button>
+                    <Link to={`/job-application/${email}/${id}`} className="card-link nav-link d-flex">
+                      <Button variant="primary" className="me-2">
+                        Başvuruları Görüntüle
+                      </Button>
+                    </Link>
                   </div>
                 }
               </Card.Body>
