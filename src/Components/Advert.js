@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Card, Button, Row, Col } from 'react-bootstrap';
 import Footer from './Footer';
 import { useSelector } from 'react-redux';
-import { postJobApplication } from '../api/apiCalls';
+import { getListJobApplication, postJobApplication } from '../api/apiCalls';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { ToastContainer, toast } from 'react-toastify';
@@ -31,7 +31,6 @@ const Advert = (props) => {
       userid: userId,
       is_user_accepted: true
     }
-    console.log(body);
 
     try {
       const response = await postJobApplication(body);
@@ -46,6 +45,11 @@ const Advert = (props) => {
       }
     }
 
+  }
+
+  const onClickShowApplication = async () => {
+    const response = await getListJobApplication(id);
+    console.log(response.data.data);
   }
 
   return (
@@ -92,9 +96,9 @@ const Advert = (props) => {
                   </div>
                 }
                 {
-                  statuses == "company" &&
+                  (statuses == "company" && companyId == userId) &&
                   <div className="d-flex justify-content-end">
-                    <Button variant="primary" className="me-2" onClick={() => { window.scrollTo(0, 0); }}>
+                    <Button variant="primary" className="me-2" onClick={onClickShowApplication}>
                       Başvuruları Görüntüle
                     </Button>
                   </div>

@@ -74,3 +74,7 @@ export const insertJobPosting = (body) => {
 export const postJobApplication = (body) => {
     return axios.post("/api/v1/JobApplication", body);
 }
+
+export const getListJobApplication = (id) => {
+    return axios.get("/api/v1/JobApplication/ListByJobPosting?job_postingid=" + id, { headers: { company: true } });
+}

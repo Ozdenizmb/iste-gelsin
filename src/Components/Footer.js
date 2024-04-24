@@ -85,7 +85,7 @@ const Footer = () => {
 
           <div className="col-md-3">
             <h5 className="footer-column-title mb-4">Kurumsal</h5>
-            <ul className="list-unstyled">
+            <ul className="list-unstyled d-inline-block">
               <li><Link className="nav-link footer-underline" to="/contact">Eleman.net Hakkında</Link></li>
               <li><Link className="nav-link footer-underline" to="/contact">Reklam Verin</Link></li>
               <li><Link className="nav-link footer-underline" to="/contact">Kurumsal Dergi - Emag</Link></li>
