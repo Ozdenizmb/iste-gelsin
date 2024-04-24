@@ -70,3 +70,7 @@ export const deleteJobPosting = (postId, body) => {
 export const insertJobPosting = (body) => {
     return axios.post("/api/v1/JobPosting", body, { headers: { company: true } });
 }
+
+export const postJobApplication = (body) => {
+    return axios.post("/api/v1/JobApplication", body);
+}
