@@ -16,6 +16,7 @@ import PaymentPage from './views/Payment/PaymentPage';
 import Login from './views/Login/Login';
 import AdvertisementProceduresPage from './views/AdvertisementProcedures/AdvertisementProceduresPage';
 import CreatedJobPosting from './views/AdvertisementProcedures/CreatedJobPosting';
+import ApplicationAdmin from './views/AdvertApplicationAdmin/ApplicationAdmin';
 
 const App = () => {
 
@@ -54,6 +55,8 @@ const App = () => {
         <Route path="/created/job-posting" component={CreatedJobPosting}/>
 
         <Route path="/jobadvert/:jobId" component={JobAdvertDetail} />
+
+        <Route path="/job-application/:email/:id" component={ApplicationAdmin} />
 
         <Route path="/payment-page" component={PaymentPage}/>
 

@@ -1,15 +1,12 @@
-import React, { useEffect } from 'react';
-import './AdvertisementProceduresPage.css';
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState } from 'react';
 import AdvertCardFeed from '../../Components/AdvertCardFeed';
+import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationCircle, faEdit } from '@fortawesome/free-solid-svg-icons';
 import { useParams } from 'react-router-dom';
-import AdvertAdminCard from '../../Components/AdvertAdminCard';
-import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import AdvertApplicationCard from '../../Components/AdvertApplicationCard';
 
-const AdvertisementProceduresPage = () => {
+const ApplicationAdmin = () => {
 
     const [advertVisible, setAdvertVisible] = useState(false);
     const {id} = useParams();
@@ -22,17 +19,17 @@ const AdvertisementProceduresPage = () => {
         setAdvertVisible(true);
     }
 
-    let advertDetail = (
+    let applicationDetail = (
         <div className="card h-100 border rounded-3 shadow d-flex align-items-center justify-content-center">
             <FontAwesomeIcon icon={faExclamationCircle} className="rounded-circle bg-danger p-2 text-white me-2" />
-            <p className="m-0">İlan Detayını Görüntülemek İçin Soldaki Menüde Yer Alan Bir İlana Tıklayınız!</p>
+            <p className="m-0">Başvuruları Görüntülemek İçin Soldaki Menüde Yer Alan Bir İlana Tıklayınız!</p>
         </div>
-    );
+    )
 
-    if(advertVisible || id != "ilan-paneli") {
-        advertDetail = (
+    if(advertVisible || id != "basvurular") {
+        applicationDetail = (
             <div>
-                <AdvertAdminCard jobId={id} />
+                <AdvertApplicationCard jobId={id}/>
             </div>
         )
     }
@@ -43,21 +40,14 @@ const AdvertisementProceduresPage = () => {
             <hr className="mb-3"></hr>
             <div className="row">
                 <div className="col-md-4" onClick={onClickAdvertCard}>
-                    <Link to={"/created/job-posting"} className="card-link nav-link">
-                        <button className="btn btn-primary w-100 mb-3">
-                            <FontAwesomeIcon icon={faEdit} className="pe-2 pt-1" />
-                            İlan Oluştur
-                        </button>
-                    </Link>
-
-                    <AdvertCardFeed feedsLocation={"AdvertisementProceduresPage"} companyId={companyId}/>
+                    <AdvertCardFeed feedsLocation={"ApplicationAdmin"} companyId={companyId}/>
                 </div>
                 <div className="col-md-8">
-                    {advertDetail}
+                    {applicationDetail}
                 </div>
             </div>
         </div>
     );
 };
 
-export default AdvertisementProceduresPage;
+export default ApplicationAdmin;
