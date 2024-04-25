@@ -12,12 +12,20 @@ const AdvertApplicationCard = ({ jobId }) => {
 
     const getApplicationsList = async (id) => {
         try {
+            setIsThereData(false);
             const response = await getListJobApplication(id);
             const data = response.data.data;
 
             const convertedData = data.map(user => ({
-                userId: user.userid,
+                name: user.name,
+                surname: user.surname,
+                email: user.email,
+                gsm: user.gsm,
+                genderType: user.gender_type,
+                logoPath: user.logo_path,
+                genderName: user.gender_name,
                 jobPostingid: user.job_postingid,
+                userId: user.userid,
                 isUserAccepted: user.is_user_accepted,
                 createdAt: user.created_at
             }));
