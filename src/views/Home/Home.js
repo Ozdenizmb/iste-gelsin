@@ -1,58 +1,31 @@
-import React, { useState } from 'react';
-import Input from '../../Components/Input';
-import Button from 'react-bootstrap/Button';
-import Advert from '../../Components/Advert';
-import ÖrnekİşİlanıResmi from '../../images/ÖrnekİşİlanıResmi.png'
+import React from 'react';
 import Footer from '../../Components/Footer';
 import './Home.css';
-import { useDispatch } from "react-redux";
 import AdvertCardFeed from '../../Components/AdvertCardFeed';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import homePageImage from '../../images/homePageImage.jpg';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import SliderHomePage from '../../Components/SliderHomePage';
 
 const HomePage = () => {
 
-    const dispatch = useDispatch();
-
     return (
         <div>
-            <div className="container my-4">
-                <div className="card bg-light p-4" style={{ width: '100%', marginTop: '2rem' }}>
-                    <h1 className="text-left my-4">
-                        <span className="fw-bold" style={{ fontSize: '1.1em' }}>İş Fırsatlarını Keşfet</span>
-                    </h1>
-                    <div className="row mt-3">
-                        <div className="col-md-3">
-                            <div className="input-group mb-3" style={{ boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }}>
-                                <input type="text" className="form-control hover-success-border" placeholder="Meslek Ara" style={{ height: '4rem' }} />
-                            </div>
+            <div>
+                <SliderHomePage />
+            </div>
+            <div className="container my-5">
+                <div className="card h-100 border rounded-3 shadow home-page-card">
+                    <Link to={"/ads-page"} className="card-link nav-link d-flex">
+                        <div className="card-body pb-0">
+                            <h1 className="card-title text-center mt-5">
+                                <span className="fw-bold" style={{ fontSize: '1.1em' }}>İş Fırsatlarını Keşfet</span>
+                            </h1>
                         </div>
-                        <div className="col-md-3">
-                            <div className="input-group mb-3" style={{ boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }}>
-                                <input type="text" className="form-control hover-success-border" placeholder="Şehir veya İlçe Ara" style={{ height: '4rem' }} />
-                            </div>
+                        <div className="image-container-for-home-page">
+                            <img src={homePageImage} className="card-img-top rounded-2 img-fluid" alt={"job advert iş"} />
                         </div>
-                        <div className="col-md-3">
-                            <button className="btn btn-primary btn-lg" style={{ height: '4rem', fontSize: "1rem" , backgroundColor:  'green'}}>İŞTE GELSİN</button>
-
-                        </div>
-                    </div>
+                    </Link>
                 </div>
-
-                {/* Silinecek kısım */}
-                {/* <div className="card mt-5 p-5 bg-primary d-flex justify-content-between align-items-center">
-                    <h3 className="text-center mb-4 text-white" style={{ fontSize: '1.5em' }}>Uzaktan Çalışmaya Ne Dersin</h3>
-                    <div className="ml-auto d-flex justify-content-center align-items-center">
-                        <button
-                        className="btn btn-sm btn-dark"
-                        style={{ height: '4rem', fontSize: "1rem" }}
-                        onClick={onClickProduct1}>
-                            Hemen Başvur
-                            </button>
-                    </div>
-                </div> */}
-                {/* Silinecek kısım sonu */}
-
             </div>
 
             <div className='d-flex justify-content-center align-items-center'>

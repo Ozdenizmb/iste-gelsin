@@ -80,3 +80,33 @@
     height: 13rem;
     object-fit: cover;
 }
+
+.slider-image {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.slider-item {
+    position: relative;
+}
+  
+.slider-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Filtre rengi ve opaklığı */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.slider-text {
+    color: white; /* Yazı rengi */
+    font-size: 24px; /* Yazı boyutu */
+    text-align: center;
+    padding: 20px;
+}

@@ -15,7 +15,7 @@ const AdvertCardFeed = ({feedsLocation, companyId}) => {
 
   const pendingApiCall = useApiProgress('get','/api/v1/JobPosting/List');
 
-  const pageSize = 12;
+  const pageSize = 11;
 
   const fetchJobPostings = async (pageNumber, pageSize) => {
     const previousJobs = [...jobs];
