@@ -80,6 +80,12 @@ const UserPage = () => {
                     <h2 className="text-center">Başvurduğunuz İlanlar</h2>
                     <hr></hr>
                     <div>
+                            <Link to={`/your-accepted/${email}`} className="d-grid gap-2 mb-2 card-link nav-link">
+                                <button className="btn btn-success">
+                                    <FontAwesomeIcon icon={faClipboardList} className="pe-2 pt-1" />
+                                    Kabul Edildiğin İlanları Görüntüle
+                                </button>
+                            </Link>
                         <ApplicationCardForUser />
                     </div>
                 </div>
