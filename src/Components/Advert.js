@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Card, Button, Row, Col } from 'react-bootstrap';
 import Footer from './Footer';
 import { useSelector } from 'react-redux';
-import { getListJobApplication, postJobApplication } from '../api/apiCalls';
+import { getJobApplication, getListJobApplication, postJobApplication } from '../api/apiCalls';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { ToastContainer, toast } from 'react-toastify';
@@ -20,9 +20,23 @@ const Advert = (props) => {
   }));
 
   const [applicationChecked, setApplicationChecked] = useState(false);
+  const [buttonColor, setButtonColor] = useState("primary");
+
+  const checkApplication = async () => {
+    try {
+      await getJobApplication(id, userId);
+      setApplicationChecked(true);
+      setButtonColor("success");
+    } catch(error) {
+      setApplicationChecked(false);
+      setButtonColor("primary");
+    }
+  }
 
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    checkApplication();    
   }, []);
 
   const onClickJobApplication = async (event) => {
@@ -37,11 +51,13 @@ const Advert = (props) => {
     try {
       const response = await postJobApplication(body);
       setApplicationChecked(true);
+      setButtonColor("success");
       toast.success("Başarılı bir şekilde başvuru yaptınız.");
     } catch(error) {
       if (error.response.data.message === "Bu bilgilere ait bir kayit bulundu!") {
         toast.error("Bu ilana zaten başvurdunuz!");
         setApplicationChecked(true);
+        setButtonColor("success");
       } else {
         console.log("Başka bir hata")
       }
@@ -86,7 +102,7 @@ const Advert = (props) => {
                 {
                   statuses == "user" &&
                   <div className="d-flex justify-content-end">
-                    <Button variant="primary" className="me-2" onClick={onClickJobApplication}>
+                    <Button variant={buttonColor} className="me-2" onClick={onClickJobApplication}>
                       { applicationChecked && <FontAwesomeIcon icon={faCheck} className="me-2" /> }
                       Başvur
                     </Button>

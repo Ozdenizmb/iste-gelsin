@@ -27,6 +27,7 @@ const AdvertApplicationCard = ({ jobId }) => {
                 jobPostingid: user.job_postingid,
                 userId: user.userid,
                 isUserAccepted: user.is_user_accepted,
+                isUserRejected: user.is_user_rejected,
                 createdAt: user.created_at
             }));
             setApplicationUser(convertedData);
