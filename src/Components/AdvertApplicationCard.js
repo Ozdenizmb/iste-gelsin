@@ -30,7 +30,6 @@ const AdvertApplicationCard = ({ jobId }) => {
                 createdAt: user.created_at
             }));
             setApplicationUser(convertedData);
-            console.log(applicationUser);
         } catch(error) {
             setIsThereData(true);
         }
@@ -53,7 +52,7 @@ const AdvertApplicationCard = ({ jobId }) => {
         return (
           <Spinner />
         );
-      }
+    }
 
     return (
         <div className="row">

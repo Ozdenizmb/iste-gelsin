@@ -13,6 +13,7 @@ import './UserPage.css';
 import AdvertCardFeed from '../../Components/AdvertCardFeed';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faClipboardList } from '@fortawesome/free-solid-svg-icons';
+import ApplicationCardForUser from '../../Components/ApplicationCardForUser';
 
 const UserPage = () => {
 
@@ -74,6 +75,15 @@ const UserPage = () => {
             <div className="col">
                 <UserProfileCard user={user} />
             </div>
+            <div className="col">
+                <div className="card shadow p-4">
+                    <h2 className="text-center">Başvurduğunuz İlanlar</h2>
+                    <hr></hr>
+                    <div>
+                        <ApplicationCardForUser />
+                    </div>
+                </div>
+            </div>
         </div>
     )
 
@@ -87,7 +97,7 @@ const UserPage = () => {
                     <div className="card shadow p-4">
                         <h2 className="text-center">Aktif İlanlarınız</h2>
                         <hr></hr>
-                        <div className="">
+                        <div>
                             <Link to={`/job-application/${email}/basvurular`} className="d-grid gap-2 mb-2 card-link nav-link">
                                 <button className="btn btn-success">
                                     <FontAwesomeIcon icon={faClipboardList} className="pe-2 pt-1" />
