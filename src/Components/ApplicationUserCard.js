@@ -71,10 +71,17 @@ const ApplicationUserCard = ({ user }) => {
                 <p className="card-text text-muted fst-italic">{user.gsm === 'string' ? 'Kayıtlı Bir Numara Bulunamadı' : user.gsm}</p>
                 <p className="card-text text-end text-muted fst-italic">{user.genderName}</p>
                 <div className="text-end">
-                    {!userAccepted && !userRejected && (
+                    {(!userAccepted && !userRejected) && (
                         <div>
                             <button className="btn btn-success me-2" onClick={onClickAccepted}>Kabul Et</button>
                             <button className="btn btn-danger" onClick={onClickReject}>Reddet</button>
+                        </div>
+                    )}
+                </div>
+                <div className="text-end">
+                    {(userAccepted || userRejected) && (
+                        <div className="fst-italic text-success">
+                            Bu başvuru hakkında karar verildi!
                         </div>
                     )}
                 </div>
