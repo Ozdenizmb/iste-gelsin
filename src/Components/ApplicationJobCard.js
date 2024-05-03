@@ -19,7 +19,9 @@ const ApplicationJobCard = ({ job }) => {
                         <p className="card-text mb-0 font-weight-bold">Telefon:
                             <span className="card-text text-muted fst-italic">{job.phone === 'string' ? 'Kayıtlı Bir Numara Bulunamadı' : "  "+job.phone}</span>
                         </p>
-                        <p className="card-text text-end text-muted fst-italic">{job.isUserAccepted === false ? 'Henüz Kabul Edilmedi' : 'Kabul Edildiniz'}</p>
+                        <p className={`card-text text-end fst-italic ${job.isUserAccepted ? 'text-success' : job.isUserRejected ? 'text-danger' : 'text-muted'}`}>
+                            {job.isUserAccepted ? 'Kabul Edildiniz' : job.isUserRejected ? 'Reddedildiniz' : 'Henüz Kabul Edilmedi'}
+                        </p>
                     </div>
                 </div>
             </Link>

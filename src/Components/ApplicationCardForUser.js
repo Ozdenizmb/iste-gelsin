@@ -1,19 +1,29 @@
 import React, { useEffect, useState } from 'react';
-import { getListJobApplicationForUser } from '../api/apiCalls';
+import { getJobApplicationAcceptedForUser, getListJobApplicationForUser } from '../api/apiCalls';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 import Spinner from './Spinner';
 import ApplicationJobCard from './ApplicationJobCard';
 
-const ApplicationCardForUser = () => {
+const ApplicationCardForUser = ({feedsLocation}) => {
 
     const[applicationJob, setApplicationJob] = useState([]);
     const[isThereData, setIsThereData] = useState(false);
 
+    let response;
+
     const getApplicationsList = async () => {
         try {
             setIsThereData(false);
-            const response = await getListJobApplicationForUser();
+
+            if(feedsLocation === "User-Page") {
+                response = await getListJobApplicationForUser();
+            }
+            else if(feedsLocation === "ApplicationAcceptedForUser") {
+                response = await getJobApplicationAcceptedForUser();
+            }
+            console.log(feedsLocation);
+            console.log(response)
             const data = response.data.data;
 
             const convertedData = data.map(job => ({

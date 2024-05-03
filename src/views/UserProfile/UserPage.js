@@ -86,7 +86,7 @@ const UserPage = () => {
                                     Kabul Edildiğin İlanları Görüntüle
                                 </button>
                             </Link>
-                        <ApplicationCardForUser />
+                        <ApplicationCardForUser feedsLocation={"User-Page"} />
                     </div>
                 </div>
             </div>

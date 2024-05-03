@@ -90,3 +90,7 @@ export const getListJobApplicationForUser = () => {
 export const updateAcceptOrRejectApplication = (body) => {
     return axios.put("/api/v1/JobApplication", body, { headers: { company: true } });
 }
+
+export const getJobApplicationAcceptedForUser = () => {
+    return axios.get("/api/v1/JobApplication/ListJobsAcceptedByUser");
+}
