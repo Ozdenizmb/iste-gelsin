@@ -2,15 +2,19 @@ import React, { useState } from 'react';
 import './Login.css';
 import { useDispatch } from "react-redux";
 import { loginUserHandler, loginCompanyHandler } from '../../redux/authActions';
-
+import { useApiProgress } from '../../shared/ApiProgress';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faFacebookF, faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Login = (props) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
   const [isSignUp, setIsSignUp] = useState(false);
+
+  const pendingApiCallUser = useApiProgress('get','/api/v1/User/Login');
+  const pendingApiCallCompany = useApiProgress('get','/api/v1/Company/Login');
 
   const dispatch = useDispatch();
 
@@ -49,7 +53,7 @@ const Login = (props) => {
         console.log(response);
       }
       catch(apiError) {
-        
+        toast.error("Yanlış Email veya Şifre Girişinde Bulundunuz!");
       }
     }
     else {
@@ -60,6 +64,7 @@ const Login = (props) => {
         props.history.push('/');
       }
       catch(apiError) {
+        toast.error("Yanlış Email veya Şifre Girişinde Bulundunuz!");
       }
     }
   }
@@ -88,7 +93,10 @@ const Login = (props) => {
             <input type="email" placeholder="Email" name="email" onChange={onChangeVeriables} />
             <input type="password" placeholder="Password" name="password" onChange={onChangeVeriables} />
             <a href="#">Şifreni mi unuttun?</a>
-            <button onClick={handleUserLoginButton}>Giriş Yap</button>
+            <button onClick={handleUserLoginButton}>
+              {(pendingApiCallUser || pendingApiCallCompany) ? <span className="spinner-border spinner-border-sm"></span> : ''}
+              Giriş Yap
+            </button>
             </form>
         </div>
         <div className="toggle-container">
@@ -110,6 +118,7 @@ const Login = (props) => {
             </div>
         </div>
         </div>
+        <ToastContainer />
     </div>
   );
 };

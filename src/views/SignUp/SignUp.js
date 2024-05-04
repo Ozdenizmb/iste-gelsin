@@ -5,6 +5,8 @@ import { useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faFacebookF, faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import { signUpUserHandler, signUpCompanyHandler } from '../../redux/authActions';
+import { ToastContainer, toast } from 'react-toastify';
+import { useApiProgress } from '../../shared/ApiProgress';
 
 const SignUp = (props) => {
   const [email, setEmail] = useState();
@@ -14,8 +16,10 @@ const SignUp = (props) => {
   const [companyName, setCompanyName] = useState(); // Company
   const [phoneNumber, setPhoneNumber] = useState(); // Company
   
-  const [passwordRepeat, setPasswordRepeat] = useState();
   const [errors, setErrors] = useState({});
+
+  const pendingApiCallUser = useApiProgress('post','/api/v1/User');
+  const pendingApiCallCompany = useApiProgress('post','/api/v1/Company');
 
   const dispatch = useDispatch();
 
@@ -46,7 +50,11 @@ const SignUp = (props) => {
           await dispatch(signUpCompanyHandler(body));
           props.history.push("/");
         } catch (error) {
-          
+          let message = error.response.data.message;
+          if(message == undefined) {
+            message = "Kayıt işleminin gerçekleşmesi için lütfen tüm formu doldurunuz."
+          }
+          toast.error(message);
         }
 
     }
@@ -72,7 +80,11 @@ const SignUp = (props) => {
           await dispatch(signUpUserHandler(body));
           props.history.push("/");
         } catch (error) {
-          
+          let message = error.response.data.message;
+          if(message == undefined) {
+            message = "Kayıt işleminin gerçekleşmesi için lütfen tüm formu doldurunuz."
+          }
+          toast.error(message);
         }
     }
   }
@@ -103,9 +115,6 @@ const SignUp = (props) => {
     }
     else if(name === 'password') {
       setPassword(value);
-    }
-    else if(name === 'passwordRepeat') {
-      setPasswordRepeat(value);
     }
 
   }
@@ -152,7 +161,10 @@ const SignUp = (props) => {
                   <span className="ms-1" style={{ color: 'black' }}>onaylıyorum.</span>
               </span>
             </label>
-            <button onClick={onClickSignUpButton}>Kayıt Ol</button>
+            <button onClick={onClickSignUpButton} disabled={!agreeContract} className={agreeContract ? "" : "disabled-btn"}>
+              {(pendingApiCallUser || pendingApiCallCompany) ? <span className="spinner-border spinner-border-sm"></span> : ''}
+              Kayıt Ol
+            </button>
             </form>
         </div>
         <div className="toggle-container">
@@ -174,6 +186,7 @@ const SignUp = (props) => {
             </div>
         </div>
         </div>
+        <ToastContainer />
     </div>
   );
 };

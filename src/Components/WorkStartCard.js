@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { getJobPosting, getWorkAttendance, postWorkAttendance } from '../api/apiCalls';
-import { faTimes, faPlayCircle, faTicket, faKey } from '@fortawesome/free-solid-svg-icons';
+import { faTimes, faKey } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useSelector } from 'react-redux';
 import { useApiProgress } from '../shared/ApiProgress';
-import { Spinner } from './Spinner';
 
 const WorkStartCard = ({ jobId }) => {
 
