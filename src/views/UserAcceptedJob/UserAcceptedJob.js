@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationCircle, faEdit } from '@fortawesome/free-solid-svg-icons';
 import ApplicationCardForUser from '../../Components/ApplicationCardForUser';
+import { useParams } from 'react-router-dom';
+import WorkStartCard from '../../Components/WorkStartCard';
 
 const UserAcceptedJob = () => {
 
-    const onClickAdvertCard = () => {
+    const [advertVisible, setAdvertVisible] = useState(false);
+    const {id} = useParams();
 
+    const onClickAdvertCard = () => {
+        setAdvertVisible(true);
     }
 
     let applicationDetail = (
@@ -16,16 +21,24 @@ const UserAcceptedJob = () => {
         </div>
     );
 
+    if(advertVisible || id != "onaylanan-ilanlar-listesi") {
+        applicationDetail = (
+            <div>
+                <WorkStartCard jobId={id} />
+            </div>
+        )
+    }
+
     return (
         <div>
             <div className="container">
             <h1 className="text-center">Başvurunu Onaylayan İlanlar</h1>
             <hr className="mb-3"></hr>
             <div className="row">
-                <div className="col-md-4" onClick={onClickAdvertCard}>
+                <div className="col-md-5" onClick={onClickAdvertCard}>
                     <ApplicationCardForUser feedsLocation={"ApplicationAcceptedForUser"}/>
                 </div>
-                <div className="col-md-8">
+                <div className="col-md-7">
                     {applicationDetail}
                 </div>
             </div>

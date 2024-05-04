@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './AdvertisementProceduresPage.css';
-import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import AdvertCardFeed from '../../Components/AdvertCardFeed';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

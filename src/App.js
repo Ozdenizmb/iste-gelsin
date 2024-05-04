@@ -59,7 +59,7 @@ const App = () => {
 
         <Route path="/job-application/:email/:id" component={ApplicationAdmin} />
 
-        <Route path="/your-accepted/:email" component={UserAcceptedJob} />
+        <Route path="/your-accepted/:email/:id" component={UserAcceptedJob} />
 
         <Route path="/payment-page" component={PaymentPage}/>
 

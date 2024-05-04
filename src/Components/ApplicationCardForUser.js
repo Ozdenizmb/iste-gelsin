@@ -73,7 +73,7 @@ const ApplicationCardForUser = ({feedsLocation}) => {
     return (
         <div className="row">
           {applicationJob.map((applicationJob, index) => (
-            <ApplicationJobCard key={index} job={applicationJob} />
+            <ApplicationJobCard key={index} job={applicationJob} feedsLocation={feedsLocation} />
           ))}
         </div>
     );

@@ -94,3 +94,15 @@ export const updateAcceptOrRejectApplication = (body) => {
 export const getJobApplicationAcceptedForUser = () => {
     return axios.get("/api/v1/JobApplication/ListJobsAcceptedByUser");
 }
+
+export const postWorkAttendance = (body) => {
+    return axios.post("/api/v1/WorkAttendance", body);
+}
+
+export const getWorkAttendance = (postId, userId) => {
+    return axios.get(`/api/v1/WorkAttendance?job_postingid=${postId}&userid=${userId}`);
+}
+
+export const putWorkAttendance = (postId, userId, otp) => {
+    return axios.put(`/api/v1/WorkAttendance/VerifyOTP?job_postingid=${postId}&userid=${userId}&otp=${otp}`, { headers: { company: true } });
+}
