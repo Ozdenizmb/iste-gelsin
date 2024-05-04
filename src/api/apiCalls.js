@@ -79,6 +79,10 @@ export const getJobApplication = (jobId, userId) => {
     return axios.get(`/api/v1/JobApplication?job_postingid=${jobId}&userid=${userId}`);
 }
 
+export const getJobApplicationUseTheByCompany = (jobId, userId) => {
+    return axios.get(`/api/v1/JobApplication?job_postingid=${jobId}&userid=${userId}`, { headers: { company: true } });
+}
+
 export const getListJobApplication = (id) => {
     return axios.get("/api/v1/JobApplication/ListByJobPosting?job_postingid=" + id, { headers: { company: true } });
 }
@@ -104,5 +108,5 @@ export const getWorkAttendance = (postId, userId) => {
 }
 
 export const putWorkAttendance = (postId, userId, otp) => {
-    return axios.put(`/api/v1/WorkAttendance/VerifyOTP?job_postingid=${postId}&userid=${userId}&otp=${otp}`, { headers: { company: true } });
+    return axios.put(`/api/v1/WorkAttendance/VerifyOTP?job_postingid=${postId}&userid=${userId}&otp=${otp}`, null, { headers: { company: true } });
 }

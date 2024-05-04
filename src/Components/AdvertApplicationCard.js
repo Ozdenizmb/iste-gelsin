@@ -58,7 +58,7 @@ const AdvertApplicationCard = ({ jobId }) => {
     return (
         <div className="row">
           {applicationUser.map((applicationUser, index) => (
-            <ApplicationUserCard key={index} user={applicationUser} />
+            <ApplicationUserCard key={index} user={applicationUser} jobId={jobId} />
           ))}
         </div>
     );

@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useSelector } from 'react-redux';
 import profile from '../images/profile.png';
 
-const ApplicationUserCard = ({ user }) => {
+const ApplicationUserCard = ({ user, jobId }) => {
 
     const [userAccepted, setUserAccepted] = useState();
     const [userRejected, setUserRejected] = useState();
@@ -34,7 +34,6 @@ const ApplicationUserCard = ({ user }) => {
         try {
             await updateAcceptOrRejectApplication(body);
             toast.success("Kullanıcı İşe Kabul Edildi.");
-            //history.push(`/job-application/${email}//basvurular`);
             setUserAccepted(true);
         } catch(error) {
             toast.error("Beklenmedik bir hata oluştu.");
@@ -52,11 +51,14 @@ const ApplicationUserCard = ({ user }) => {
         try {
             response = await updateAcceptOrRejectApplication(body);
             toast.error("Kullanıcıya ait başvuru reddedildi");
-            //history.push(`/job-application/${email}/${user.jobPostingid}`);
             setUserRejected(true);
         } catch(error) {
             toast.error("Beklenmedik bir hata oluştu.");
         }
+    }
+
+    const onClickConfirm = () => {
+        history.push(`/confirm/otp-code/${jobId}/${user.userId}`);
     }
 
     let cardType = (
@@ -68,8 +70,10 @@ const ApplicationUserCard = ({ user }) => {
             <div className="card-body pb-2">
                 <h5 className="card-title">{user.name} {user.surname}</h5>
                 <p className="card-text mb-0 text-muted fst-italic">{user.email}</p>
-                <p className="card-text text-muted fst-italic">{user.gsm === 'string' ? 'Kayıtlı Bir Numara Bulunamadı' : user.gsm}</p>
-                <p className="card-text text-end text-muted fst-italic">{user.genderName}</p>
+                <div className="d-flex justify-content-between">
+                    <p className="card-text text-muted fst-italic">{user.gsm === 'string' ? 'Kayıtlı Bir Numara Bulunamadı' : user.gsm}</p>
+                    <p className="card-text text-muted fst-italic">{user.genderName}</p>
+                </div>
                 <div className="text-end">
                     {(!userAccepted && !userRejected) && (
                         <div>
@@ -83,6 +87,11 @@ const ApplicationUserCard = ({ user }) => {
                         <div className="fst-italic text-success">
                             Bu başvuru hakkında karar verildi!
                         </div>
+                    )}
+                    {userAccepted && (
+                        <button className="btn btn-success mt-2" onClick={onClickConfirm}>
+                            Çalışma Durumunu Onayla
+                        </button>
                     )}
                 </div>
             </div>

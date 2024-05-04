@@ -15,9 +15,10 @@ import AdsPage from './views/AdsPage/AdsPage';
 import PaymentPage from './views/Payment/PaymentPage';
 import Login from './views/Login/Login';
 import AdvertisementProceduresPage from './views/AdvertisementProcedures/AdvertisementProceduresPage';
-import CreatedJobPosting from './views/AdvertisementProcedures/CreatedJobPosting';
+import CreatedJobPosting from './Components/CreatedJobPosting';
 import ApplicationAdmin from './views/AdvertApplicationAdmin/ApplicationAdmin';
 import UserAcceptedJob from './views/UserAcceptedJob/UserAcceptedJob';
+import WorkAttendanceConfirm from './Components/WorkAttendanceConfirm';
 
 const App = () => {
 
@@ -60,6 +61,8 @@ const App = () => {
         <Route path="/job-application/:email/:id" component={ApplicationAdmin} />
 
         <Route path="/your-accepted/:email/:id" component={UserAcceptedJob} />
+
+        <Route path="/confirm/otp-code/:jobId/:userId" component={WorkAttendanceConfirm} />
 
         <Route path="/payment-page" component={PaymentPage}/>
 

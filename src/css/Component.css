@@ -110,3 +110,15 @@
     text-align: center;
     padding: 20px;
 }
+
+.work-attendance-comfirm-job-image img {
+    width: 15rem;
+    height: 13rem;
+    object-fit: cover;
+}
+
+.work-attendance-comfirm-job-user-image img {
+    width: 15rem;
+    height: 13rem;
+    object-fit: cover;
+}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Login.css';
 import { useDispatch } from "react-redux";
 import { loginUserHandler, loginCompanyHandler } from '../../redux/authActions';
@@ -21,6 +21,10 @@ const Login = (props) => {
   const toggleForm = () => {
     setIsSignUp((prev) => !prev);
   };
+
+  useEffect(() => {
+    window.scrollTo(1000, 1000);
+  }, []);
 
   const onChangeVeriables = (event) => {
 
@@ -69,6 +73,15 @@ const Login = (props) => {
     }
   }
 
+  const onClickSifremiUnuttum = () => {
+    toast.error("Allah Kurtarsın kardeşim!");
+    toast.error("Yeni bir hesap açmanı tavsiye ederiz.")
+  }
+
+  const onClickSocialMedia = () => {
+    toast.error("Harici bir yol ile giriş yapma özelliği henüz aktif değildir.");
+  }
+
   return (
     <div id="modern-login">
         <div className={`container ${isSignUp ? 'active' : ''}`}>
@@ -76,23 +89,23 @@ const Login = (props) => {
             <form>
             <h1>{isSignUp ? 'İşveren Girişi' : 'Kullanıcı Girişi'}</h1>
             <div className="social-icons">
-                <a href="#" className="icon">
+                <a style={{ cursor: 'pointer' }} className="icon" onClick={onClickSocialMedia}>
                 <FontAwesomeIcon icon={faGoogle}/>
                 </a>
-                <a href="#" className="icon">
+                <a style={{ cursor: 'pointer' }} className="icon" onClick={onClickSocialMedia}>
                 <FontAwesomeIcon icon={faFacebookF}/>
                 </a>
-                <a href="#" className="icon">
+                <a style={{ cursor: 'pointer' }} className="icon" onClick={onClickSocialMedia}>
                 <FontAwesomeIcon icon={faGithub}/>
                 </a>
-                <a href="#" className="icon">
+                <a style={{ cursor: 'pointer' }} className="icon" onClick={onClickSocialMedia}>
                 <FontAwesomeIcon icon={faLinkedinIn}/>
                 </a>
             </div>
             <span>veya Email ve Şifre ile giriş yapınız</span>
             <input type="email" placeholder="Email" name="email" onChange={onChangeVeriables} />
             <input type="password" placeholder="Password" name="password" onChange={onChangeVeriables} />
-            <a href="#">Şifreni mi unuttun?</a>
+            <a style={{ cursor: 'pointer' }} onClick={onClickSifremiUnuttum}>Şifreni mi unuttun?</a>
             <button onClick={handleUserLoginButton}>
               {(pendingApiCallUser || pendingApiCallCompany) ? <span className="spinner-border spinner-border-sm"></span> : ''}
               Giriş Yap

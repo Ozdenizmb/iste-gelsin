@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './SignUp.css';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -15,8 +15,6 @@ const SignUp = (props) => {
   const [surname, setSurname] = useState(); // User
   const [companyName, setCompanyName] = useState(); // Company
   const [phoneNumber, setPhoneNumber] = useState(); // Company
-  
-  const [errors, setErrors] = useState({});
 
   const pendingApiCallUser = useApiProgress('post','/api/v1/User');
   const pendingApiCallCompany = useApiProgress('post','/api/v1/Company');
@@ -29,6 +27,10 @@ const SignUp = (props) => {
   const toggleForm = () => {
     setIsSignUp((prev) => !prev);
   };
+
+  useEffect(() => {
+    window.scrollTo(1000, 1000);
+  }, []);
 
   const onClickSignUpButton = async event => {
     event.preventDefault();
