@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationCircle, faTasks } from '@fortawesome/free-solid-svg-icons';
 import { useParams } from 'react-router-dom';
 import AdvertApplicationCard from '../../Components/AdvertApplicationCard';
-import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 const ApplicationAdmin = () => {
 

@@ -22,8 +22,6 @@ const ApplicationCardForUser = ({feedsLocation}) => {
             else if(feedsLocation === "ApplicationAcceptedForUser") {
                 response = await getJobApplicationAcceptedForUser();
             }
-            console.log(feedsLocation);
-            console.log(response)
             const data = response.data.data;
 
             const convertedData = data.map(job => ({

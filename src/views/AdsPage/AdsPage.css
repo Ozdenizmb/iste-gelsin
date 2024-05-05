@@ -53,7 +53,7 @@ body {
     position: relative;
 }
 
-.checkbox-btn input {   /* buton ile checkbox iç içe geçirildi ve checkbox görünmez yapıldı. */
+.checkbox-btn input {
     position: absolute;
     opacity: 0;
 }

@@ -203,8 +203,6 @@
     transform: translateX(200%);
 }
 
-/* Add these styles to your existing SignUp.css file */
-
 #modern-signup .service-confirm input[type="checkbox"] {
     margin-right: 8px;
     width: 16px;
@@ -213,7 +211,7 @@
   }
   
 #modern-signup .service-confirm input[type="checkbox"]:checked::after {
-    content: '\2713'; /* Checkmark character */
+    content: '\2713';
     color: #fff;
     font-size: 12px;
     position: absolute;

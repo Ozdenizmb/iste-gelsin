@@ -13,7 +13,7 @@ import { faStar as regularStar } from '@fortawesome/free-regular-svg-icons';
 
 const Advert = (props) => {
 
-  const { id, companyId, employmentType, educationLevel, experienceLevel, experienceYears, workModel, workPerHour, totalSalary, title, description, logoPath, adress, isActive, startAt, endAt, companyName, employmentName, educationLevelName, experienceLevelName, workModelName  } = props;
+  const { id, companyId, experienceYears, workPerHour, totalSalary, title, description, logoPath, adress, startAt, endAt, companyName, employmentName, educationLevelName, experienceLevelName, workModelName  } = props;
 
   const { userId, email, statuses } = useSelector(store => ({
     userId: store.id,
@@ -83,7 +83,6 @@ const Advert = (props) => {
         setApplicationChecked(true);
         setButtonColor("success");
       } else {
-        console.log("Başka bir hata")
       }
     }
 

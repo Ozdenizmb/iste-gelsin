@@ -46,7 +46,6 @@ export const loginUserHandler = (creds) => {
             logoPath : response.data.data.logo_path
         }     
         dispatch(loginUserSuccess(loginState));
-        console.log(loginState);
 
         return response;
     }
@@ -55,7 +54,6 @@ export const loginUserHandler = (creds) => {
 export const signUpUserHandler = (user) => {
     return async function(dispatch) {
         const response = await signUpUser(user);
-        //await dispatch(loginUserHandler(user));
         return response
     }
 }

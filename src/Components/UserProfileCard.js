@@ -97,11 +97,6 @@ const UserProfileCard = (props) => {
 
     const onClickSave = async () => {
 
-        let image;
-        if(newImage) {
-            image = newImage.split(',')[1]
-        }
-
         const formData = new FormData();
         formData.append('userid', user.userid);
         formData.append('name', updatedName);

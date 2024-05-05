@@ -5,8 +5,7 @@ import { useState } from 'react';
 import { getUser, getCompany } from '../../api/apiCalls';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-//import { useApiProgress } from '../shared/ApiProgress';
+import { useSelector } from 'react-redux';
 import Spinner from '../../Components/Spinner';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import './UserPage.css';
@@ -25,9 +24,6 @@ const UserPage = () => {
     const [notFound, setNotFound] = useState(false);
 
     const { email } = useParams();
-
-    //const pendingApiCall = useApiProgress('get','/api/1.0/users/' + username, true);
-    const pendingApiCall = false;
 
     useEffect(() => {
         loadUser();
@@ -64,7 +60,7 @@ const UserPage = () => {
         );
     }
 
-    if(pendingApiCall || user.email !== email) {
+    if(user.email !== email) {
         return (
             <Spinner />
         );

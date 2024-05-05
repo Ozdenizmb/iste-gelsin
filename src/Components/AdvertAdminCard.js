@@ -171,7 +171,7 @@ const AdvertAdminCard = ({ jobId }) => {
         ]
 
         try {
-            const response = await deleteJobPosting(jobId, body);
+            await deleteJobPosting(jobId, body);
             history.push("/profile/" + email);
         } catch(error) {
 

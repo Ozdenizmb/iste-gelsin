@@ -11,7 +11,6 @@ const Footer = () => {
     <footer className="footer mt-auto py-3 bg-dark">
       <div className="ps-8">
         <div className="row no-gutters">
-          {/* 1. Sütun */}
           <div className="col-md-3">
             <div className="footer-logo">
               <Link className="navbar-brand" to="/">
@@ -47,7 +46,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* 2. Sütun */}
           <div className="col-md-3">
             <h5 className="footer-column-title mb-4">İş Arayan İşlemleri</h5>
             <ul className="list-unstyled">
@@ -68,7 +66,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* 3. Sütun */}
           <div className="col-md-3">
             <h5 className="footer-column-title mb-4">Firma İşlemleri</h5>
             <ul className="list-unstyled">

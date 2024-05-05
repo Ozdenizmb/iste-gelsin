@@ -49,19 +49,16 @@ const Login = (props) => {
     }
 
     if(isSignUp) {
-      console.log("İşveren Olarak Giriş Yapıldı.");
 
       try {
-        const response = await dispatch(loginCompanyHandler(creds));
+        await dispatch(loginCompanyHandler(creds));
         props.history.push("/");
-        console.log(response);
       }
       catch(apiError) {
         toast.error("Yanlış Email veya Şifre Girişinde Bulundunuz!");
       }
     }
     else {
-      console.log("Kullanıcı Olarak Giriş Yapıldı.");
 
       try {
         const response = await dispatch(loginUserHandler(creds));

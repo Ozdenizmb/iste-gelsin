@@ -8,7 +8,6 @@ const JobAdvertDetail = ({ match }) => {
 
     const [job, setJob] = useState();
 
-    // URL'den gelen iş ilanı ID'sini alıyoruz
     const jobId = match.params.jobId;
 
     useEffect(() => {

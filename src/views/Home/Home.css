@@ -2,13 +2,10 @@
     margin-top: 8rem !important;
 }
 
-
-/* Gutter'ı sıfırla */
 .no-gutters {
   margin-right: 0 !important;
   margin-left: 0 !important;
 
-  /* Responsive olması durumunda da sıfır yap */
   & > .col,
   & > [class*="col-"] {
     padding-right: 0 !important;

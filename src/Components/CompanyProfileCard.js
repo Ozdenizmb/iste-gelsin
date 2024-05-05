@@ -80,11 +80,6 @@ const CompanyProfileCard = (props) => {
 
     const onClickSave = async () => {
 
-        let image;
-        if(newImage) {
-            image = newImage.split(',')[1]
-        }
-
         const formData = new FormData();
         formData.append('companyid', user.companyid);
         formData.append('company_name', updatedCompanyName);

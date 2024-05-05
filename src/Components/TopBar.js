@@ -5,16 +5,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import ProfileImage from './ProfileImage';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPerson, faPowerOff } from '@fortawesome/free-solid-svg-icons';
-import UserPage from '../views/UserProfile/UserPage';
 import { logoutSuccess } from '../redux/authActions';
 
 const TopBar = () => {
 
-    const { isLoggedIn, email, name, surname, logoPath } = useSelector(store => ({
+    const { isLoggedIn, email, logoPath } = useSelector(store => ({
         isLoggedIn: store.isLoggedIn,
         email : store.email,
-        name: store.name,
-        surname: store.surname,
         logoPath: store.logoPath
     }));
 

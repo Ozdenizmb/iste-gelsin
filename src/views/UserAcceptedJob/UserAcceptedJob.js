@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faExclamationCircle, faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 import ApplicationCardForUser from '../../Components/ApplicationCardForUser';
 import { useParams } from 'react-router-dom';
 import WorkStartCard from '../../Components/WorkStartCard';

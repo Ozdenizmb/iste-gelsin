@@ -27,10 +27,9 @@ const configureStore = () => {
 
     const initialState = stateInLocaleStorage;
     setAuthorizationHeader(initialState);
-    const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;//
+    const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
     
-    //const store = createStore(authReducer, initialState, applyMiddleware(thunk));
-    const store = createStore(authReducer, initialState, composeEnhancers(applyMiddleware(thunk)));//
+    const store = createStore(authReducer, initialState, composeEnhancers(applyMiddleware(thunk)));
 
     store.subscribe(() => {
         secureLs.set('hoax-profile', store.getState());

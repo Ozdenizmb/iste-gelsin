@@ -20,7 +20,7 @@ const SliderHomePage = () => {
         if (slider) {
             slider.slickNext();
         }
-        }, 3000); // 3000ms (3 seconds) aralıklarla kaydırma
+        }, 3000);
 
         return () => clearInterval(interval);
     }, []);
@@ -31,9 +31,9 @@ const SliderHomePage = () => {
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        autoplay: true, // Otomatik oynatma özelliği
-        autoplaySpeed: 3000, // Otomatik oynatma hızı (3000ms - 3 saniye)
-        prevArrow: isSliderLoaded ? <></> : undefined, // sol navigasyon butonunu devre dışı bırak
+        autoplay: true,
+        autoplaySpeed: 3000,
+        prevArrow: isSliderLoaded ? <></> : undefined,
         nextArrow: isSliderLoaded ? <></> : undefined
     };
 

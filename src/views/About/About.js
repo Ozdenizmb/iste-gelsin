@@ -1,6 +1,5 @@
 import React from 'react';
 import Input from '../../Components/Input';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from 'react-bootstrap/Button';
 
 const LoginPage = () => {
