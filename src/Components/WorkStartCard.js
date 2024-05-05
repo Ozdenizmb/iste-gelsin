@@ -29,7 +29,7 @@ const WorkStartCard = ({ jobId }) => {
             const responseConfirm = await getWorkAttendance(response.data.data.job_postingid, userId);
             setIsOtpConfirm(responseConfirm.data.data);
         } catch(error) {
-            // Bu catch bos kalmali. Try çalismaz ise hic bir sey yapmaya gerek yok.
+            setIsOtpConfirm({});
         }
     }
 

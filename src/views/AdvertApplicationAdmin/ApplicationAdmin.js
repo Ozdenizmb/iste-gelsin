@@ -27,7 +27,7 @@ const ApplicationAdmin = () => {
         </div>
     )
 
-    if(advertVisible || id != "basvurular") {
+    if(advertVisible && id != "basvurular") {
         applicationDetail = (
             <div>
                 <AdvertApplicationCard jobId={id}/>

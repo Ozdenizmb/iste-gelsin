@@ -6,6 +6,7 @@ import '../css/Component.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckSquare } from '@fortawesome/free-solid-svg-icons';
 import { ToastContainer, toast } from 'react-toastify';
+import { useApiProgress } from '../shared/ApiProgress';
 
 const WorkAttendanceConfirm = () => {
 
@@ -15,6 +16,8 @@ const WorkAttendanceConfirm = () => {
     const [isConfirm, setIsConfirm] = useState(false);
 
     const { jobId, userId } = useParams();
+
+    const pendingApiCall = useApiProgress('put', '/api/v1/WorkAttendance/VerifyOTP');
 
     const getUserInfo = async (jobId, userId) => {
         const response = await getJobApplicationUseTheByCompany(jobId, userId);
@@ -48,7 +51,17 @@ const WorkAttendanceConfirm = () => {
             setIsConfirm(true);
         } catch(error) {
             setIsConfirm(false);
-            toast.error("Yanlış Otp Kodu Girildi.");
+            let message;
+            if(error.response.data.message == "OTP zaten doğrulandı!") {
+                message = "Bu Kullanıcı ve İlan İçin OTP Zaten Doğrulandı.";
+            }
+            else if(error.response.data.message = "Aradiginiz kayit bulunamadi!") {
+                message = "Yanlış Otp Kodu Girildi.";
+            }
+            else {
+                message = "Beklenmedik Bir Hata Oluştu."
+            }
+            toast.error(message);
         }
     }
 
@@ -92,11 +105,12 @@ const WorkAttendanceConfirm = () => {
                 <h1 className="display-4">Gelecek birlikte daha parlak</h1>
             </div>
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '20vh' }}>
-                <input type="text" name="otpInput" style={{ width: '50%', fontSize: '20px', padding: '10px' }} placeholder="Buraya Onaylamak İstediğini OTP kodunu giriniz..." onChange={onChangeTextBox}/>
+                <input type="text" name="otpInput" style={{ width: '50%', fontSize: '20px', padding: '10px' }} placeholder="Buraya Onaylamak İstediğiniz OTP kodunu giriniz..." onChange={onChangeTextBox}/>
                 
             </div>
             <div className="text-center mt-3">
                     <button className="btn btn-primary btn-block" style={{ width: '20%' }} onClick={onClickConfirm}>
+                        {pendingApiCall ? <span className="spinner-border spinner-border-sm"></span> : ''}
                         Onayla
                     </button>
             </div>

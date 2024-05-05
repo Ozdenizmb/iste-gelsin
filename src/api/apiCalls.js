@@ -110,3 +110,11 @@ export const getWorkAttendance = (postId, userId) => {
 export const putWorkAttendance = (postId, userId, otp) => {
     return axios.put(`/api/v1/WorkAttendance/VerifyOTP?job_postingid=${postId}&userid=${userId}&otp=${otp}`, null, { headers: { company: true } });
 }
+
+export const postJobFeedbackForUser = (body) => {
+    return axios.post("/api/v1/JobFeedback", body);
+}
+
+export const postJobFeedbackForCompany = (body) => {
+    return axios.post("/api/v1/JobFeedback", body, { headers: { company: true } });
+}

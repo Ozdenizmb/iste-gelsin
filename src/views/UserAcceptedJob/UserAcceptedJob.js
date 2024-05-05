@@ -21,7 +21,7 @@ const UserAcceptedJob = () => {
         </div>
     );
 
-    if(advertVisible || id != "onaylanan-ilanlar-listesi") {
+    if(advertVisible && id != "onaylanan-ilanlar-listesi") {
         applicationDetail = (
             <div>
                 <WorkStartCard jobId={id} />

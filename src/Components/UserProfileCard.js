@@ -2,10 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import ProfileImage from './ProfileImage';
-import { useTranslation } from 'react-i18next';
 import Input from './Input';
 import { updateUser, getUser } from '../api/apiCalls';
-//import { useApiProgress } from '../shared/ApiProgress';
+import { useApiProgress } from '../shared/ApiProgress';
 import { updateUserSuccess } from '../redux/authActions';
 import { faEdit, faSave, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -163,9 +162,7 @@ const UserProfileCard = (props) => {
         setError(errorCopy);
     }
 
-//    const pendingApiCall = useApiProgress('put', '/api/1.0/users/' + username);
-    const pendingApiCall = false;
-    const { t } = useTranslation();
+    const pendingApiCall = useApiProgress('put', '/api/v1/User');
             
     return (
         <div className="card text-center">
@@ -180,8 +177,9 @@ const UserProfileCard = (props) => {
                             {user.name} {user.surname}
                         </h3>
                         {editable && <button className="btn btn-success d-inline-flex" onClick={onClickEdit}>
+                            {pendingApiCall ? <span className="spinner-border spinner-border-sm"></span> : ''}
                             <FontAwesomeIcon icon={faEdit} className="pe-2 pt-1" />
-                            {t("Edit")}
+                            Güncelle
                         </button>}
                     </div>
                     )
@@ -219,13 +217,13 @@ const UserProfileCard = (props) => {
                                         disabled = {pendingApiCall}>
                                     {pendingApiCall ? <span className="spinner-border spinner-border-sm"></span> : ''}
                                     <FontAwesomeIcon icon={faSave} className="pe-2 pt-1" />
-                                    {t("Save")}
+                                    Kaydet
                                 </button>
 
                                 <button className="btn btn-danger d-inline-flex ms-1"
                                         onClick={onClickClose}>
                                     <FontAwesomeIcon icon={faTimes} className="pe-2 pt-1" />
-                                    {t("Cancel")}
+                                    Geri Dön
                                 </button>
 
                             </div>

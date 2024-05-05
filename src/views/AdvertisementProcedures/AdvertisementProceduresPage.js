@@ -28,7 +28,7 @@ const AdvertisementProceduresPage = () => {
         </div>
     );
 
-    if(advertVisible || id != "ilan-paneli") {
+    if(advertVisible && id != "ilan-paneli") {
         advertDetail = (
             <div>
                 <AdvertAdminCard jobId={id} />
