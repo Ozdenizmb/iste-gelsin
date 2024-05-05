@@ -4,11 +4,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 import ApplicationUserCard from './ApplicationUserCard';
 import Spinner from './Spinner';
+import { useApiProgress } from '../shared/ApiProgress';
 
 const AdvertApplicationCard = ({ jobId }) => {
 
     const[applicationUser, setApplicationUser] = useState([]);
     const[isThereData, setIsThereData] = useState(false);
+
+    const pendingApiCall = useApiProgress('get','/api/v1/JobApplication/ListByJobPosting');
 
     const getApplicationsList = async (id) => {
         try {
@@ -49,7 +52,7 @@ const AdvertApplicationCard = ({ jobId }) => {
         );
     }
 
-    if(applicationUser.length == 0) {
+    if(applicationUser.length == 0 || pendingApiCall) {
         return (
           <Spinner />
         );

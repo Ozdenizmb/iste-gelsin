@@ -1,23 +1,44 @@
 import React, { useEffect, useState } from 'react';
-import { updateAcceptOrRejectApplication } from '../api/apiCalls';
+import { updateAcceptOrRejectApplication, getVerifyStatus } from '../api/apiCalls';
 import { useHistory } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import { useSelector } from 'react-redux';
 import profile from '../images/profile.png';
+import {faCommentAlt } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useApiProgress } from '../shared/ApiProgress';
+import Spinner from './Spinner';
 
 const ApplicationUserCard = ({ user, jobId }) => {
 
     const [userAccepted, setUserAccepted] = useState();
     const [userRejected, setUserRejected] = useState();
+    const [isOtpConfirm, setIsOtpConfirm] = useState();
+
+    const pendingApiCallVerifyStatus = useApiProgress('get','/api/v1/WorkAttendance/GetVerifyStatus');
+    const pendingApiCallApplication = useApiProgress('put','/api/v1/JobApplication');
 
     useEffect(() => {
         setUserAccepted(user.isUserAccepted);
         setUserRejected(user.isUserRejected);
     }, [user])
 
+    const getIsConfirm = async (jobId, userId) => {
+        try {
+            const responseConfirm = await getVerifyStatus(jobId, userId);
+            setIsOtpConfirm(responseConfirm.data.data);
+        } catch(error) {
+            setIsOtpConfirm({});
+        }
+    }
 
-    const { email } = useSelector(store => ({
-        email: store.email
+    useEffect(() => {
+        getIsConfirm(jobId, user.userId);
+    }, [user]);
+
+
+    const { companyId } = useSelector(store => ({
+        companyId: store.id
     }));
 
     let response;
@@ -61,6 +82,10 @@ const ApplicationUserCard = ({ user, jobId }) => {
         history.push(`/confirm/otp-code/${jobId}/${user.userId}`);
     }
 
+    const onClickFeedBack = () => {
+        history.push(`/feedback/${jobId}/${companyId}`);
+    }
+
     let cardType = (
         <div className="card h-100 border rounded-3 shadow advert-card">
           <div className="card-link nav-link d-flex">
@@ -88,11 +113,22 @@ const ApplicationUserCard = ({ user, jobId }) => {
                             Bu başvuru hakkında karar verildi!
                         </div>
                     )}
-                    {userAccepted && (
-                        <button className="btn btn-success mt-2" onClick={onClickConfirm}>
-                            Çalışma Durumunu Onayla
-                        </button>
-                    )}
+                    {pendingApiCallVerifyStatus ?
+                        <span className="spinner-border spinner-border-lg mt-2"></span> : 
+                        <div>
+                            {userAccepted && (
+                                <button className="btn btn-success mt-2" onClick={onClickConfirm}>
+                                    Çalışma Durumunu Onayla
+                                </button>
+                            )}
+                            {(userAccepted && isOtpConfirm) && (
+                                <button className="btn btn-warning d-inline-flex mt-2 ms-2 align-items-center" onClick={onClickFeedBack}>
+                                    <FontAwesomeIcon icon={faCommentAlt} className="pe-2 pt-1" />
+                                    Şimdi Değerlendir
+                                </button>
+                            )}
+                        </div>
+                    }
                 </div>
             </div>
           </div>

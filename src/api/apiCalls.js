@@ -107,6 +107,10 @@ export const getWorkAttendance = (postId, userId) => {
     return axios.get(`/api/v1/WorkAttendance?job_postingid=${postId}&userid=${userId}`);
 }
 
+export const getVerifyStatus = (postId, userId) => {
+    return axios.get(`/api/v1/WorkAttendance/GetVerifyStatus?job_postingid=${postId}&userid=${userId}`, { headers: { company: true } });
+}
+
 export const putWorkAttendance = (postId, userId, otp) => {
     return axios.put(`/api/v1/WorkAttendance/VerifyOTP?job_postingid=${postId}&userid=${userId}&otp=${otp}`, null, { headers: { company: true } });
 }
