@@ -142,7 +142,7 @@ const Advert = (props) => {
                         ))}
                         <p className="mt-3 ms-2">{averageCompany != undefined ? averageCompany : '0'} Puan</p>
                     </div>
-                </div>
+                  </div>
                 </Card.Text>
                 {
                   statuses == "user" &&

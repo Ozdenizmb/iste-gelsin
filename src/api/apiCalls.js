@@ -130,3 +130,7 @@ export const getCompanyStarForCompany = (companyId) => {
 export const getCompanyStarForUser = (companyId) => {
     return axios.get("/api/v1/JobFeedback/ListScore?companyId=" + companyId);
 }
+
+export const getUserStarForCompany = (userId) => {
+    return axios.get("/api/v1/JobFeedback/ListScore?userid=" + userId, { headers: { company: true } });
+}
