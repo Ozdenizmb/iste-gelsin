@@ -7,7 +7,7 @@ import { faStar as regularStar } from '@fortawesome/free-regular-svg-icons';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import profile from '../images/profile.png';
 import { useSelector } from 'react-redux';
-import { getJobPosting, postJobFeedbackForUser } from '../api/apiCalls';
+import { getJobApplicationUseTheByCompany, getJobPosting, postJobFeedbackForCompany, postJobFeedbackForUser } from '../api/apiCalls';
 import { useApiProgress } from '../shared/ApiProgress';
 
 const JobFeedbackSend = () => {
@@ -30,20 +30,23 @@ const JobFeedbackSend = () => {
 
     const pendingApiCall = useApiProgress('post','/api/v1/JobFeedback');
 
-    const getInfoForCompany = (jobId) => {
+    const getInfoForCompany = async (jobId, userId) => {
         // USER VE JOB BİLGİSİ GELİCEK
+        const responseJob = await getJobPosting(jobId);
+        setJobInfo(responseJob.data.data);
+        const responseUser = await getJobApplicationUseTheByCompany(jobId, userId);
+        setUserInfo(responseUser.data.data);
     }
 
     const getInfoForUser = async (jobId) => {
         // COMPANY VE Job BİLGİSİ GELECEK
         const responseJob = await getJobPosting(jobId);
         setJobInfo(responseJob.data.data);
-        const responseCompanyId = responseJob.data.data.companyid;
     }
 
     useEffect(() => {
         if(statuses === "company") {
-            getInfoForCompany(jobId);
+            getInfoForCompany(jobId, userId);
         }
         else {
             getInfoForUser(jobId);
@@ -72,20 +75,27 @@ const JobFeedbackSend = () => {
 
         if(statuses == "company") {
             body = {
-                job_postingid: "",
-                userid: "",
+                job_postingid: jobInfo.job_postingid,
+                userid: userInfo.userid,
                 companyid: id,
                 question_score: rating,
                 is_feedback_for_user: false
             }
 
             try {
-                // Oyu kaydet
-                console.log(body);
+                await postJobFeedbackForCompany(body);
                 setLastRate(rating);
                 setIsSaveFeedback(true);
             } catch(error) {
-    
+                setError(true);
+                if(rating != null) {
+                    setLastMessage("Bu verilerde kayıtlı bir oylama bulundu, oylama tekrar edilemez!");
+                }
+                else {
+                    setLastMessage("Oylayabilmeniz için İlk Önce Bir Puan Vermeniz Gerekmektedir.")
+                }
+                
+                setIsSaveFeedback(true);
             }
         }
         else {
@@ -98,10 +108,7 @@ const JobFeedbackSend = () => {
             }
 
             try {
-                // Oyu kaydet
-                const responseFeedBack = await postJobFeedbackForUser(body);
-                console.log(body);
-                console.log(responseFeedBack);
+                await postJobFeedbackForUser(body);
                 setLastRate(rating);
                 setIsSaveFeedback(true);
             } catch(error) {

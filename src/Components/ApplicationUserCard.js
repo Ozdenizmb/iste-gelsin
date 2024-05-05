@@ -83,7 +83,7 @@ const ApplicationUserCard = ({ user, jobId }) => {
     }
 
     const onClickFeedBack = () => {
-        history.push(`/feedback/${jobId}/${companyId}`);
+        history.push(`/feedback/${jobId}/${user.userId}`);
     }
 
     let cardType = (
