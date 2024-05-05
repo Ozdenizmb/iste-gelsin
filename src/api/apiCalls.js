@@ -122,3 +122,11 @@ export const postJobFeedbackForUser = (body) => {
 export const postJobFeedbackForCompany = (body) => {
     return axios.post("/api/v1/JobFeedback", body, { headers: { company: true } });
 }
+
+export const getCompanyStarForCompany = (companyId) => {
+    return axios.get("/api/v1/JobFeedback/ListScore?companyId=" + companyId, { headers: { company: true } });
+}
+
+export const getCompanyStarForUser = (companyId) => {
+    return axios.get("/api/v1/JobFeedback/ListScore?companyId=" + companyId);
+}

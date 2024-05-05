@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { Card, Button, Row, Col } from 'react-bootstrap';
 import Footer from './Footer';
 import { useSelector } from 'react-redux';
-import { getJobApplication, getListJobApplication, postJobApplication } from '../api/apiCalls';
+import { getCompanyStarForCompany, getCompanyStarForUser, getJobApplication, postJobApplication } from '../api/apiCalls';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { faStar as solidStar } from '@fortawesome/free-solid-svg-icons';
+import { faStar as regularStar } from '@fortawesome/free-regular-svg-icons';
 
 const Advert = (props) => {
 
@@ -21,6 +23,7 @@ const Advert = (props) => {
 
   const [applicationChecked, setApplicationChecked] = useState(false);
   const [buttonColor, setButtonColor] = useState("primary");
+  const [averageCompany, setAverageCompany] = useState();
 
   const checkApplication = async () => {
     try {
@@ -33,10 +36,31 @@ const Advert = (props) => {
     }
   }
 
+  const getCompanyStar = async (companyId) => {
+    try {
+      let response;
+      if(statuses === "company") {
+        response = await getCompanyStarForCompany(companyId);
+      }
+      else {
+        response = await getCompanyStarForUser(companyId);
+      }
+      const data = response.data.data;
+      const feedbackData = data.filter(item => item.is_feedback_for_user === true);
+      const scores = feedbackData.map(item => item.question_score);
+      const sum = scores.reduce((acc, cur) => acc + cur, 0);
+      const average = sum / scores.length;
+      setAverageCompany(average);
+    } catch(error) {
+
+    }
+  }
+
   useEffect(() => {
     window.scrollTo(0, 0);
 
-    checkApplication();    
+    checkApplication();
+    getCompanyStar(companyId);   
   }, []);
 
   const onClickJobApplication = async (event) => {
@@ -98,6 +122,27 @@ const Advert = (props) => {
                 </Card.Text>
                 <Card.Text>
                   <strong>İş Modeli:</strong> {workModelName}
+                </Card.Text>
+                <Card.Text>
+                  <strong>İşveren / Şirket Puanı:</strong>
+                  <div>
+                    <div className="d-flex align-items-center">
+                        {[...Array(10)].map((_, index) => (
+                            <FontAwesomeIcon
+                                key={index}
+                                icon={index < (averageCompany || 0) ? solidStar : regularStar}
+                                style={{
+                                    cursor: 'pointer',
+                                    fontSize: '20px',
+                                    color: index < (averageCompany || 0) ? 'gold' : 'gray',
+                                    transition: 'color 0.3s',
+                                }}
+                                className="me-1"
+                            />
+                        ))}
+                        <p className="mt-3 ms-2">{averageCompany != undefined ? averageCompany : '0'} Puan</p>
+                    </div>
+                </div>
                 </Card.Text>
                 {
                   statuses == "user" &&

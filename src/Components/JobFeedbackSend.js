@@ -31,7 +31,6 @@ const JobFeedbackSend = () => {
     const pendingApiCall = useApiProgress('post','/api/v1/JobFeedback');
 
     const getInfoForCompany = async (jobId, userId) => {
-        // USER VE JOB BİLGİSİ GELİCEK
         const responseJob = await getJobPosting(jobId);
         setJobInfo(responseJob.data.data);
         const responseUser = await getJobApplicationUseTheByCompany(jobId, userId);
@@ -39,7 +38,6 @@ const JobFeedbackSend = () => {
     }
 
     const getInfoForUser = async (jobId) => {
-        // COMPANY VE Job BİLGİSİ GELECEK
         const responseJob = await getJobPosting(jobId);
         setJobInfo(responseJob.data.data);
     }
