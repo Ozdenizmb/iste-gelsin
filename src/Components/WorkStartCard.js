@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { getJobPosting, getWorkAttendance, postWorkAttendance } from '../api/apiCalls';
-import { faTimes, faKey } from '@fortawesome/free-solid-svg-icons';
+import { faTimes, faKey, faCommentAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useSelector } from 'react-redux';
 import { useApiProgress } from '../shared/ApiProgress';
+import { useHistory } from 'react-router-dom';
 
 const WorkStartCard = ({ jobId }) => {
 
     const [advert, setAdvert] = useState({});
     const [otpKey, setOtpKey] = useState({});
+    const [isOtpConfirm, setIsOtpConfirm] = useState({});
     const [didApply, setDidApply] = useState(false);
 
     const { userId } = useSelector(store => ({
@@ -18,9 +20,17 @@ const WorkStartCard = ({ jobId }) => {
     const pendingApiCallPost = useApiProgress('post','/api/v1/WorkAttendance');
     const pendingApiCallGet = useApiProgress('get','/api/v1/WorkAttendance');
 
+    const history = useHistory();
+
     const getJobDetail = async (id) => {
         const response = await getJobPosting(id);
         setAdvert(response.data.data);
+        try {
+            const responseConfirm = await getWorkAttendance(response.data.data.job_postingid, userId);
+            setIsOtpConfirm(responseConfirm.data.data);
+        } catch(error) {
+            // Bu catch bos kalmali. Try çalismaz ise hic bir sey yapmaya gerek yok.
+        }
     }
 
     useEffect(() => {
@@ -41,6 +51,7 @@ const WorkStartCard = ({ jobId }) => {
             await postWorkAttendance(body);
             const response = await getWorkAttendance(advert.job_postingid, userId);
             setOtpKey(response.data.data);
+            setIsOtpConfirm(response.data.data);
             setDidApply(true);
         } catch(error) {
             try {
@@ -58,8 +69,8 @@ const WorkStartCard = ({ jobId }) => {
         setOtpKey({});
     }
 
-    const onClickApply = () => {
-
+    const onClickFeedBack = () => {
+        history.push(`/feedback/${advert.job_postingid}/${userId}`);
     }
 
     return (
@@ -88,6 +99,22 @@ const WorkStartCard = ({ jobId }) => {
                             <FontAwesomeIcon icon={faKey} className="pe-2 pt-1" />
                             İşe Başlamak İçin Kod Al
                         </button>
+                        {isOtpConfirm.is_otp_verified && (
+                            <div>
+                                <hr></hr>
+                                <p className="card-text text-muted mt-3">
+                                    Tebrikler, OTP Kodunuz İşveren Tarafından Onaylandı!
+                                </p>
+                                <p className="card-text text-muted fst-italic">
+                                    Çalışma Sürecinin Nasıl Geçtiğini Değerlendirerek, Diğer Kullanıcılara Çalıştığınız İşveren Hakkında Bilgi Sağlayabilirsiniz..
+                                </p>
+                                <button className="btn btn-warning d-inline-flex mt-1 align-items-center" onClick={onClickFeedBack}>
+                                    {(pendingApiCallPost || pendingApiCallGet) ? <span className="spinner-border spinner-border-sm"></span> : ''}
+                                    <FontAwesomeIcon icon={faCommentAlt} className="pe-2 pt-1" />
+                                    Şimdi Değerlendir
+                                </button>
+                            </div>
+                        )}
                     </div>
                     )
                 }

@@ -19,6 +19,7 @@ import CreatedJobPosting from './Components/CreatedJobPosting';
 import ApplicationAdmin from './views/AdvertApplicationAdmin/ApplicationAdmin';
 import UserAcceptedJob from './views/UserAcceptedJob/UserAcceptedJob';
 import WorkAttendanceConfirm from './Components/WorkAttendanceConfirm';
+import JobFeedbackSend from './Components/JobFeedbackSend';
 
 const App = () => {
 
@@ -63,6 +64,8 @@ const App = () => {
         <Route path="/your-accepted/:email/:id" component={UserAcceptedJob} />
 
         <Route path="/confirm/otp-code/:jobId/:userId" component={WorkAttendanceConfirm} />
+
+        <Route path="/feedback/:jobId/:userId" component={JobFeedbackSend}/>
 
         <Route path="/payment-page" component={PaymentPage}/>
 
