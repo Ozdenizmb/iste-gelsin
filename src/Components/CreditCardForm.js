@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import Cards from "react-credit-cards-2";
 import "react-credit-cards-2/dist/es/styles-compiled.css";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const CreditCardForm = () => {
+
+  const history = useHistory();
+
   const [state, setState] = useState({
     number: "",
     name: "",
@@ -11,13 +15,20 @@ const CreditCardForm = () => {
     name: "",
     focus: "",
   });
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setState((prev) => ({ ...prev, [name]: value }));
   };
+
   const handleInputFocus = (e) => {
     setState((prev) => ({ ...prev, focus: e.target.name }));
   };
+
+  const onClickPayment = () => {
+    history.push("/");
+  }
+
   return (
     <div className="container">
       <Cards
@@ -81,7 +92,7 @@ const CreditCardForm = () => {
             </div>
           </div>
           <div className="d-grid">
-            <button className="btn btn-dark">Ödeme Yap</button>
+            <button className="btn btn-dark" onClick={onClickPayment}>Ödeme Yap</button>
           </div>
         </form>
       </div>

@@ -5,6 +5,8 @@ import { faSave } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { insertJobPosting } from '../api/apiCalls';
 import { useApiProgress } from '../shared/ApiProgress';
+import defaulImage from '../images/profile.png';
+import { ToastContainer, toast } from 'react-toastify';
 
 const CreatedJobPosting = (props) => {
 
@@ -23,10 +25,11 @@ const CreatedJobPosting = (props) => {
 
     const [error, setError] = useState({});
 
-    const { companyId, email, logoPath } = useSelector(store => ({
+    const { companyId, email, logoPath, isLoggedIn } = useSelector(store => ({
         companyId: store.id,
         email: store.email,
-        logoPath: store.logoPath
+        logoPath: store.logoPath,
+        isLoggedIn: store.isLoggedIn
     }));
 
     const pendingApiCall = useApiProgress('post','/api/v1/JobPosting');
@@ -112,7 +115,12 @@ const CreatedJobPosting = (props) => {
             await insertJobPosting(body);
             props.history.push(`/procedures/${email}/ilan-paneli`);
         } catch(error) {
-            
+            if(!isLoggedIn) {
+                toast.error("İlan Oluşturmak İçin Öncelikle İşveren Olarak Kayıt Olmalısınız!");
+            }
+            else {
+                toast.error("Tüm Bilgileri Eksiksiz Girmeye Dikkat Ediniz!");
+            }
         }
     }
 
@@ -123,7 +131,7 @@ const CreatedJobPosting = (props) => {
                     <img
                         className={"rounded-circle shadow"} 
                         width={200} height={200}
-                        alt={"company image"} src={'https://cdn.colaksoft.online/' + logoPath}>
+                        alt={"company image"} src={logoPath != null ? 'https://cdn.colaksoft.online/' + logoPath: defaulImage}>
                     </img>
                 </div>
                 <div className="card-body ps-5 pe-5">
@@ -203,6 +211,7 @@ const CreatedJobPosting = (props) => {
                     </div>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 };
