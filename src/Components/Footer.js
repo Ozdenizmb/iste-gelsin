@@ -5,8 +5,14 @@ import { faGoogle, faApple } from '@fortawesome/free-brands-svg-icons';
 import logo from '../images/ISTEGELSINLOGO.png';
 import { Link } from 'react-router-dom';
 import '../css/Footer.css';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Footer = () => {
+
+  const onClickSocialMedia = () => {
+    toast.error("Henüz Uygulamamız Çıkmadı :))");
+  }
+
   return (
     <footer className="footer mt-auto py-3 bg-dark">
       <div className="ps-8 footer-margin-bottom">
@@ -27,13 +33,13 @@ const Footer = () => {
                 Email: info@istegelsin.com
               </li>
               <li className="mb-1 d-flex flex-column mt-5">
-                <button className="btn btn-outline-light border me-2 flex-grow-1 mb-1" type="button" style={{ width: "150px" }}>
+                <button className="btn btn-outline-light border me-2 flex-grow-1 mb-1" type="button" style={{ width: "150px" }} onClick={onClickSocialMedia}>
                   <FontAwesomeIcon icon={faGoogle} className="me-2" />
                   <span className="d-none d-md-inline">Google Play</span>
                   <span className="d-inline d-md-none">Play</span>
                 </button>
 
-                <button className="btn btn-outline-light border me-2 flex-grow-1 mt-2" type="button" style={{ width: "150px" }}>
+                <button className="btn btn-outline-light border me-2 flex-grow-1 mt-2" type="button" style={{ width: "150px" }} onClick={onClickSocialMedia}>
                   <FontAwesomeIcon icon={faApple} className="me-2" />
                   <span className="d-none d-md-inline">App Store</span>
                   <span className="d-inline d-md-none">App</span>
@@ -83,6 +89,7 @@ const Footer = () => {
             </ul>
           </div>
         </div>
+        <ToastContainer />
       </div>
     </footer>
   );
