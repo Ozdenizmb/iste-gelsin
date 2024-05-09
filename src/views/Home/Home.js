@@ -31,7 +31,7 @@ const HomePage = () => {
             <div className='d-flex justify-content-center align-items-center'>
                 <div className="w-75 h-100">
 
-                    <AdvertCardFeed feedsLocation={"HomePage"} />
+                    <AdvertCardFeed feedsLocation={"HomePage"} workModel={"0"} />
 
                 </div>
             </div>

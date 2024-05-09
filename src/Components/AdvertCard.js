@@ -4,8 +4,10 @@ import { useSelector } from 'react-redux';
 
 const AdvertCard = ({ job, cardLocation }) => {
 
-  const { email } = useSelector(store => ({
-    email: store.email
+  const { email, statuses, companyId } = useSelector(store => ({
+    email: store.email,
+    statuses: store.statuses,
+    companyId: store.id
 }));
 
   let numberOfCard = "";
@@ -29,7 +31,13 @@ const AdvertCard = ({ job, cardLocation }) => {
             <p className="card-text mb-2">{job.companyName}</p>
             <p className="card-text mb-3 text-muted fst-italic">{job.adress}</p>
             <p className="card-text">{job.description}</p>
-            <button className="btn btn-success">Başvur</button>
+            {(statuses == "company" &&  companyId == job.company) &&
+              <button className="btn btn-primary">Başvuruları Görüntüle</button>
+            }
+            {(statuses == "user" || statuses == null) &&
+              <button className="btn btn-success">Başvur</button>
+            }
+            
           </div>
         </Link>
       </div>

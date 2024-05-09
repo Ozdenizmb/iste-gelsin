@@ -131,7 +131,7 @@ const CreatedJobPosting = (props) => {
                     <img
                         className={"rounded-circle shadow"} 
                         width={200} height={200}
-                        alt={"company image"} src={logoPath != null ? 'https://cdn.colaksoft.online/' + logoPath: defaulImage}>
+                        alt={"company image"} src={(logoPath != null && logoPath != "string") ? 'https://cdn.colaksoft.online/' + logoPath : defaulImage}>
                     </img>
                 </div>
                 <div className="card-body ps-5 pe-5">

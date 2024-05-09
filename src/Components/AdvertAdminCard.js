@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 import { format } from 'date-fns';
 import { useApiProgress } from '../shared/ApiProgress';
 import { Spinner } from 'react-bootstrap';
+import { ToastContainer, toast } from 'react-toastify';
 
 const AdvertAdminCard = ({ jobId }) => {
 
@@ -65,7 +66,7 @@ const AdvertAdminCard = ({ jobId }) => {
                 setUpdatedEndAtConvert(formattedEndDate);
             }
         } catch(error) {
-            
+            toast.error("İlan Verileri Çekilirken Beklenmedik Bir Hata Oluştu!");
         }
     }
 
@@ -155,7 +156,7 @@ const AdvertAdminCard = ({ jobId }) => {
             await updateJobPosting(body);
             history.push(`/jobadvert/${jobId}`);
         } catch(error) {
-
+            toast.error("Tüm Bilgileri Eksiksiz Girmeye Dikkat Ediniz!");
         }
     }
 
@@ -174,7 +175,7 @@ const AdvertAdminCard = ({ jobId }) => {
             await deleteJobPosting(jobId, body);
             history.push("/profile/" + email);
         } catch(error) {
-
+            toast.error("Silinme İşlemi Gerçekleşirken Beklenmedik Bir Hata Oluştu!");
         }
     }
 
@@ -271,6 +272,7 @@ const AdvertAdminCard = ({ jobId }) => {
 
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 };

@@ -47,8 +47,8 @@ export const updateCompany = (body) => {
     return axios.put("/api/v1/Company", body, { headers: { company: true } });
 }
 
-export const getJobPostingAll = (pageNumber, pageSize) => {
-    return axios.get(`/api/v1/JobPosting/List?workModelId=0&pageNumber=${pageNumber}&pageSize=${pageSize}`);
+export const getJobPostingAll = (workModelId, pageNumber, pageSize) => {
+    return axios.get(`/api/v1/JobPosting/List?workModelId=${workModelId}&pageNumber=${pageNumber}&pageSize=${pageSize}`);
 }
 
 export const getJobPosting = (postId) => {

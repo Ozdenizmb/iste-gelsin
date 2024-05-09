@@ -6,18 +6,24 @@ import { useApiProgress } from '../shared/ApiProgress';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 
-const AdvertCardFeed = ({feedsLocation, companyId}) => {
+const AdvertCardFeed = ({feedsLocation, companyId, workModel}) => {
 
-  const[jobs, setJobs] = useState([]);
-  const[pageNumber, setPageNumber] = useState(0);
-  const[lastPage, setLastPage] = useState(true);
-  const[isThereData, setIsThereData] = useState(false);
+  const [jobs, setJobs] = useState([]);
+  const [pageNumber, setPageNumber] = useState(0);
+  const [lastPage, setLastPage] = useState(true);
+  const [isThereData, setIsThereData] = useState(false);
+  const [oldWorkModel, setOldWorkModel] = useState("0");
 
   const pendingApiCall = useApiProgress('get','/api/v1/JobPosting/List');
 
   const pageSize = 11;
 
   const fetchJobPostings = async (pageNumber, pageSize) => {
+    let newWorkModel;
+    if(workModel == oldWorkModel) {
+      newWorkModel = workModel;
+    }
+
     const previousJobs = [...jobs];
     let response;
 
@@ -27,7 +33,7 @@ const AdvertCardFeed = ({feedsLocation, companyId}) => {
       }
       else {
         // feedsLocation == "HomePage" || feedsLocation == "AdsPage"
-        response = await getJobPostingAll(pageNumber, pageSize);
+        response = await getJobPostingAll(workModel, pageNumber, pageSize);
       }
       const data = response.data.data.items;
       const dataPage = response.data.data.currentPage;
@@ -58,9 +64,21 @@ const AdvertCardFeed = ({feedsLocation, companyId}) => {
         startAt : job.start_at,
         endAt : job.end_at
       }));
-      const combinedJobs = [...previousJobs, ...convertedJobs];
+
+      let combinedJobs;
+
+      if(newWorkModel == oldWorkModel) {
+        combinedJobs = [...previousJobs, ...convertedJobs];
+      }
+      else {
+        combinedJobs = [...convertedJobs];
+        console.log(combinedJobs)
+        setOldWorkModel(workModel);
+      }
+      
       setJobs(combinedJobs);
     } catch(error) {
+      console.log(error);
       setIsThereData(true);
     }
   };
@@ -68,6 +86,11 @@ const AdvertCardFeed = ({feedsLocation, companyId}) => {
   useEffect(() => {
     fetchJobPostings(pageNumber, pageSize);
   }, []);
+
+  useEffect(() => {
+    setPageNumber(0);
+    fetchJobPostings(pageNumber, pageSize);
+  }, [workModel]);
 
   const onClickLoadMoreCardButton = () => {
     fetchJobPostings(pageNumber + 1, pageSize);
