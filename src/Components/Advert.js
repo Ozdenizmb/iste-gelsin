@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { Link, useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { faStar as solidStar } from '@fortawesome/free-solid-svg-icons';
 import { faStar as regularStar } from '@fortawesome/free-regular-svg-icons';
 
@@ -24,6 +24,8 @@ const Advert = (props) => {
   const [applicationChecked, setApplicationChecked] = useState(false);
   const [buttonColor, setButtonColor] = useState("primary");
   const [averageCompany, setAverageCompany] = useState();
+
+  const history = useHistory();
 
   const checkApplication = async () => {
     try {
@@ -73,10 +75,15 @@ const Advert = (props) => {
     }
 
     try {
-      const response = await postJobApplication(body);
-      setApplicationChecked(true);
-      setButtonColor("success");
-      toast.success("Başarılı bir şekilde başvuru yaptınız.");
+      if(statuses == "user") {
+        await postJobApplication(body);
+        setApplicationChecked(true);
+        setButtonColor("success");
+        toast.success("Başarılı bir şekilde başvuru yaptınız.");
+      }
+      else {
+        history.push("/login");
+      }
     } catch(error) {
       if (error.response.data.message === "Bu bilgilere ait bir kayit bulundu!") {
         toast.error("Bu ilana zaten başvurdunuz!");
@@ -144,7 +151,7 @@ const Advert = (props) => {
                   </div>
                 </Card.Text>
                 {
-                  statuses == "user" &&
+                  (statuses == "user" || statuses == null) &&
                   <div className="d-flex justify-content-end">
                     <Button variant={buttonColor} className="me-2" onClick={onClickJobApplication}>
                       { applicationChecked && <FontAwesomeIcon icon={faCheck} className="me-2" /> }
