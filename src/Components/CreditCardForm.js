@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import Cards from "react-credit-cards-2";
 import "react-credit-cards-2/dist/es/styles-compiled.css";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { ToastContainer, toast } from 'react-toastify';
 
 const CreditCardForm = () => {
-
-  const history = useHistory();
 
   const [state, setState] = useState({
     number: "",
@@ -25,8 +23,9 @@ const CreditCardForm = () => {
     setState((prev) => ({ ...prev, focus: e.target.name }));
   };
 
-  const onClickPayment = () => {
-    history.push("/");
+  const onClickPayment = (event) => {
+    event.preventDefault();
+    toast.info("Okul Projesi Olduğu İçin Ödeme Yapma ve Para Çekme İşlemleri Sitemize Tanımlanmayacaktır :)");
   }
 
   return (
@@ -96,6 +95,7 @@ const CreditCardForm = () => {
           </div>
         </form>
       </div>
+      <ToastContainer />
     </div>
   );
 };
