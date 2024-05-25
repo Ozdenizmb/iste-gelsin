@@ -203,7 +203,7 @@ const AdvertAdminCard = ({ jobId }) => {
 
                 <Input name="changeTotalSalary" label="Maaşı Değiştir (₺)" type="text" onChangeVeriables={onChange} defaultValue={updatedTotalSalary} error={error.totalSalary}/>
 
-                <Input name="changeWorkPerHour" label="Saatlik Ücreti Değiştir (₺)" type="text" onChangeVeriables={onChange} defaultValue={updatedWorkPerHour} error={error.name}/>
+                <Input name="changeWorkPerHour" label="Haftalık Çalışma Saati" type="text" onChangeVeriables={onChange} defaultValue={updatedWorkPerHour} error={error.name}/>
 
                 <Input name="changeAdress" label="Adresi Değiştir" type="text" onChangeVeriables={onChange} defaultValue={updatedAdress} error={error.adress}/>
 

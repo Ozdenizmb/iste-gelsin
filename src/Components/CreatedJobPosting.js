@@ -141,7 +141,7 @@ const CreatedJobPosting = (props) => {
 
                     <Input name="createTotalSalary" label="Maaşı Gir (₺)" type="text" onChangeVeriables={onChange} error={error.totalSalary} placeholder="Çalışanın Aylık Maaşı"/>
 
-                    <Input name="createWorkPerHour" label="Saatlik Ücreti Gir (₺)" type="text" onChangeVeriables={onChange} error={error.workPerHour} placeholder="Çalışanın Saatlik Ücreti"/>
+                    <Input name="createWorkPerHour" label="Haftalık Çalışma Saati" type="text" onChangeVeriables={onChange} error={error.workPerHour} placeholder="Haftalık Çalışma Süresi"/>
 
                     <Input name="createAdress" label="Adresi Değiştir" type="text" onChangeVeriables={onChange} error={error.adress} placeholder="İş Adresi"/>
 
