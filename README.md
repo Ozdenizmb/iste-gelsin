@@ -5,10 +5,9 @@ If the BackEnd of our project has been deleted from the server, you will receive
 #Eğer projemizin BackEnd'i sunucudan silindi ise projeyi çalıştırdığınızda hata alacaksınız. Bu durumda kendi BackEnd'inizi yazıp entegre etmelisiniz.
 
 This is only the FrontEnd part of our project and communication with the BackEnd is provided through the ApiCalls.js file.
-# Bu projemizin yalnızca FrontEnd kısmı olup BackEnd ile iletişimi ApiCalls.js dosyası üzerinden sağlamaktadır.
+#Bu projemizin yalnızca FrontEnd kısmı olup BackEnd ile iletişimi ApiCalls.js dosyası üzerinden sağlamaktadır.
 
-Screenshots of the project
-# Projeye ilişkin ekran görüntüleri
+# Screenshots of the project (Projeye ilişkin ekran görüntüleri)
 
 ![Screenshot_1](https://github.com/Ozdenizmb/iste-gelsin/assets/117593233/457e8c94-4abc-401c-8f55-ffaa2ce9ba52)
 ![Screenshot_2](https://github.com/Ozdenizmb/iste-gelsin/assets/117593233/b1aa6b8f-5d71-48bc-9e5e-2d4aaa72524d)
