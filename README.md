@@ -1,11 +1,11 @@
-To run the project, you must run the 'npm install' and then 'npm start' commands in the main folder of the relevant project.
-#Projeyi çalıştırmak için 'npm install' daha sonra da 'npm start' komutlarını ilgili projedeki ana klasörde çalıştırmalısınız.
+<p>To run the project, you must run the 'npm install' and then 'npm start' commands in the main folder of the relevant project.</p>
+<p><i>#Projeyi çalıştırmak için 'npm install' daha sonra da 'npm start' komutlarını ilgili projedeki ana klasörde çalıştırmalısınız.</i></p>
 
-If the BackEnd of our project has been deleted from the server, you will receive an error when you run the project. In this case, you must write and integrate your own BackEnd.
-#Eğer projemizin BackEnd'i sunucudan silindi ise projeyi çalıştırdığınızda hata alacaksınız. Bu durumda kendi BackEnd'inizi yazıp entegre etmelisiniz.
+<p>If the BackEnd of our project has been deleted from the server, you will receive an error when you run the project. In this case, you must write and integrate your own BackEnd.</p>
+<p><i>#Eğer projemizin BackEnd'i sunucudan silindi ise projeyi çalıştırdığınızda hata alacaksınız. Bu durumda kendi BackEnd'inizi yazıp entegre etmelisiniz.</i></p>
 
-This is only the FrontEnd part of our project and communication with the BackEnd is provided through the ApiCalls.js file.
-#Bu projemizin yalnızca FrontEnd kısmı olup BackEnd ile iletişimi ApiCalls.js dosyası üzerinden sağlamaktadır.
+<p>This is only the FrontEnd part of our project and communication with the BackEnd is provided through the ApiCalls.js file.</p>
+<p><i>#Bu projemizin yalnızca FrontEnd kısmı olup BackEnd ile iletişimi ApiCalls.js dosyası üzerinden sağlamaktadır.</i></p>
 
 # Screenshots of the project (Projeye ilişkin ekran görüntüleri)
 
@@ -19,5 +19,5 @@ This is only the FrontEnd part of our project and communication with the BackEnd
 ![Screenshot_8](https://github.com/Ozdenizmb/iste-gelsin/assets/117593233/299a6423-1b84-4338-aeee-ddcbd4c1800d)
 ![Screenshot_9](https://github.com/Ozdenizmb/iste-gelsin/assets/117593233/384a2b1f-49f4-49cd-85d7-5ae0c77bc98c)
 
-Author by MEHMET BARAN OZDENIZ @Ozdenizmb
-Helper: Anıl Demiralp @Anldmrlpp (CSS), Alper Colak @colakAlper (Backend)
+<h2><b>Author by MEHMET BARAN OZDENIZ @Ozdenizmb</b></h2>
+<p><i>Helper: Anıl Demiralp @Anldmrlpp (CSS), Alper Colak @colakAlper (Backend)</i></p>
